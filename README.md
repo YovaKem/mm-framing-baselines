@@ -29,7 +29,13 @@ so the frame lists aren't padded with tangential matches. A frame became the
 **consensus target label** if at least 2 of the 3 models independently assigned
 it, at either strength — separately for text and for image. A stricter
 **strong-only target** keeps a frame only if at least 2 of the 3 models
-specifically rated it "strong".
+specifically rated it "strong". The three labeling LLMs agree with *each other*
+at a similar level throughout — avg. pairwise overlap 0.60 for text frames,
+0.49 for image frames (see [`data/consolidation_report.md`](data/consolidation_report.md))
+— so this is a genuinely hard, high-disagreement labeling task even among
+frontier models. After consensus, articles carry **2.44 text frames** on
+average versus **1.40 image frames**; **30 of 238 images (13%)** end up with
+*no* frame at all ("None"), against just 1 article with no text frame.
 
 **Baselines.** Two small open-weight models were evaluated zero-shot against that
 consensus target:
@@ -69,11 +75,6 @@ its own, with recall alone climbing to 0.89. Consistent with that, 71% of
 a good chunk of the apparent gain is the model leaning on the handed-to-it
 answer, not an independent visual judgment. Full breakdown in
 [`data/baselines_report.md`](data/baselines_report.md).
-
-For context, the three labeling LLMs agree with *each other* at a similar level
-(avg. pairwise overlap 0.60 for text, 0.49 for image — see
-[`data/consolidation_report.md`](data/consolidation_report.md)), so this is a
-genuinely hard, high-disagreement labeling task even among frontier models.
 
 ## Examples
 
