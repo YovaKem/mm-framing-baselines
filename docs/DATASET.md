@@ -140,3 +140,12 @@ as `unknown_frame_tag` for manual review rather than silently dropped or guessed
   the article text + image, the original labels, the 2-of-3 consolidated
   labels, and each model's individual labels (expandable per modality),
   defaulting to showing all 238 rows (toggle to flagged-only).
+- `scripts/baseline_qwen_text.py` / `baseline_qwen_vlm.py` / `report_baselines.py`
+  — small open-weight model baselines, run locally on GPU rather than via
+  OpenRouter: `Qwen/Qwen3-4B-Instruct-2507` zero-shot text framing, and
+  `Qwen/Qwen3-VL-4B-Instruct` zero-shot image framing in two settings (image
+  alone vs. image + the ground-truth text frame as context), both compared
+  against the consolidated ensemble labels. Finding: giving the VLM the
+  ground-truth text frame made image-frame agreement *worse* (0.43 vs. 0.52
+  Jaccard blind), with 54% of oracle-setting predictions being an exact copy
+  of the given text label rather than an independent visual judgment.

@@ -72,6 +72,16 @@ python scripts/flag_issues.py
 #    labels, the 2-of-3 consolidated labels, and each model's individual
 #    labels (expandable), defaults to showing all rows.
 streamlit run app/validate_app.py
+
+# 9. Local small-model baselines (see "Local model baselines" below for the
+#    one-time GPU venv setup): Qwen3-4B-Instruct zero-shot text framing, and
+#    Qwen3-VL-4B-Instruct zero-shot image framing in two settings (blind vs.
+#    given the ground-truth text frame as context), all compared against the
+#    consolidated ensemble labels as ground truth.
+python scripts/baseline_qwen_text.py
+python scripts/baseline_qwen_vlm.py --no-oracle
+python scripts/baseline_qwen_vlm.py --oracle
+python scripts/report_baselines.py
 ```
 
 Your validation decisions are saved incrementally to `data/validation_results.csv`
@@ -84,6 +94,42 @@ later — not a strict random sample of the full dataset. Every attempt (kept or
 rejected, and why) is logged to `data/scrape_attempts_log.jsonl` for
 transparency. Step 3 then further reduces the count by dropping non-news rows
 (no replenishment — the working set shrinks below 300).
+
+## Local model baselines
+
+Steps 9 (`baseline_qwen_text.py` / `baseline_qwen_vlm.py`) run two small
+open-weight models locally on GPU — `Qwen/Qwen3-4B-Instruct-2507` (text) and
+`Qwen/Qwen3-VL-4B-Instruct` (vision) — rather than through OpenRouter. These
+need a newer `transformers`/`torch` than `requirements.txt` pins for the rest
+of the project, so they live in their own venv to avoid disturbing anything
+else in this environment:
+
+```bash
+python3 -m venv .venv
+# Redirect pip's cache/temp off a small root disk if you have one (check `df -h`
+# first — skip this export if your root filesystem has plenty of space):
+export PIP_CACHE_DIR=/workspace/pip_cache TMPDIR=/workspace/tmp
+
+.venv/bin/pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
+.venv/bin/pip install numpy "transformers>=4.57" accelerate qwen-vl-utils pillow tqdm openai python-dotenv
+
+HF_HOME=/workspace/hf_cache .venv/bin/python scripts/baseline_qwen_text.py
+HF_HOME=/workspace/hf_cache .venv/bin/python scripts/baseline_qwen_vlm.py --no-oracle
+HF_HOME=/workspace/hf_cache .venv/bin/python scripts/baseline_qwen_vlm.py --oracle
+HF_HOME=/workspace/hf_cache .venv/bin/python scripts/report_baselines.py
+```
+
+Both scripts accept `--limit N` for a quick smoke test before committing to a
+full 238-row run, and `HF_HOME` just controls where model weights get cached
+(point it somewhere with real disk space).
+
+**Headline finding** (`data/baselines_report.md`): the text baseline agrees
+with the consolidated ground truth about as well as any single ensemble
+member (Jaccard 0.47). For images, giving the VLM the ground-truth text frame
+as context ("oracle") made agreement *worse* (0.43) than showing it the image
+alone (0.52) — and 54% of the time the oracle-setting prediction was an exact
+copy of the given text label, suggesting the model leans on the handed-to-it
+text frame rather than actually looking at the image.
 
 ## Viewing the Streamlit app over SSH
 
@@ -107,6 +153,9 @@ scripts/
   report_overlap.py       step 5 — single-model-vs-original label comparison
   consolidate_annotations.py  step 6 — 2-of-3 majority-vote consolidation across the 3 models
   flag_issues.py          step 7
+  baseline_qwen_text.py   step 9a — local Qwen3-4B-Instruct zero-shot text baseline
+  baseline_qwen_vlm.py    step 9b — local Qwen3-VL-4B-Instruct zero-shot image baseline
+  report_baselines.py     step 9c — baselines vs. consolidated ground truth
 app/
   validate_app.py         step 8 — Streamlit validation UI
 docs/
