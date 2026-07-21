@@ -44,7 +44,7 @@ def jaccard(a, b):
     return len(a & b) / len(a | b)
 
 
-def compare(rows, gold_field, pred_by_uuid, pred_field, label):
+def compare(rows, gold_field, pred_by_uuid, pred_field):
     jaccards, identical, disjoint = [], 0, 0
     gold_sizes, pred_sizes = [], []
     missed, extra = Counter(), Counter()
@@ -62,21 +62,26 @@ def compare(rows, gold_field, pred_by_uuid, pred_field, label):
         extra.update(pred - gold)
 
     n = len(rows)
-    lines = [
-        f"### {label}",
-        f"- Avg Jaccard vs. consolidated ground truth: **{sum(jaccards) / n:.2f}**",
-        f"- Identical label sets: {identical}/{n} ({identical / n:.0%})",
-        f"- Completely disjoint (no shared labels, at least one non-empty): {disjoint}/{n} ({disjoint / n:.0%})",
-        f"- Avg labels per row — ground truth: {sum(gold_sizes) / n:.2f}, baseline: {sum(pred_sizes) / n:.2f}",
-        "",
-        "Most-missed frames (in ground truth, baseline didn't predict):",
-    ]
-    for key, count in missed.most_common(8):
-        lines.append(f"  - {label_name(key)}: {count}")
-    lines.append("Most-over-predicted frames (baseline predicted, not in ground truth):")
-    for key, count in extra.most_common(8):
-        lines.append(f"  - {label_name(key)}: {count}")
-    return "\n".join(lines), jaccards
+    return {
+        "n": n,
+        "avg_jaccard": sum(jaccards) / n,
+        "identical": identical,
+        "disjoint": disjoint,
+        "avg_gold_size": sum(gold_sizes) / n,
+        "avg_pred_size": sum(pred_sizes) / n,
+        "missed": missed,
+        "extra": extra,
+        "jaccards": jaccards,
+    }
+
+
+def top_frames_table(counter, n_rows):
+    lines = ["| Frame | Rows |", "|---|---:|"]
+    for key, count in counter.most_common(8):
+        lines.append(f"| {label_name(key)} | {count} |")
+    if not counter:
+        lines.append("| _(none)_ | |")
+    return "\n".join(lines)
 
 
 def main():
@@ -96,23 +101,44 @@ def main():
     no_oracle_by_uuid = {r["uuid"]: r for r in read_jsonl(no_oracle_path)}
     oracle_by_uuid = {r["uuid"]: r for r in read_jsonl(oracle_path)}
 
-    lines = [f"# Baseline report\n\nRows: {n}\n",
-             f"Text model: `{TEXT_MODEL_ID}` (zero-shot, local)",
-             f"Image model: `{VLM_MODEL_ID}` (zero-shot, local, two settings)\n"]
+    text_stats = compare(rows, "consolidated_text_generic_frame", text_by_uuid, "new_text_generic_frame")
+    no_oracle_stats = compare(rows, "consolidated_img_generic_frame", no_oracle_by_uuid, "new_img_generic_frame")
+    oracle_stats = compare(rows, "consolidated_img_generic_frame", oracle_by_uuid, "new_img_generic_frame")
 
-    section, _ = compare(rows, "consolidated_text_generic_frame", text_by_uuid, "new_text_generic_frame",
-                          f"Text: {TEXT_MODEL_ID}")
-    lines.append(section)
+    settings = [
+        (f"Text — {TEXT_MODEL_ID}", text_stats),
+        (f"Image, no oracle — {VLM_MODEL_ID}", no_oracle_stats),
+        (f"Image, with oracle — {VLM_MODEL_ID}", oracle_stats),
+    ]
 
-    section, no_oracle_jaccards = compare(rows, "consolidated_img_generic_frame", no_oracle_by_uuid,
-                                           "new_img_generic_frame", f"Image (no oracle): {VLM_MODEL_ID}")
-    lines.append("\n" + section)
+    lines = [f"# Baseline report\n", f"Rows: {n}\n"]
 
-    section, oracle_jaccards = compare(rows, "consolidated_img_generic_frame", oracle_by_uuid,
-                                        "new_img_generic_frame", f"Image (with oracle text frame): {VLM_MODEL_ID}")
-    lines.append("\n" + section)
+    lines.append("## Summary\n")
+    lines.append("| Baseline | Avg Jaccard | Identical | Disjoint | Avg labels (gold) | Avg labels (pred) |")
+    lines.append("|---|---:|---:|---:|---:|---:|")
+    for name, s in settings:
+        lines.append(
+            f"| {name} | {s['avg_jaccard']:.2f} | {s['identical']}/{n} ({s['identical']/n:.0%}) | "
+            f"{s['disjoint']}/{n} ({s['disjoint']/n:.0%}) | {s['avg_gold_size']:.2f} | {s['avg_pred_size']:.2f} |"
+        )
+
+    for name, s in settings:
+        lines.append(f"\n## {name}\n")
+        lines.append("**Most-missed** (in ground truth, baseline didn't predict) vs. **most over-predicted** (baseline predicted, not in ground truth):\n")
+        lines.append("| Missed | Rows | | Over-predicted | Rows |")
+        lines.append("|---|---:|---|---|---:|")
+        missed_list = s["missed"].most_common(8)
+        extra_list = s["extra"].most_common(8)
+        for i in range(max(len(missed_list), len(extra_list))):
+            m = missed_list[i] if i < len(missed_list) else ("", "")
+            e = extra_list[i] if i < len(extra_list) else ("", "")
+            m_name = label_name(m[0]) if m[0] else ""
+            e_name = label_name(e[0]) if e[0] else ""
+            lines.append(f"| {m_name} | {m[1]} | | {e_name} | {e[1]} |")
 
     # Does oracle help, or just get copied?
+    no_oracle_jaccards = no_oracle_stats["jaccards"]
+    oracle_jaccards = oracle_stats["jaccards"]
     improved = sum(1 for a, b in zip(no_oracle_jaccards, oracle_jaccards) if b > a)
     worsened = sum(1 for a, b in zip(no_oracle_jaccards, oracle_jaccards) if b < a)
     unchanged = n - improved - worsened
@@ -126,14 +152,22 @@ def main():
             if oracle_img_pred == oracle_text:
                 copy_count += 1
 
-    lines.append("\n### Does the oracle text frame help image prediction, or just get copied?")
-    lines.append(f"- Avg Jaccard vs. ground truth — no oracle: {sum(no_oracle_jaccards) / n:.2f}, with oracle: {sum(oracle_jaccards) / n:.2f}")
-    lines.append(f"- Rows where oracle setting improved agreement: {improved}/{n} ({improved / n:.0%})")
-    lines.append(f"- Rows where oracle setting worsened agreement: {worsened}/{n} ({worsened / n:.0%})")
-    lines.append(f"- Rows unchanged: {unchanged}/{n} ({unchanged / n:.0%})")
-    lines.append(f"- Of {oracle_nonempty} rows with a non-empty oracle text frame, the oracle-setting image "
-                 f"prediction was an EXACT copy of the text frame in {copy_count} ({copy_count / oracle_nonempty:.0%}) — "
-                 f"a high rate here would suggest the model leans on the given text label rather than looking at the image.")
+    lines.append("\n## Does the oracle text frame help image prediction, or just get copied?\n")
+    lines.append("| | No oracle | With oracle |")
+    lines.append("|---|---:|---:|")
+    lines.append(f"| Avg Jaccard vs. ground truth | {sum(no_oracle_jaccards)/n:.2f} | {sum(oracle_jaccards)/n:.2f} |")
+    lines.append("")
+    lines.append("| Outcome of adding the oracle | Rows |")
+    lines.append("|---|---:|")
+    lines.append(f"| Improved agreement | {improved}/{n} ({improved/n:.0%}) |")
+    lines.append(f"| Worsened agreement | {worsened}/{n} ({worsened/n:.0%}) |")
+    lines.append(f"| Unchanged | {unchanged}/{n} ({unchanged/n:.0%}) |")
+    lines.append("")
+    lines.append(
+        f"Of {oracle_nonempty} rows with a non-empty oracle text frame, the oracle-setting image prediction "
+        f"was an **exact copy** of the text frame in **{copy_count} ({copy_count/oracle_nonempty:.0%})** — "
+        f"a high rate here suggests the model leans on the given text label rather than looking at the image."
+    )
 
     report = "\n".join(lines)
     REPORT_PATH.write_text(report, encoding="utf-8")
