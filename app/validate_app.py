@@ -1,9 +1,9 @@
 """
-Streamlit interface for manually validating the relabeled mm-framing rows:
-shows the real scraped article text + image, the dataset's ORIGINAL
-text/image frame labels, and our fresh NEW labels (with per-frame strength
-and explanation) side by side, prioritizing rows the automated sweep
-(scripts/flag_issues.py) flagged.
+Streamlit interface for manually validating the consolidated mm-framing rows:
+shows the real scraped article text + image, the dataset's ORIGINAL text/image
+frame labels, the 2-of-3 majority-vote CONSOLIDATED labels from a 3-model
+ensemble, and each individual model's own labels (expandable), prioritizing
+rows the automated sweep (scripts/flag_issues.py) flagged.
 
 Run (on the remote machine):
     streamlit run app/validate_app.py
@@ -19,11 +19,14 @@ import streamlit as st
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 from common import (  # noqa: E402
+    AGREEMENT_THRESHOLD,
     CANONICAL_FRAMES,
+    CONSOLIDATED_PATH,
     DATA_DIR,
+    ENSEMBLE_MODELS,
     FLAGS_PATH,
-    RELABELED_PATH,
     VALIDATION_RESULTS_PATH,
+    model_slug,
     normalize_frame_tags,
     parse_list_field,
     read_jsonl,
@@ -33,21 +36,22 @@ st.set_page_config(page_title="mm-framing validation", layout="wide")
 
 VERDICT_OPTIONS = [
     "Not reviewed",
-    "New labels look correct",
-    "New text label wrong",
-    "New image label wrong",
-    "Both new labels wrong",
+    "Consolidated labels look correct",
+    "Consolidated text label wrong",
+    "Consolidated image label wrong",
+    "Both consolidated labels wrong",
     "Prefer the original labels",
     "Unclear / need more context",
 ]
 CANONICAL_LABELS = {k: v.split(" — ")[0] for k, v in CANONICAL_FRAMES.items()}
+MODEL_SLUGS = [model_slug(m) for m in ENSEMBLE_MODELS]
 
 
 @st.cache_data
 def load_data():
-    rows = read_jsonl(RELABELED_PATH)
+    rows = read_jsonl(CONSOLIDATED_PATH)
     flags = json.loads(FLAGS_PATH.read_text()) if FLAGS_PATH.exists() else {}
-    return rows, flags, RELABELED_PATH.name
+    return rows, flags, CONSOLIDATED_PATH.name
 
 
 def load_results():
@@ -73,14 +77,18 @@ def old_frame_chip_line(raw_value):
     return " ".join(parts) if parts else "_(none)_"
 
 
-def new_frame_chip_line(keys, strengths):
+def frame_chip_line(keys, strengths=None, votes=None):
     if not keys:
         return "_(none — no frame applies)_"
     parts = []
     for k in keys:
         label = CANONICAL_LABELS.get(k, k)
-        strength = (strengths or {}).get(k, "")
-        parts.append(f"`{label}` :gray[({strength})]" if strength else f"`{label}`")
+        extras = []
+        if strengths and strengths.get(k):
+            extras.append(strengths[k])
+        if votes is not None:
+            extras.append(f"{votes.get(k, 0)}/{len(ENSEMBLE_MODELS)}")
+        parts.append(f"`{label}` :gray[({', '.join(extras)})]" if extras else f"`{label}`")
     return "  ".join(parts)
 
 
@@ -95,8 +103,9 @@ if "idx" not in st.session_state:
 
 st.sidebar.title("mm-framing validation")
 st.sidebar.caption(f"Source: `{source_name}` · {len(rows)} rows (non-news filtered out)")
+st.sidebar.caption(f"Ensemble: {', '.join(ENSEMBLE_MODELS)} · keep if ≥{AGREEMENT_THRESHOLD}/{len(ENSEMBLE_MODELS)} agree")
 
-view_mode = st.sidebar.radio("Show", ["Flagged only", "All rows"], index=0)
+view_mode = st.sidebar.radio("Show", ["All rows", "Flagged only"], index=0)
 if view_mode == "Flagged only":
     view_uuids = [u for u in uuids_all if flags_by_uuid.get(u)]
 else:
@@ -133,6 +142,7 @@ if col_next.button("Next ➡", width='stretch') and st.session_state.idx < len(v
 uuid = view_uuids[st.session_state.idx]
 row = rows_by_uuid[uuid]
 row_flags = flags_by_uuid.get(uuid, [])
+by_model = row.get("by_model") or {}
 
 st.title(row.get("title", "(no title)"))
 meta_cols = st.columns(4)
@@ -162,10 +172,14 @@ with img_col:
     st.markdown(f"**Original img-generic-frame:** {old_frame_chip_line(row.get('img-generic-frame'))}")
     st.caption(row.get("img-frame-exp", ""))
     st.markdown(
-        f"**Our new img-generic-frame:** "
-        f"{new_frame_chip_line(row.get('new_img_generic_frame') or [], row.get('new_img_generic_frame_strengths'))}"
+        f"**Consolidated ({AGREEMENT_THRESHOLD}/{len(ENSEMBLE_MODELS)}):** "
+        f"{frame_chip_line(row.get('consolidated_img_generic_frame') or [], votes=row.get('consolidated_img_frame_votes'))}"
     )
-    st.caption(row.get("new_img_generic_frame_exp") or "")
+    with st.expander("Per-model image labels"):
+        for slug in MODEL_SLUGS:
+            m = by_model.get(slug, {})
+            st.markdown(f"**{slug}:** {frame_chip_line(m.get('img_frames') or [], strengths=m.get('img_frame_strengths'))}")
+            st.caption(m.get("img_exp") or "_(no explanation)_")
 
 with text_col:
     st.subheader("Text")
@@ -179,10 +193,14 @@ with text_col:
     st.markdown(f"**Original text-generic-frame:** {old_frame_chip_line(row.get('text-generic-frame'))}")
     st.caption(row.get("text-generic-frame-exp", ""))
     st.markdown(
-        f"**Our new text-generic-frame:** "
-        f"{new_frame_chip_line(row.get('new_text_generic_frame') or [], row.get('new_text_generic_frame_strengths'))}"
+        f"**Consolidated ({AGREEMENT_THRESHOLD}/{len(ENSEMBLE_MODELS)}):** "
+        f"{frame_chip_line(row.get('consolidated_text_generic_frame') or [], votes=row.get('consolidated_text_frame_votes'))}"
     )
-    st.caption(row.get("new_text_generic_frame_exp") or "")
+    with st.expander("Per-model text labels"):
+        for slug in MODEL_SLUGS:
+            m = by_model.get(slug, {})
+            st.markdown(f"**{slug}:** {frame_chip_line(m.get('text_frames') or [], strengths=m.get('text_frame_strengths'))}")
+            st.caption(m.get("text_exp") or "_(no explanation)_")
 
 st.divider()
 st.subheader("Your validation")
@@ -195,12 +213,12 @@ with st.form(key=f"form_{uuid}"):
         index=VERDICT_OPTIONS.index(existing_verdict) if existing_verdict in VERDICT_OPTIONS else 0,
     )
     corrected_text_frames = st.multiselect(
-        "Final text frame(s), if different from both above",
+        "Final text frame(s), if different from consolidated",
         list(CANONICAL_LABELS.values()),
         default=[v for v in existing.get("corrected_text_frames", "").split(";") if v],
     )
     corrected_img_frames = st.multiselect(
-        "Final image frame(s), if different from both above",
+        "Final image frame(s), if different from consolidated",
         list(CANONICAL_LABELS.values()),
         default=[v for v in existing.get("corrected_img_frames", "").split(";") if v],
     )

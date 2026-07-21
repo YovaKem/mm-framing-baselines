@@ -88,8 +88,10 @@ as `unknown_frame_tag` for manual review rather than silently dropped or guessed
 | `img-generic-frame` (+`-exp`) | **Original main label**, from the dataset. Same 15-category taxonomy applied to the lead image |
 | `img-entity-name` / `-sentiment` (+`-exp`) | Key visual entity/subject and sentiment conveyed |
 | `gpt-topic` | Separate, broader GPT-generated topic classification |
-| `new_text_generic_frame` (+`_strengths`, `_exp`) | **This project's own relabel** of the text, strong/moderate-only, with per-frame strength and an explanation |
-| `new_img_generic_frame` (+`_strengths`, `_exp`) | **This project's own relabel** of the image, strong/moderate-only (empty = no frame applies), with per-frame strength and an explanation |
+| `new_text_generic_frame` (+`_strengths`, `_exp`) | **Single-model relabel** (claude-haiku-4.5) of the text, strong/moderate-only, with per-frame strength and an explanation — see `data/sample_relabeled.jsonl` / `report_overlap.py` |
+| `new_img_generic_frame` (+`_strengths`, `_exp`) | **Single-model relabel** (claude-haiku-4.5) of the image, strong/moderate-only (empty = no frame applies), with per-frame strength and an explanation |
+| `by_model` (in `sample_consolidated.jsonl`) | Each of the 3 ensemble models' individual text/image frame sets, strengths, and explanations |
+| `consolidated_text_generic_frame` / `consolidated_img_generic_frame` (+`_votes`) | **This project's main label**: 2-of-3 majority vote across the ensemble, with per-frame vote counts |
 
 ## What this project adds on top
 
@@ -107,21 +109,34 @@ as `unknown_frame_tag` for manual review rather than silently dropped or guessed
   (game/entertainment announcements, "best of" listicles, lifestyle content) —
   framing analysis assumes editorial choices about a real-world issue, which
   doesn't apply to that kind of content. Uses a cheap text-only LLM call per row.
+  Removed 62/300 rows, leaving 238 (no replenishment).
 - `scripts/relabel_frames.py` — **ignores the dataset's original labels** and
-  generates fresh ones: two independent LLM calls per row (text first, then
-  image — the image call never sees the text call's output, so any divergence
-  is genuine signal), each returning only frames that apply **strongly or
-  moderately** (weak/tangential connections are dropped entirely, not just
-  hidden), with per-frame strength and an explanation. An empty image frame set
-  is an explicitly valid "no framing" outcome — most news images are purely
-  illustrative (e.g. a plain storefront photo in a story about that store).
-- `scripts/report_overlap.py` — compares the fresh relabeling against the
-  original dataset labels (Jaccard overlap, most-added/dropped frames) and
-  reports how often the new image frame set is a subset of the new text frame
-  set — useful signal when it isn't.
+  generates fresh ones, run once per model in `common.ENSEMBLE_MODELS`
+  (`anthropic/claude-haiku-4.5`, `openai/gpt-5.4-mini`, `google/gemini-3.5-flash`
+  — one from each of three distinct training pipelines, at a comparable
+  cheap/fast cost tier for a fair comparison): two independent LLM calls per
+  row (text first, then image — the image call never sees the text call's
+  output, so any divergence is genuine signal), each returning only frames
+  that apply **strongly or moderately** (weak/tangential connections are
+  dropped entirely, not just hidden), with per-frame strength and an
+  explanation. An empty image frame set is an explicitly valid "no framing"
+  outcome — most news images are purely illustrative (e.g. a plain storefront
+  photo in a story about that store). Taxonomy definitions passed to the model
+  are the codebook's exact wording (`common.py::CANONICAL_FRAMES`).
+- `scripts/report_overlap.py` — compares the single-model (claude-haiku-4.5)
+  relabeling against the original dataset labels (Jaccard overlap,
+  most-added/dropped frames) and reports how often the new image frame set is
+  a subset of the new text frame set — useful signal when it isn't.
+- `scripts/consolidate_annotations.py` — combines the 3 models' independent
+  label sets into one: a frame is kept only if at least 2 of 3 models
+  independently assigned it, for text and image separately. Each model's raw
+  output is kept alongside (`by_model`) for transparency. Also reports
+  pairwise agreement between models and how often all 3 agreed exactly.
 - `scripts/flag_issues.py` — flags rows worth a closer look: structural issues
-  in the original columns, relabel-call failures, image frames not a subset of
-  text frames, and large old-vs-new disagreement.
+  in the original columns, a model's relabel call failing, low ensemble
+  agreement, consolidated image frames not a subset of text frames, and large
+  disagreement between the consolidated label and the original.
 - `app/validate_app.py` — Streamlit UI for the manual validation pass: shows
-  the article text + image, the original labels, and the new labels
-  side by side (with strength + explanation), defaulting to flagged rows first.
+  the article text + image, the original labels, the 2-of-3 consolidated
+  labels, and each model's individual labels (expandable per modality),
+  defaulting to showing all 238 rows (toggle to flagged-only).

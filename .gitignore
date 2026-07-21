@@ -5,11 +5,13 @@ venv/
 *.egg-info/
 
 # Large / regeneratable data artifacts — regenerate via scripts/*.py.
-# Kept out of git: raw sample + scrape-attempt log + scraped images (large,
-# and scraped text may be copyrighted). validation_results.csv, flags.json,
-# frame_judgments.json, and inspection_report.md ARE tracked — they're the
-# actual review output.
+# Kept out of git: raw sample/scrape-attempt-log/scraped-images/consolidated
+# rows (large, and full scraped article text may be copyrighted). The
+# per-model relabel_*.jsonl files hold only labels + explanations (no
+# copyrighted text) and ARE tracked, along with validation_results.csv,
+# flags.json, and the *_report.md files — they're the actual review output.
 data/*.jsonl
+!data/relabel_*.jsonl
 data/images/*
 !data/images/.gitkeep
 

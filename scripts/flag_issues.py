@@ -1,17 +1,19 @@
 """
-Sweep over the relabeled rows (scripts/relabel_frames.py output) to flag rows
-worth a closer manual look, so the human validator isn't reviewing all rows
-uniformly. Two layers:
+Sweep over the consolidated rows (scripts/consolidate_annotations.py output) to
+flag rows worth a closer manual look, so the human validator isn't reviewing
+all 238 uniformly. Layers:
 
 1. Structural/statistical checks on the original dataset columns (malformed
    list literals, out-of-taxonomy tags, suspiciously thin LLM explanations,
    out-of-range dates) — cheap, deterministic.
-2. Signal from the relabeling itself: a relabel call that errored, an image
-   frame set that isn't a subset of the text frame set (useful signal per
-   the project's own expectation, not necessarily wrong), and a large
-   old-vs-new disagreement (low Jaccard overlap) worth double-checking.
+2. A per-model relabel call that errored.
+3. Low agreement among the 3 ensemble models (worth a look regardless of what
+   the majority vote landed on), a consolidated image frame set that isn't a
+   subset of the consolidated text frame set (useful signal, not necessarily
+   wrong), and a large disagreement between the consolidated result and the
+   dataset's original label.
 
-Run after relabel_frames.py.
+Run after consolidate_annotations.py.
 
 Usage:
     python scripts/flag_issues.py
@@ -21,10 +23,12 @@ from collections import Counter
 from datetime import datetime
 
 from common import (
+    CONSOLIDATED_PATH,
+    ENSEMBLE_MODELS,
     ENTITY_SENTIMENT_VALUES,
     FLAGS_PATH,
     POLITICAL_LEANING_VALUES,
-    RELABELED_PATH,
+    model_slug,
     normalize_frame_tags,
     parse_list_field,
     read_jsonl,
@@ -117,22 +121,36 @@ def check_row(row, seen_uuids, seen_titles):
         if val and len(val) < SHORT_EXP_THRESHOLD:
             flag("suspiciously_short_explanation", f"{field}={val!r}")
 
-    # --- relabeling outcomes ---
-    if row.get("new_text_generic_frame_error"):
-        flag("relabel_text_call_failed", row["new_text_generic_frame_error"])
-    if row.get("new_img_generic_frame_error"):
-        flag("relabel_image_call_failed", row["new_img_generic_frame_error"])
+    # --- per-model relabel call outcomes ---
+    by_model = row.get("by_model") or {}
+    for model in ENSEMBLE_MODELS:
+        slug = model_slug(model)
+        info = by_model.get(slug, {})
+        if info.get("text_exp") is None:
+            flag("relabel_text_call_failed", slug)
+        if info.get("img_exp") is None:
+            flag("relabel_image_call_failed", slug)
 
-    new_text = set(row.get("new_text_generic_frame") or [])
-    new_img = set(row.get("new_img_generic_frame") or [])
-    if new_img and not new_img <= new_text:
-        extra = ", ".join(sorted(new_img - new_text))
+    # --- ensemble agreement ---
+    text_sets = [set(m["text_frames"]) for m in by_model.values()]
+    img_sets = [set(m["img_frames"]) for m in by_model.values()]
+    text_pairwise = [jaccard(text_sets[i], text_sets[j]) for i in range(len(text_sets)) for j in range(i + 1, len(text_sets))]
+    img_pairwise = [jaccard(img_sets[i], img_sets[j]) for i in range(len(img_sets)) for j in range(i + 1, len(img_sets))]
+    if text_pairwise and sum(text_pairwise) / len(text_pairwise) < LOW_OVERLAP_JACCARD:
+        flag("low_ensemble_agreement_text", f"avg pairwise jaccard={sum(text_pairwise) / len(text_pairwise):.2f}")
+    if img_pairwise and sum(img_pairwise) / len(img_pairwise) < LOW_OVERLAP_JACCARD:
+        flag("low_ensemble_agreement_img", f"avg pairwise jaccard={sum(img_pairwise) / len(img_pairwise):.2f}")
+
+    consolidated_text = set(row.get("consolidated_text_generic_frame") or [])
+    consolidated_img = set(row.get("consolidated_img_generic_frame") or [])
+    if consolidated_img and not consolidated_img <= consolidated_text:
+        extra = ", ".join(sorted(consolidated_img - consolidated_text))
         flag("image_frame_not_subset_of_text", f"image conveys frame(s) not in the text: {extra}")
 
     old_text_keys, _ = normalize_frame_tags(parse_list_field(row.get("text-generic-frame"))[0])
     old_img_keys, _ = normalize_frame_tags(parse_list_field(row.get("img-generic-frame"))[0])
-    text_jaccard = jaccard(old_text_keys, new_text)
-    img_jaccard = jaccard(old_img_keys, new_img)
+    text_jaccard = jaccard(old_text_keys, consolidated_text)
+    img_jaccard = jaccard(old_img_keys, consolidated_img)
     if text_jaccard < LOW_OVERLAP_JACCARD:
         flag("text_frame_diverges_from_original", f"jaccard={text_jaccard:.2f}")
     if img_jaccard < LOW_OVERLAP_JACCARD:
@@ -142,9 +160,9 @@ def check_row(row, seen_uuids, seen_titles):
 
 
 def main():
-    if not RELABELED_PATH.exists():
-        raise SystemExit(f"{RELABELED_PATH} not found — run scripts/relabel_frames.py first")
-    rows = read_jsonl(RELABELED_PATH)
+    if not CONSOLIDATED_PATH.exists():
+        raise SystemExit(f"{CONSOLIDATED_PATH} not found — run scripts/consolidate_annotations.py first")
+    rows = read_jsonl(CONSOLIDATED_PATH)
 
     seen_uuids, seen_titles = set(), set()
     flags_by_uuid = {}
@@ -162,7 +180,7 @@ def main():
     with open(FLAGS_PATH, "w", encoding="utf-8") as f:
         json.dump(flags_by_uuid, f, indent=2, ensure_ascii=False)
 
-    print(f"Source: {RELABELED_PATH.name}")
+    print(f"Source: {CONSOLIDATED_PATH.name}")
     print(f"Flagged {flagged_row_count}/{len(rows)} rows ({flagged_row_count / len(rows):.0%})\n")
     print("Flag code frequency:")
     for code, count in code_counter.most_common():

@@ -41,10 +41,10 @@ from common import (
     DATA_DIR,
     NEWS_SAMPLE_PATH,
     OPENROUTER_MODEL,
-    RELABELED_PATH,
     encode_image_b64,
     extract_json_object,
     read_jsonl,
+    relabel_model_path,
     write_jsonl,
 )
 
@@ -166,25 +166,20 @@ def main():
 
     client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=os.environ["OPENROUTER_API_KEY"])
 
-    results_by_uuid = {}
+    results = []
     errors = 0
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
         futures = {pool.submit(relabel_one, client, args.model, row): row["uuid"] for row in rows}
         for future in tqdm(as_completed(futures), total=len(futures), desc=f"Relabeling with {args.model}"):
             res = future.result()
-            results_by_uuid[res["uuid"]] = res
+            results.append(res)
             if res["new_text_generic_frame_error"] or res["new_img_generic_frame_error"]:
                 errors += 1
 
-    merged = []
-    for row in rows:
-        row = dict(row)
-        row.update(results_by_uuid[row["uuid"]])
-        merged.append(row)
-
-    write_jsonl(RELABELED_PATH, merged)
-    print(f"\nRelabeled {len(merged)} rows ({errors} had a call error after retries).")
-    print(f"Wrote {RELABELED_PATH}")
+    out_path = relabel_model_path(args.model)
+    write_jsonl(out_path, results)
+    print(f"\nRelabeled {len(results)} rows with {args.model} ({errors} had a call error after retries).")
+    print(f"Wrote {out_path}")
 
 
 if __name__ == "__main__":

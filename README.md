@@ -41,24 +41,36 @@ python scripts/inspect_columns.py
 python scripts/filter_news.py
 
 # 4. Ignore the dataset's original labels and generate fresh text/image frame
-#    labels from scratch: two independent LLM calls per row (text first, then
-#    image), strong/moderate-only, with per-frame strength + explanation.
-#    Stored side by side with the originals in data/sample_relabeled.jsonl.
-python scripts/relabel_frames.py
+#    labels from scratch with EACH of a 3-model ensemble (one call per model
+#    per row, run separately): two independent LLM calls per row (text first,
+#    then image), strong/moderate-only, with per-frame strength + explanation.
+#    Written to data/relabel_<model-slug>.jsonl, one file per model.
+python scripts/relabel_frames.py --model anthropic/claude-haiku-4.5
+python scripts/relabel_frames.py --model openai/gpt-5.4-mini
+python scripts/relabel_frames.py --model google/gemini-3.5-flash
 
-# 5. Compare the fresh relabeling against the original dataset labels (Jaccard
-#    overlap, most-added/dropped frames) and report how often the new image
-#    frame set is a subset of the new text frame set. Written to
-#    data/overlap_report.md.
+# 5. Compare the single-model (claude-haiku-4.5) relabeling against the
+#    original dataset labels (Jaccard overlap, most-added/dropped frames) and
+#    report how often the new image frame set is a subset of the new text
+#    frame set. Written to data/overlap_report.md.
 python scripts/report_overlap.py
 
-# 6. Flag rows worth a closer look (relabel-call failures, image frames not a
-#    subset of text frames, large old-vs-new disagreement, plus structural
+# 6. Consolidate the 3 models' independent label sets into one: a frame is
+#    kept only if at least 2 of 3 models independently assigned it, for text
+#    and image separately. Each model's raw output is kept alongside for
+#    transparency. Written to data/sample_consolidated.jsonl +
+#    data/consolidation_report.md.
+python scripts/consolidate_annotations.py
+
+# 7. Flag rows worth a closer look (a model's relabel call failing, low
+#    ensemble agreement, consolidated image frames not a subset of text
+#    frames, large disagreement vs. the original label, plus structural
 #    checks on the original columns) into data/flags.json.
 python scripts/flag_issues.py
 
-# 7. Manual validation UI — shows the article text + image, the original
-#    labels, and the new labels side by side, defaults to flagged rows first.
+# 8. Manual validation UI — shows the article text + image, the original
+#    labels, the 2-of-3 consolidated labels, and each model's individual
+#    labels (expandable), defaults to showing all rows.
 streamlit run app/validate_app.py
 ```
 
@@ -87,17 +99,18 @@ own machine:
 
 ```
 scripts/
-  common.py             shared paths, the 15-category frame taxonomy, parsing helpers
-  build_sample.py       step 1 — oversample + scrape until 300 complete rows
-  inspect_columns.py    step 2
-  filter_news.py        step 3 — drop non-news rows
-  relabel_frames.py     step 4 — fresh LLM text/image frame labels, ignoring the originals
-  report_overlap.py     step 5 — old-vs-new label comparison
-  flag_issues.py        step 6
+  common.py               shared paths, the 15-category frame taxonomy, parsing helpers
+  build_sample.py         step 1 — oversample + scrape until 300 complete rows
+  inspect_columns.py      step 2
+  filter_news.py          step 3 — drop non-news rows
+  relabel_frames.py       step 4 — fresh LLM text/image frame labels (run once per ensemble model)
+  report_overlap.py       step 5 — single-model-vs-original label comparison
+  consolidate_annotations.py  step 6 — 2-of-3 majority-vote consolidation across the 3 models
+  flag_issues.py          step 7
 app/
-  validate_app.py       step 7 — Streamlit validation UI
+  validate_app.py         step 8 — Streamlit validation UI
 docs/
-  DATASET.md            dataset schema, taxonomy, and paper notes
-data/                   generated artifacts (raw sample/images/attempt-log
-                        gitignored, everything else tracked)
+  DATASET.md              dataset schema, taxonomy, and paper notes
+data/                     generated artifacts (raw sample/images/attempt-log
+                          gitignored, everything else tracked)
 ```

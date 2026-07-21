@@ -1,6 +1,10 @@
 {
   "87c232b0-b0fb-4c1e-9b54-09bcc4e40b5f": [
     {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
+    },
+    {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
@@ -13,8 +17,8 @@
   ],
   "ddb84722-f10d-423e-bd1a-90f22a670a48": [
     {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: health_and_safety"
     }
   ],
   "cb915188-99af-4e3c-8aa7-1f8ad1beae40": [
@@ -45,10 +49,6 @@
     {
       "code": "image_frame_not_subset_of_text",
       "detail": "image conveys frame(s) not in the text: public_opinion"
-    },
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.17"
     }
   ],
   "d3834f04-25b2-43a9-b549-13e6c732a07c": [
@@ -58,28 +58,44 @@
     }
   ],
   "ae261318-de0f-4b73-9ec0-f80fce32d475": [],
-  "417e12dd-d79a-48e9-a073-bc819b1d6614": [],
-  "11cd2998-ed81-45ce-92ee-5686dff86ded": [
+  "417e12dd-d79a-48e9-a073-bc819b1d6614": [
     {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.00"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
     }
   ],
-  "43d87747-459e-44be-a019-86f2ab7287d0": [
+  "11cd2998-ed81-45ce-92ee-5686dff86ded": [],
+  "43d87747-459e-44be-a019-86f2ab7287d0": [],
+  "9b4ba346-bff3-4217-bbf8-22329719b138": [
     {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: political"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
     }
   ],
-  "9b4ba346-bff3-4217-bbf8-22329719b138": [],
   "0516800c-7f44-4df2-a427-6aea34a43b5b": [],
   "e7a71ded-cedf-4480-80a6-6991e4614f12": [
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.22"
+    },
     {
       "code": "image_frame_not_subset_of_text",
       "detail": "image conveys frame(s) not in the text: political"
     }
   ],
   "eeaf6a2f-c608-40df-a120-d9193d808685": [
+    {
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.11"
+    },
     {
       "code": "text_frame_diverges_from_original",
       "detail": "jaccard=0.00"
@@ -91,27 +107,41 @@
   ],
   "30cfef7a-58be-4bda-890d-6af7e324d9bb": [
     {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: crime_and_punishment"
     }
   ],
   "f7d6701e-1f1a-4597-9d13-565c7a02f8b5": [],
   "b89902ac-d302-41e1-8139-1c0b8d3dbe58": [
     {
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.22"
+    },
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.00"
+    },
+    {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
-  "aee3cae3-f085-4bdf-8d7d-73e87fd2b093": [],
-  "c8c7da83-1e39-4984-828a-e1152b6f6d57": [],
+  "aee3cae3-f085-4bdf-8d7d-73e87fd2b093": [
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.11"
+    }
+  ],
+  "c8c7da83-1e39-4984-828a-e1152b6f6d57": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: security_and_defense"
+    }
+  ],
   "dec935bc-6639-42f2-8268-3d176064e27b": [
     {
       "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: fairness_and_equality"
-    },
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
+      "detail": "image conveys frame(s) not in the text: fairness_and_equality, political"
     }
   ],
   "275c42f0-9796-41ad-9da4-5f1f4c93417d": [
@@ -128,15 +158,20 @@
   ],
   "560ec6c5-711a-4897-849d-4c27d39ecaae": [
     {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.11"
     },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
-  "f1ea4708-47a4-4dd4-87a0-c5d2577ec16c": [],
+  "f1ea4708-47a4-4dd4-87a0-c5d2577ec16c": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: security_and_defense"
+    }
+  ],
   "5b5f1f4b-bf55-4722-aaa5-623d45b231e3": [],
   "02e6aca0-1c61-4d7a-bd63-eda08ea43a3a": [
     {
@@ -152,15 +187,23 @@
   ],
   "eba7dd45-fb09-45b5-8f7f-5bfd8990000f": [
     {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
+    },
+    {
       "code": "image_frame_not_subset_of_text",
       "detail": "image conveys frame(s) not in the text: political"
     },
     {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
     }
   ],
   "ed5ead9e-2f87-4472-9a6d-0011d54dd8a7": [
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
+    },
     {
       "code": "text_frame_diverges_from_original",
       "detail": "jaccard=0.20"
@@ -171,7 +214,12 @@
     }
   ],
   "6b2c56b8-78a5-4523-8638-144db2a76bc8": [],
-  "79e7f20d-e228-40a8-93bb-0cddbcfbc8be": [],
+  "79e7f20d-e228-40a8-93bb-0cddbcfbc8be": [
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
+    }
+  ],
   "58798a31-30d0-415d-95f6-c2a648ce6240": [
     {
       "code": "image_frame_not_subset_of_text",
@@ -185,7 +233,7 @@
   "dec0ca8a-9527-42a8-aad8-da11d515cf58": [
     {
       "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: security_and_defense"
+      "detail": "image conveys frame(s) not in the text: political"
     },
     {
       "code": "img_frame_diverges_from_original",
@@ -193,10 +241,6 @@
     }
   ],
   "1fbb9dcd-e4bd-4f90-bff7-4792c7561a29": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: political"
-    },
     {
       "code": "text_frame_diverges_from_original",
       "detail": "jaccard=0.17"
@@ -215,11 +259,19 @@
   "69c873c7-9368-4a1c-8d36-a490a342c0cc": [],
   "003d833c-c886-4bc6-bc81-d61e31dcca4c": [
     {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
+    },
+    {
       "code": "image_frame_not_subset_of_text",
       "detail": "image conveys frame(s) not in the text: capacity_and_resources"
     }
   ],
   "07a38abd-729f-4825-8390-088aaf921bc9": [
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.22"
+    },
     {
       "code": "image_frame_not_subset_of_text",
       "detail": "image conveys frame(s) not in the text: security_and_defense"
@@ -244,7 +296,12 @@
       "detail": "jaccard=0.20"
     }
   ],
-  "101f3e50-4615-49d3-9545-94c265487b57": [],
+  "101f3e50-4615-49d3-9545-94c265487b57": [
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
+    }
+  ],
   "788173da-bb42-4f4a-b356-5e62b9fba18c": [
     {
       "code": "image_frame_not_subset_of_text",
@@ -253,18 +310,18 @@
   ],
   "a0896430-d525-45c5-9efe-34f62404eba5": [
     {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    },
+    {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
   "5dfdd0af-e86f-4a67-a9b7-833f8a7f1b64": [
     {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: political"
-    },
-    {
       "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
+      "detail": "jaccard=0.17"
     }
   ],
   "6ead63c4-a1d5-48bb-94e0-3793a6139540": [
@@ -281,14 +338,14 @@
   "f361fef5-0401-44f3-8e92-fb99297757b0": [],
   "869307cc-569c-4db5-b1f3-5f320f2042f7": [
     {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
     }
   ],
   "b90110dd-27ec-48c3-ab32-6c61f3fd126e": [
     {
       "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: fairness_and_equality, political"
+      "detail": "image conveys frame(s) not in the text: fairness_and_equality"
     },
     {
       "code": "img_frame_diverges_from_original",
@@ -303,11 +360,23 @@
   ],
   "7b3a5281-099f-41bf-b0e0-36097a2a67e3": [
     {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: quality_of_life"
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.11"
     }
   ],
   "f81104b8-7d1a-40bd-8c95-367c56ca2acd": [
+    {
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.19"
+    },
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.08"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
@@ -315,8 +384,8 @@
   ],
   "6ced93e9-c871-49e4-b1dc-8c1e1e54f424": [
     {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: cultural_identity"
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.11"
     },
     {
       "code": "img_frame_diverges_from_original",
@@ -334,18 +403,9 @@
       "detail": "jaccard=0.00"
     }
   ],
-  "9292ca58-8bb5-464d-a9cb-3c4f00243ea0": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: security_and_defense"
-    }
-  ],
+  "9292ca58-8bb5-464d-a9cb-3c4f00243ea0": [],
   "3e8d2a5c-e1fe-4591-af55-ff82be2e9dbe": [],
   "5f68123d-61be-4cdf-ba0a-f2845807dece": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: health_and_safety"
-    },
     {
       "code": "text_frame_diverges_from_original",
       "detail": "jaccard=0.00"
@@ -356,8 +416,17 @@
     }
   ],
   "68ac4a00-85c3-49e6-a6ce-f5550c456818": [],
-  "98a893fc-3779-423f-912f-772c7149fd00": [],
+  "98a893fc-3779-423f-912f-772c7149fd00": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: public_opinion"
+    }
+  ],
   "58c63b4a-49ca-4063-90ee-bd3b235d3be6": [
+    {
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.24"
+    },
     {
       "code": "image_frame_not_subset_of_text",
       "detail": "image conveys frame(s) not in the text: health_and_safety, security_and_defense"
@@ -370,7 +439,12 @@
       "detail": "jaccard=0.00"
     }
   ],
-  "6d16960e-9583-4a8c-a6bf-25e264e6f3c3": [],
+  "6d16960e-9583-4a8c-a6bf-25e264e6f3c3": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: health_and_safety"
+    }
+  ],
   "50c8a9b5-dacb-4543-8864-bef5d1e3227f": [],
   "69e3eabd-27e8-4838-ab52-a7fea1ad41ed": [
     {
@@ -381,7 +455,7 @@
   "ee880ac5-7536-408c-91ce-283461896dc9": [
     {
       "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.17"
+      "detail": "jaccard=0.14"
     }
   ],
   "0fca5cd6-6e12-4437-9bf9-6234df5bc41b": [],
@@ -389,14 +463,18 @@
   "3ca87376-2310-49cd-9324-5f309a0cfa34": [],
   "67208fb2-6023-42df-9468-a8ade4d5fdac": [
     {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: policy_prescription_and_evaluation"
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.11"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
     }
   ],
   "93383a62-765f-429d-a440-0029209ba9f6": [
     {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: quality_of_life"
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.11"
     },
     {
       "code": "img_frame_diverges_from_original",
@@ -418,12 +496,16 @@
   ],
   "64d53e22-c2e6-4ba5-84af-01de68a093ce": [
     {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: political"
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
     }
   ],
   "d206c171-494a-4b23-9b1e-52c3271647ce": [],
   "c8e1c991-0b4e-46c7-94bb-9f191129e92c": [
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
+    },
     {
       "code": "text_frame_diverges_from_original",
       "detail": "jaccard=0.20"
@@ -431,21 +513,30 @@
   ],
   "1a117015-360c-4887-8f1c-4c1dcc3656b6": [
     {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "b26a2f85-c7fe-43cf-b0c2-63b9d9a9ee7b": [
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.17"
+    },
     {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: political"
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
     },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
-  "8b51c77a-c8a4-4252-89db-6e8f455272a4": [],
+  "b26a2f85-c7fe-43cf-b0c2-63b9d9a9ee7b": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "8b51c77a-c8a4-4252-89db-6e8f455272a4": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: public_opinion"
+    }
+  ],
   "4b6df803-7568-4480-9608-b5974d65e36f": [
     {
       "code": "text_frame_diverges_from_original",
@@ -466,21 +557,30 @@
   ],
   "b76092c9-d611-4b56-a2da-85e899560923": [
     {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "db64fbcb-8bfb-4850-a453-1c0dd1506b62": [
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.11"
     },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
-  "d98a5644-1dc9-417f-92e5-0bc1f58d9fc4": [],
+  "db64fbcb-8bfb-4850-a453-1c0dd1506b62": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: legality_constitutionality_jurisprudence"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    }
+  ],
+  "d98a5644-1dc9-417f-92e5-0bc1f58d9fc4": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources"
+    }
+  ],
   "41df0bbf-27dc-453d-811b-a964c02d8030": [
     {
       "code": "img_frame_diverges_from_original",
@@ -489,8 +589,8 @@
   ],
   "f8de8c84-8490-4076-80f1-552ae684dfe7": [
     {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: economic"
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.00"
     },
     {
       "code": "img_frame_diverges_from_original",
@@ -515,19 +615,27 @@
   ],
   "24bdfeba-7883-4ae5-8424-5bf98d83cd0b": [
     {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
+    },
+    {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
   "caab6d01-9b03-44fe-a7db-0d6ae9bdc933": [],
-  "53cf844e-51d6-4117-94d3-f6edae5b25fb": [],
-  "e09707a0-3128-45bd-b521-b3c7ab9e22cf": [],
-  "54ad656f-d879-44d5-9152-e9b153b9dda8": [
+  "53cf844e-51d6-4117-94d3-f6edae5b25fb": [
     {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: political"
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
     }
   ],
+  "e09707a0-3128-45bd-b521-b3c7ab9e22cf": [],
+  "54ad656f-d879-44d5-9152-e9b153b9dda8": [],
   "0dbd9e1a-4db7-496d-8b3f-d37aaac52321": [],
   "8367e90f-6b66-403b-9ef1-3a5747787b8c": [
     {
@@ -553,14 +661,18 @@
   ],
   "9fe3ae0c-7196-4096-bb0e-a14060dafbb3": [
     {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.11"
+    },
+    {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
   "f6083f22-a167-4126-90a1-5f50782175ab": [
     {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: external_regulation_and_reputation"
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.22"
     }
   ],
   "62e155e4-a406-4791-8b74-a383d028062f": [
@@ -571,8 +683,8 @@
   ],
   "9055e88e-cb98-415f-b97d-70dee89da701": [
     {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.11"
     },
     {
       "code": "img_frame_diverges_from_original",
@@ -581,41 +693,40 @@
   ],
   "8e25c83e-1e44-4c89-af6d-1fde179826ef": [
     {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
+    },
+    {
       "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: cultural_identity, political"
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
     }
   ],
-  "b293d82f-8690-40e3-b5af-57dae54f62a2": [],
-  "32bebaac-7361-4c28-a25d-6c5295986cae": [
+  "b293d82f-8690-40e3-b5af-57dae54f62a2": [
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
+  "32bebaac-7361-4c28-a25d-6c5295986cae": [],
   "3006f7a4-7e2f-4dd6-9c93-dc30859f64b8": [
     {
       "code": "image_frame_not_subset_of_text",
       "detail": "image conveys frame(s) not in the text: quality_of_life"
-    },
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
     }
   ],
   "782a728d-81e8-4816-81fc-0a7ec4173d15": [
     {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: quality_of_life"
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
     }
   ],
-  "b60589ee-a678-459e-a811-712c61ce6eca": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: security_and_defense"
-    }
-  ],
+  "b60589ee-a678-459e-a811-712c61ce6eca": [],
   "ccee235e-e0e5-4e4c-a6ed-12917bd63012": [],
   "1a5447ef-0614-4556-b534-f200a88264e9": [
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.22"
+    },
     {
       "code": "image_frame_not_subset_of_text",
       "detail": "image conveys frame(s) not in the text: political"
@@ -632,22 +743,21 @@
   "270f444d-d5af-4886-bb40-22c1f7aea5d4": [],
   "5bd1e2ac-3ce8-4647-be84-b027e988651c": [
     {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: quality_of_life"
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
     }
   ],
   "7b4b32a6-67c5-4d35-bf57-b00769b5847b": [
     {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: quality_of_life"
-    }
-  ],
-  "031e40d7-21b4-48ff-8f54-d564771d54b1": [
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.00"
+    },
     {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: capacity_and_resources"
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
     }
   ],
+  "031e40d7-21b4-48ff-8f54-d564771d54b1": [],
   "3cc650e0-b776-4e49-9fa6-540b297b3f2f": [
     {
       "code": "image_frame_not_subset_of_text",
@@ -656,6 +766,10 @@
     {
       "code": "text_frame_diverges_from_original",
       "detail": "jaccard=0.17"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
     }
   ],
   "16de2459-ff02-4012-8ebd-2ffa437d269b": [
@@ -670,18 +784,8 @@
       "detail": "jaccard=0.00"
     }
   ],
-  "918d9561-8f39-4f56-83c6-a251f6c73d70": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: political"
-    }
-  ],
-  "8e02ff70-7a16-4568-bbf3-5103edf082e2": [
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.17"
-    }
-  ],
+  "918d9561-8f39-4f56-83c6-a251f6c73d70": [],
+  "8e02ff70-7a16-4568-bbf3-5103edf082e2": [],
   "965533c7-fcd7-4d5e-9a7b-a57ac4c28922": [
     {
       "code": "image_frame_not_subset_of_text",
@@ -713,8 +817,8 @@
   ],
   "724c6700-f378-45e5-8d3b-66cbe00c459b": [
     {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources"
     },
     {
       "code": "img_frame_diverges_from_original",
@@ -743,10 +847,6 @@
   "27364c37-bf97-4038-a98d-2719ba576c25": [],
   "dadeccc0-2021-45c6-8d15-37f6c0979bf2": [
     {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: security_and_defense"
-    },
-    {
       "code": "text_frame_diverges_from_original",
       "detail": "jaccard=0.17"
     }
@@ -754,15 +854,15 @@
   "179e854a-305d-4e46-8c10-4d703c9679c8": [],
   "a1cea610-4945-402c-a565-dfaa9bdf2111": [
     {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources, health_and_safety"
     }
   ],
   "edad8e09-2f2b-4f1d-bd76-cc66275c929f": [
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.11"
+    },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
@@ -775,6 +875,10 @@
     }
   ],
   "d4fbf74a-3f4e-45d2-8840-e7975c83fa8c": [
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.11"
+    },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
@@ -793,13 +897,36 @@
       "detail": "jaccard=0.00"
     }
   ],
-  "c4ac9f79-a18a-4837-b47e-15ddea3ff2cc": [],
-  "7713b8c3-59bd-4c60-8b11-dbc6e67d7715": [],
-  "3accdb48-4d5d-4d81-9495-1e48f75ca834": [],
+  "c4ac9f79-a18a-4837-b47e-15ddea3ff2cc": [
+    {
+      "code": "relabel_text_call_failed",
+      "detail": "google_gemini-3_5-flash"
+    },
+    {
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.17"
+    }
+  ],
+  "7713b8c3-59bd-4c60-8b11-dbc6e67d7715": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "3accdb48-4d5d-4d81-9495-1e48f75ca834": [
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    }
+  ],
   "e1d00c9b-e1ef-4370-adca-368a087e2ace": [
     {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.22"
+    },
+    {
       "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: quality_of_life"
+      "detail": "image conveys frame(s) not in the text: political"
     },
     {
       "code": "text_frame_diverges_from_original",
@@ -813,40 +940,43 @@
   "9375c784-7f8d-45b0-9a0a-c3056a988086": [
     {
       "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: morality, quality_of_life"
+      "detail": "image conveys frame(s) not in the text: quality_of_life"
     },
     {
       "code": "text_frame_diverges_from_original",
       "detail": "jaccard=0.20"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
     }
   ],
-  "6b78fb39-ec63-40e7-a1ac-cf66f15a0903": [],
+  "6b78fb39-ec63-40e7-a1ac-cf66f15a0903": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: security_and_defense"
+    }
+  ],
   "7ccb2043-fa44-48e4-893b-81a8469047e0": [
     {
       "code": "image_frame_not_subset_of_text",
       "detail": "image conveys frame(s) not in the text: capacity_and_resources"
     }
   ],
-  "b0aae63a-3f2d-44e5-9895-2beb93997e57": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: health_and_safety"
-    },
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
-    }
-  ],
+  "b0aae63a-3f2d-44e5-9895-2beb93997e57": [],
   "9be5253a-fae1-4dad-983a-f4599599a45e": [],
   "c3229154-664c-44a2-ad32-70cd149e3eaa": [],
-  "a0d18e87-0baf-4c2b-9ea4-948a3cdf533d": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: political"
-    }
-  ],
+  "a0d18e87-0baf-4c2b-9ea4-948a3cdf533d": [],
   "fa60d32e-55d9-4b17-866f-1b3bda4c2f07": [],
   "d1e4e936-2bfb-485b-89f5-58171ba22993": [
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: quality_of_life"
+    },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
@@ -854,8 +984,8 @@
   ],
   "38b87c67-87cc-48b7-b0a5-96139284802f": [
     {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: quality_of_life"
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.11"
     },
     {
       "code": "img_frame_diverges_from_original",
@@ -878,10 +1008,33 @@
       "detail": "jaccard=0.00"
     }
   ],
-  "fda3ca18-da7e-40d5-a932-da81168de182": [],
-  "71f7a297-3c4c-4654-9b89-3c397c2ca89d": [],
-  "807b6a62-950e-4d87-ac69-4ef65f6e5cf6": [],
+  "fda3ca18-da7e-40d5-a932-da81168de182": [
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
+    }
+  ],
+  "71f7a297-3c4c-4654-9b89-3c397c2ca89d": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: security_and_defense"
+    }
+  ],
+  "807b6a62-950e-4d87-ac69-4ef65f6e5cf6": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
   "bb1f8d29-98a0-48e6-a0dc-19c3b3f1c7e4": [
+    {
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.22"
+    },
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
+    },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
@@ -893,18 +1046,27 @@
       "detail": "image conveys frame(s) not in the text: political"
     }
   ],
-  "8192b67b-1046-47f2-9f87-c6345a433545": [],
+  "8192b67b-1046-47f2-9f87-c6345a433545": [
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.11"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
   "1993ba88-0eb5-4a4a-a55b-43071a10421b": [
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
+    },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
   "41e838e1-4275-4d4d-b1fe-ee332d6ab507": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: political"
-    },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
@@ -917,22 +1079,36 @@
     }
   ],
   "8b66a550-073e-4995-a204-4437d5d422b6": [],
-  "317b623c-7e74-45c1-b3c7-b9b7f2b4b9bf": [],
+  "317b623c-7e74-45c1-b3c7-b9b7f2b4b9bf": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
   "f8041b68-56ad-4c12-98f5-66effcce6f0e": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: public_opinion"
+    },
     {
       "code": "text_frame_diverges_from_original",
       "detail": "jaccard=0.14"
     },
     {
       "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
+      "detail": "jaccard=0.20"
     }
   ],
   "5785f9a2-11c2-4c05-b0c0-c23f64246d4f": [],
   "46162dd6-f13b-443e-9634-8fbc3c977ad1": [],
   "5602ce28-4124-4705-a2f0-762169f204b4": [],
   "17ea7687-a898-4936-83be-c99a1a4c1ddd": [],
-  "94dc891a-79ca-46c5-a291-ff84d7bfe683": [],
+  "94dc891a-79ca-46c5-a291-ff84d7bfe683": [
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
+    }
+  ],
   "8721a1a4-4372-4f91-b926-78ebfe8ec35a": [
     {
       "code": "image_frame_not_subset_of_text",
@@ -945,7 +1121,12 @@
       "detail": "jaccard=0.00"
     }
   ],
-  "5b319aab-ea4f-4b0d-b881-46575a09eed9": [],
+  "5b319aab-ea4f-4b0d-b881-46575a09eed9": [
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.11"
+    }
+  ],
   "618456c0-cca9-45f9-a5cb-fa7cecaa360a": [],
   "91aa07e0-b572-4f88-bfd9-1bb865c11314": [
     {
@@ -979,17 +1160,25 @@
   "39073945-29b1-48b8-b5bf-31b17a8d168c": [],
   "8e1e7aa6-edc4-4c23-be5e-762fe39d9da7": [
     {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: quality_of_life"
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
     }
   ],
   "6ba55d27-0228-4d78-a90f-6bbb720b5422": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: quality_of_life"
+    },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
   "0eae33ff-eef5-4697-8c2a-9b90239e6825": [
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.08"
+    },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
@@ -1003,8 +1192,8 @@
   ],
   "4f0cb4f1-c0aa-435e-9c59-36dddf186c3d": [
     {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
     }
   ],
   "f17324a7-315d-4ef3-81de-eaf0094ade70": [
@@ -1016,7 +1205,7 @@
   "0153d91b-4569-437c-a4e4-4e958836b383": [
     {
       "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: health_and_safety"
+      "detail": "image conveys frame(s) not in the text: security_and_defense"
     }
   ],
   "55cf20e8-ba04-4965-883d-521bb9cdd615": [
@@ -1031,15 +1220,24 @@
       "detail": "jaccard=0.00"
     }
   ],
-  "1ce3f381-941f-4011-8f36-bf389226936c": [],
+  "1ce3f381-941f-4011-8f36-bf389226936c": [
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
+    }
+  ],
   "9e25ee8e-ae5a-40fe-acbf-deeec1a3c602": [
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
+    },
     {
       "code": "image_frame_not_subset_of_text",
       "detail": "image conveys frame(s) not in the text: political"
     },
     {
       "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.17"
+      "detail": "jaccard=0.20"
     },
     {
       "code": "img_frame_diverges_from_original",
@@ -1052,7 +1250,12 @@
       "detail": "jaccard=0.00"
     }
   ],
-  "11d1e37e-be20-4c91-bfdc-a47dbb2df7fc": [],
+  "11d1e37e-be20-4c91-bfdc-a47dbb2df7fc": [
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    }
+  ],
   "12758a0f-6346-4068-9adb-809ea76cb34d": [
     {
       "code": "img_frame_diverges_from_original",
@@ -1060,6 +1263,10 @@
     }
   ],
   "3706958b-65ca-4b54-8a5e-54911dbfbcf9": [
+    {
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.17"
+    },
     {
       "code": "text_frame_diverges_from_original",
       "detail": "jaccard=0.00"
@@ -1073,25 +1280,21 @@
     {
       "code": "image_frame_not_subset_of_text",
       "detail": "image conveys frame(s) not in the text: capacity_and_resources"
-    },
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
     }
   ],
-  "b91e45c6-7eb8-4632-b205-a467008deec5": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: political"
-    }
-  ],
+  "b91e45c6-7eb8-4632-b205-a467008deec5": [],
   "0a3fc4a3-43a4-4ae1-8231-8ba671d64faa": [
     {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
     }
   ],
-  "cd82c244-db18-4f01-91a0-16b5ade94748": [],
+  "cd82c244-db18-4f01-91a0-16b5ade94748": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: public_opinion"
+    }
+  ],
   "baf310e7-9f5a-45f9-aa67-d7e9779c7cd9": [
     {
       "code": "img_frame_diverges_from_original",
@@ -1100,8 +1303,8 @@
   ],
   "528a044b-10c1-47ff-ae87-c085677d6ed8": [
     {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: security_and_defense"
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.11"
     }
   ],
   "daefaa09-d337-42ab-8200-220bcc366fdc": [
@@ -1110,12 +1313,17 @@
       "detail": "jaccard=0.00"
     }
   ],
-  "2221055d-4208-4b58-af10-378d98e78a5e": [],
+  "2221055d-4208-4b58-af10-378d98e78a5e": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
   "e210fdd6-9a39-4260-b444-1b54afc12988": [],
   "c657ab76-d165-4fc1-a284-8329454da5c0": [
     {
       "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: quality_of_life"
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources"
     }
   ],
   "e2fa4a13-704b-4191-a4d1-fa3f6bb4581f": [],
@@ -1127,8 +1335,12 @@
   ],
   "3793eb1d-a0b9-41e0-b847-5f60bd805c5c": [
     {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: morality"
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.17"
+    },
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
     }
   ],
   "e3115995-48bb-468a-8a3e-6cc8104332b6": [],
@@ -1139,6 +1351,10 @@
     }
   ],
   "6153597d-f0bf-404c-9082-eca5b6604a40": [
+    {
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.00"
+    },
     {
       "code": "text_frame_diverges_from_original",
       "detail": "jaccard=0.00"
@@ -1152,7 +1368,7 @@
   "38025480-abf1-4f71-b949-e7e09e0ccb4b": [
     {
       "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: crime_and_punishment, health_and_safety"
+      "detail": "image conveys frame(s) not in the text: health_and_safety"
     }
   ],
   "0d8d3ae7-e086-4fdb-a0d9-6c10317746ca": [],
@@ -1172,6 +1388,10 @@
   "f8b37c13-7334-4e6b-8c36-f421221ff257": [],
   "8b6b1b59-f8b2-42ad-bb12-74dd02daca3b": [
     {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.17"
+    },
+    {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
@@ -1185,31 +1405,26 @@
   "c2dbbdcb-c1ed-499b-99a4-4efad1ea504b": [],
   "07700a87-f071-4dc9-a1ff-b7b6b751ab18": [
     {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.17"
+    },
+    {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
   "21375c81-747d-4679-b174-e0a6bf3ad382": [
     {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: security_and_defense"
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.17"
     },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
-  "17f6a759-aacb-40db-a003-ad5f62291b2d": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
+  "17f6a759-aacb-40db-a003-ad5f62291b2d": [],
   "6cc46722-1145-4cdd-93a1-e91ed715b8fd": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: security_and_defense"
-    },
     {
       "code": "text_frame_diverges_from_original",
       "detail": "jaccard=0.20"
@@ -1217,15 +1432,23 @@
   ],
   "246cc1dc-5216-4f70-a6b6-217218ba80c7": [
     {
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.11"
+    },
+    {
+      "code": "low_ensemble_agreement_img",
+      "detail": "avg pairwise jaccard=0.00"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    },
+    {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
   "9788c727-0bc4-49c0-ae98-2415242ba17a": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: political"
-    },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"

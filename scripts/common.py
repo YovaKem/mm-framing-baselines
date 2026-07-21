@@ -13,8 +13,10 @@ SAMPLE_PATH = DATA_DIR / "sample_300.jsonl"  # 300 rows, each with BOTH article 
 SCRAPE_ATTEMPTS_LOG_PATH = DATA_DIR / "scrape_attempts_log.jsonl"  # every row attempted, incl. rejected ones, for transparency
 NEWS_FILTER_PATH = DATA_DIR / "news_filter.json"  # per-row is_news verdict + reason
 NEWS_SAMPLE_PATH = DATA_DIR / "sample_news.jsonl"  # SAMPLE_PATH minus rows filtered out as non-news
-RELABELED_PATH = DATA_DIR / "sample_relabeled.jsonl"  # NEWS_SAMPLE_PATH + our fresh text/image frame labels, side by side with the original ones
+RELABELED_PATH = DATA_DIR / "sample_relabeled.jsonl"  # NEWS_SAMPLE_PATH + single-model (claude-haiku-4.5) fresh labels — superseded by the 3-model ensemble below, kept for the overlap-vs-original report
 OVERLAP_REPORT_PATH = DATA_DIR / "overlap_report.md"
+CONSOLIDATED_PATH = DATA_DIR / "sample_consolidated.jsonl"  # NEWS_SAMPLE_PATH + each model's labels + the 2-of-3 majority-vote consolidated labels
+CONSOLIDATION_REPORT_PATH = DATA_DIR / "consolidation_report.md"
 FLAGS_PATH = DATA_DIR / "flags.json"
 VALIDATION_RESULTS_PATH = DATA_DIR / "validation_results.csv"
 INSPECTION_REPORT_PATH = DATA_DIR / "inspection_report.md"
@@ -27,6 +29,16 @@ HF_DATASET = "copenlu/mm-framing"
 HF_SPLIT = "valid_framing_subset"  # the paper's framing-analysis-ready subset (154k rows)
 
 OPENROUTER_MODEL = "anthropic/claude-haiku-4.5"
+
+# 3-model ensemble for consolidated relabeling: one from each of three distinct
+# training/RLHF pipelines, all at a comparable cheap/fast cost tier so the comparison
+# isn't skewed by one model being much bigger or pricier than the others.
+ENSEMBLE_MODELS = [
+    "anthropic/claude-haiku-4.5",
+    "openai/gpt-5.4-mini",
+    "google/gemini-3.5-flash",
+]
+AGREEMENT_THRESHOLD = 2  # keep a frame if >= this many of len(ENSEMBLE_MODELS) models assign it
 
 FRAME_STRENGTHS = ["strong", "moderate"]  # "weak" frames are deliberately discarded, not just hidden
 
@@ -177,6 +189,16 @@ def encode_image_b64(path, max_dim=768):
         buf = io.BytesIO()
         im.save(buf, format="JPEG", quality=85)
         return base64.b64encode(buf.getvalue()).decode("ascii")
+
+
+def model_slug(model):
+    return model.replace("/", "_").replace(".", "_")
+
+
+def relabel_model_path(model):
+    """Per-model relabeling output: data/relabel_<slug>.jsonl, just the uuid + label
+    fields (not the full row — the base rows are already in NEWS_SAMPLE_PATH)."""
+    return DATA_DIR / f"relabel_{model_slug(model)}.jsonl"
 
 
 def frames_to_keys(frame_names):
