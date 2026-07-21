@@ -4,15 +4,20 @@ dataset's original labels, and store them side by side with the originals for
 comparison (see scripts/report_overlap.py).
 
 Per row, two independent sequential calls (text first, then image — the image
-call is NOT shown the text call's output, so any text/image divergence is
-genuine signal rather than an artifact of anchoring):
+call is NOT shown the text call's own OUTPUT/labels, so any text/image
+divergence is genuine signal rather than an artifact of anchoring):
 
   1. TEXT: given the article title + scraped text, return only frames that
      apply STRONGLY or MODERATELY — weak/tangential connections are dropped
      entirely, not just hidden.
-  2. IMAGE: given the image + article title (for minimal subject grounding),
-     same strong/moderate-only rule. Many news images are purely illustrative
-     (e.g. a plain storefront photo in a story about that store) and carry no
+  2. IMAGE: given the SAME full article title + text (as context/grounding)
+     plus the image itself, judge which frames the IMAGE specifically
+     visually conveys — not the article's topic in the abstract. Frames
+     often overlap with the text's (the image usually illustrates the
+     story) but this isn't required: an image can carry its own distinct
+     framing the text never develops, or fail to visually convey a frame
+     the text discusses. Many news images are purely illustrative (e.g. a
+     plain storefront photo in a story about that store) and carry no
      framing at all — an EMPTY frame list ("None") is an explicitly valid,
      expected outcome, not a failure.
 
@@ -76,13 +81,17 @@ articles with a fixed taxonomy (Boydstun et al. / Media Frames Corpus), applied 
 
 {FRAME_LIST_BLOCK}
 
-You are given the image and the article's title (for minimal subject context only). Decide \
-which frames the IMAGE ITSELF visually conveys STRONGLY or MODERATELY — not what the
-article's topic is about in the abstract, only what's actually depicted:
+You are given the full article text and its lead image. Read the article for context — who/what \
+it's about, what's happening — but apply the frame labels specifically to what the IMAGE ITSELF \
+visually conveys, not to the article's topic in the abstract. Image frames often overlap with the \
+frames present in the text, since the image usually illustrates the story, but this is NOT a \
+requirement: the image can carry its own distinct framing that the text never develops, or fail to \
+visually convey a frame the text discusses. Use the article to understand what you're looking at, \
+not as a source to copy frame labels from.
 - strong: the image's composition/subject centrally conveys this frame.
 - moderate: the image substantively supports this frame, but not centrally.
-- weak (DO NOT INCLUDE): a stretch, or true only because of the topic rather than what's
-  actually shown.
+- weak (DO NOT INCLUDE): a stretch, or true only because of the article's topic rather than what's
+  actually shown in the image.
 
 Many news images are purely illustrative/neutral (a plain storefront photo, a generic stock
 photo, a headshot, a building exterior) and convey NO editorial frame at all — in that case
@@ -136,7 +145,7 @@ def relabel_one(client, model, row):
     image_path = DATA_DIR / row["image_local_path"]
     b64 = encode_image_b64(image_path)
     image_content = [
-        {"type": "text", "text": f"ARTICLE TITLE (for context only): {row.get('title', '')}"},
+        {"type": "text", "text": text_content},
         {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{b64}"}},
     ]
     image_result = call_llm(client, model, IMAGE_SYSTEM_PROMPT, image_content)

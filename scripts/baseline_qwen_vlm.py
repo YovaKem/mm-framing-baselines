@@ -3,13 +3,17 @@ Baseline: Qwen3-VL-4B-Instruct zero-shot image-frame classification, run
 locally on GPU — a small open-weight VLM's take on the image-framing task,
 compared against the consolidated ground truth (scripts/report_baselines.py).
 
-Two settings, controlled by --oracle:
-  --no-oracle (default): image + article title only, same as how the API
-    ensemble labeled images in relabel_frames.py.
-  --oracle: image + article title + the CONSOLIDATED (ground-truth)
-    text-generic-frame labels for that row, given as known context — tests
-    whether telling the model the correct text framing changes/improves its
-    image framing, versus just seeing the image blind.
+Both settings give the model the image PLUS the full article title+text as
+context (the model reads the article to understand what's going on, but
+still judges frames specifically as conveyed by the image — see
+IMAGE_SYSTEM_PROMPT). Controlled by --oracle:
+  --no-oracle (default): image + article title + text — the model must infer
+    for itself whether the image's framing lines up with the text's.
+  --oracle: image + article title + text + the CONSOLIDATED (ground-truth)
+    text-generic-frame labels for that row, given explicitly as known
+    context — isolates whether handing over the correct text-frame label
+    (beyond what the model could infer itself from the text) changes/
+    improves its image framing, versus just seeing the image + article text.
 
 Reuses IMAGE_SYSTEM_PROMPT from scripts/relabel_frames.py for a fair
 comparison: strong/moderate-only frames, per-frame strength, explanation.
@@ -37,7 +41,7 @@ from common import (  # noqa: E402
     read_jsonl,
     write_jsonl,
 )
-from relabel_frames import IMAGE_SYSTEM_PROMPT  # noqa: E402
+from relabel_frames import IMAGE_SYSTEM_PROMPT, MAX_ARTICLE_CHARS  # noqa: E402
 
 MODEL_ID = "Qwen/Qwen3-VL-4B-Instruct"
 CANONICAL_LABELS = None  # filled in main() from common.CANONICAL_FRAMES
@@ -85,7 +89,7 @@ def main():
     parser.add_argument("--oracle", dest="oracle", action="store_true")
     parser.add_argument("--no-oracle", dest="oracle", action="store_false")
     parser.set_defaults(oracle=False)
-    parser.add_argument("--max-new-tokens", type=int, default=350)
+    parser.add_argument("--max-new-tokens", type=int, default=450)
     parser.add_argument("--limit", type=int, default=None, help="only process the first N rows (for smoke testing)")
     args = parser.parse_args()
 
@@ -105,7 +109,8 @@ def main():
         image_path = DATA_DIR / row["image_local_path"]
         image = Image.open(image_path).convert("RGB")
 
-        text_parts = [f"ARTICLE TITLE (for context only): {row.get('title', '')}"]
+        article_text = (row.get("article_text") or "")[:MAX_ARTICLE_CHARS]
+        text_parts = [f"TITLE: {row.get('title', '')}\n\nTEXT:\n{article_text}"]
         if args.oracle:
             oracle_keys = row.get("consolidated_text_generic_frame") or []
             oracle_labels = [CANONICAL_LABELS.get(k, k) for k in oracle_keys] or ["(none — no text frame applies)"]
