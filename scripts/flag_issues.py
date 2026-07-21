@@ -1,17 +1,17 @@
 """
-Sweep over the 300 sampled rows to flag likely issues before manual review, so
-the human validator is pointed at what's worth their time instead of all 300
+Sweep over the relabeled rows (scripts/relabel_frames.py output) to flag rows
+worth a closer manual look, so the human validator isn't reviewing all rows
 uniformly. Two layers:
 
-1. Structural/statistical checks (missing fields, malformed list literals,
-   out-of-taxonomy tags, suspiciously thin LLM explanations, out-of-range
-   dates) — cheap, deterministic, no model calls.
-2. Semantic verdicts from scripts/judge_frames.py (data/frame_judgments.json),
-   if present — an LLM's independent judgment of whether text-generic-frame /
-   img-generic-frame actually holds up against the real article text/image,
-   merged in here as flags with the judge's reasoning as the detail.
+1. Structural/statistical checks on the original dataset columns (malformed
+   list literals, out-of-taxonomy tags, suspiciously thin LLM explanations,
+   out-of-range dates) — cheap, deterministic.
+2. Signal from the relabeling itself: a relabel call that errored, an image
+   frame set that isn't a subset of the text frame set (useful signal per
+   the project's own expectation, not necessarily wrong), and a large
+   old-vs-new disagreement (low Jaccard overlap) worth double-checking.
 
-Run after build_sample.py and (for the semantic layer) judge_frames.py.
+Run after relabel_frames.py.
 
 Usage:
     python scripts/flag_issues.py
@@ -23,10 +23,10 @@ from datetime import datetime
 from common import (
     ENTITY_SENTIMENT_VALUES,
     FLAGS_PATH,
-    FRAME_JUDGMENTS_PATH,
     POLITICAL_LEANING_VALUES,
-    SAMPLE_PATH,
+    RELABELED_PATH,
     normalize_frame_tags,
+    parse_list_field,
     read_jsonl,
 )
 
@@ -39,9 +39,19 @@ EXP_FIELDS = [
     "img-entity-sentiment-exp",
 ]
 SHORT_EXP_THRESHOLD = 15  # characters
+LOW_OVERLAP_JACCARD = 0.25  # below this, old vs new share little/nothing
 
 
-def check_row(row, seen_uuids, seen_titles, judgment):
+def jaccard(a, b):
+    a, b = set(a), set(b)
+    if not a and not b:
+        return 1.0
+    if not a or not b:
+        return 0.0
+    return len(a & b) / len(a | b)
+
+
+def check_row(row, seen_uuids, seen_titles):
     flags = []
 
     def flag(code, detail=""):
@@ -66,29 +76,22 @@ def check_row(row, seen_uuids, seen_titles, judgment):
     if not (row.get("url") or "").strip():
         flag("missing_url")
 
-    # --- generic frame fields (the main labels) ---
+    # --- original generic frame fields: structural sanity only ---
     for prefix in ["text", "img"]:
-        parse_err = row.get(f"_{prefix}_generic_frame_parse_error")
-        tags = row.get(f"_{prefix}_generic_frame_parsed") or []
+        tags, parse_err = parse_list_field(row.get(f"{prefix}-generic-frame"))
         if parse_err:
-            flag(f"{prefix}_generic_frame_parse_error", parse_err)
-        elif not tags:
-            flag(f"{prefix}_generic_frame_empty")
+            flag(f"original_{prefix}_generic_frame_parse_error", parse_err)
         else:
-            canonical, unknown = normalize_frame_tags(tags)
+            _, unknown = normalize_frame_tags(tags)
             if unknown:
-                flag(f"{prefix}_generic_frame_unknown_tag", ", ".join(sorted(set(unknown))))
+                flag(f"original_{prefix}_generic_frame_unknown_tag", ", ".join(sorted(set(unknown))))
 
-    if row.get("text-generic-frame") and not (row.get("text-issue-frame") or "").strip():
-        flag("text_issue_frame_missing_but_generic_present")
-
-    # --- entity sentiment validity ---
+    # --- entity sentiment / metadata sanity on the original columns ---
     for field in ["text-entity-sentiment", "img-entity-sentiment"]:
         val = (row.get(field) or "").strip()
         if val and val.lower() not in ENTITY_SENTIMENT_VALUES:
             flag(f"{field.replace('-', '_')}_unrecognized_value", val)
 
-    # --- publisher metadata sanity ---
     leaning = (row.get("political_leaning") or "").strip()
     if leaning and leaning.lower() not in POLITICAL_LEANING_VALUES:
         flag("political_leaning_unrecognized_value", leaning)
@@ -109,36 +112,39 @@ def check_row(row, seen_uuids, seen_titles, judgment):
     else:
         flag("missing_date_publish")
 
-    # --- suspiciously thin LLM explanations ---
     for field in EXP_FIELDS:
         val = (row.get(field) or "").strip()
         if val and len(val) < SHORT_EXP_THRESHOLD:
             flag("suspiciously_short_explanation", f"{field}={val!r}")
 
-    # --- semantic verdicts from judge_frames.py, if available ---
-    if judgment:
-        if judgment.get("error"):
-            flag("frame_judgment_failed", judgment["error"])
-        else:
-            if judgment.get("text_frame_verdict") == "questionable":
-                flag("text_frame_questionable", judgment.get("text_frame_reasoning", ""))
-            if judgment.get("img_frame_verdict") == "questionable":
-                flag("img_frame_questionable", judgment.get("img_frame_reasoning", ""))
+    # --- relabeling outcomes ---
+    if row.get("new_text_generic_frame_error"):
+        flag("relabel_text_call_failed", row["new_text_generic_frame_error"])
+    if row.get("new_img_generic_frame_error"):
+        flag("relabel_image_call_failed", row["new_img_generic_frame_error"])
+
+    new_text = set(row.get("new_text_generic_frame") or [])
+    new_img = set(row.get("new_img_generic_frame") or [])
+    if new_img and not new_img <= new_text:
+        extra = ", ".join(sorted(new_img - new_text))
+        flag("image_frame_not_subset_of_text", f"image conveys frame(s) not in the text: {extra}")
+
+    old_text_keys, _ = normalize_frame_tags(parse_list_field(row.get("text-generic-frame"))[0])
+    old_img_keys, _ = normalize_frame_tags(parse_list_field(row.get("img-generic-frame"))[0])
+    text_jaccard = jaccard(old_text_keys, new_text)
+    img_jaccard = jaccard(old_img_keys, new_img)
+    if text_jaccard < LOW_OVERLAP_JACCARD:
+        flag("text_frame_diverges_from_original", f"jaccard={text_jaccard:.2f}")
+    if img_jaccard < LOW_OVERLAP_JACCARD:
+        flag("img_frame_diverges_from_original", f"jaccard={img_jaccard:.2f}")
 
     return flags
 
 
 def main():
-    if not SAMPLE_PATH.exists():
-        raise SystemExit(f"{SAMPLE_PATH} not found — run scripts/build_sample.py first")
-    rows = read_jsonl(SAMPLE_PATH)
-
-    judgments = {}
-    if FRAME_JUDGMENTS_PATH.exists():
-        judgments = json.loads(FRAME_JUDGMENTS_PATH.read_text(encoding="utf-8"))
-    else:
-        print(f"NOTE: {FRAME_JUDGMENTS_PATH} not found — run scripts/judge_frames.py for the "
-              "semantic accuracy check. Continuing with structural checks only.\n")
+    if not RELABELED_PATH.exists():
+        raise SystemExit(f"{RELABELED_PATH} not found — run scripts/relabel_frames.py first")
+    rows = read_jsonl(RELABELED_PATH)
 
     seen_uuids, seen_titles = set(), set()
     flags_by_uuid = {}
@@ -146,7 +152,7 @@ def main():
     flagged_row_count = 0
 
     for row in rows:
-        row_flags = check_row(row, seen_uuids, seen_titles, judgments.get(row["uuid"]))
+        row_flags = check_row(row, seen_uuids, seen_titles)
         flags_by_uuid[row["uuid"]] = row_flags
         if row_flags:
             flagged_row_count += 1
@@ -156,7 +162,7 @@ def main():
     with open(FLAGS_PATH, "w", encoding="utf-8") as f:
         json.dump(flags_by_uuid, f, indent=2, ensure_ascii=False)
 
-    print(f"Source: {SAMPLE_PATH.name}")
+    print(f"Source: {RELABELED_PATH.name}")
     print(f"Flagged {flagged_row_count}/{len(rows)} rows ({flagged_row_count / len(rows):.0%})\n")
     print("Flag code frequency:")
     for code, count in code_counter.most_common():

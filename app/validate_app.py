@@ -1,6 +1,9 @@
 """
-Streamlit interface for manually validating the sampled mm-framing rows,
-prioritizing rows the automated sweep (scripts/flag_issues.py) flagged.
+Streamlit interface for manually validating the relabeled mm-framing rows:
+shows the real scraped article text + image, the dataset's ORIGINAL
+text/image frame labels, and our fresh NEW labels (with per-frame strength
+and explanation) side by side, prioritizing rows the automated sweep
+(scripts/flag_issues.py) flagged.
 
 Run (on the remote machine):
     streamlit run app/validate_app.py
@@ -19,10 +22,10 @@ from common import (  # noqa: E402
     CANONICAL_FRAMES,
     DATA_DIR,
     FLAGS_PATH,
-    FRAME_JUDGMENTS_PATH,
-    SAMPLE_PATH,
+    RELABELED_PATH,
     VALIDATION_RESULTS_PATH,
     normalize_frame_tags,
+    parse_list_field,
     read_jsonl,
 )
 
@@ -30,22 +33,21 @@ st.set_page_config(page_title="mm-framing validation", layout="wide")
 
 VERDICT_OPTIONS = [
     "Not reviewed",
-    "Labels look correct",
-    "Text frame incorrect",
-    "Image frame incorrect",
-    "Both frames incorrect",
+    "New labels look correct",
+    "New text label wrong",
+    "New image label wrong",
+    "Both new labels wrong",
+    "Prefer the original labels",
     "Unclear / need more context",
-    "Skip — data issue, can't judge",
 ]
 CANONICAL_LABELS = {k: v.split(" — ")[0] for k, v in CANONICAL_FRAMES.items()}
 
 
 @st.cache_data
 def load_data():
-    rows = read_jsonl(SAMPLE_PATH)
+    rows = read_jsonl(RELABELED_PATH)
     flags = json.loads(FLAGS_PATH.read_text()) if FLAGS_PATH.exists() else {}
-    judgments = json.loads(FRAME_JUDGMENTS_PATH.read_text()) if FRAME_JUDGMENTS_PATH.exists() else {}
-    return rows, flags, judgments, SAMPLE_PATH.name
+    return rows, flags, RELABELED_PATH.name
 
 
 def load_results():
@@ -63,23 +65,26 @@ def save_result(uuid, record):
     df.to_csv(VALIDATION_RESULTS_PATH, index=False)
 
 
-def frame_chip_line(tags):
+def old_frame_chip_line(raw_value):
+    tags, _ = parse_list_field(raw_value)
     canonical, unknown = normalize_frame_tags(tags)
     parts = [f"`{CANONICAL_LABELS.get(c, c)}`" for c in canonical]
     parts += [f":red[`{t} (unknown)`]" for t in unknown]
     return " ".join(parts) if parts else "_(none)_"
 
 
-def judge_verdict_block(verdict, reasoning):
-    if verdict == "questionable":
-        st.error(f"⚠️ **Judge: questionable** — {reasoning}")
-    elif verdict == "accurate":
-        st.success(f"✅ Judge: accurate — {reasoning}")
-    else:
-        st.caption("No automated judgment available for this row (run scripts/judge_frames.py).")
+def new_frame_chip_line(keys, strengths):
+    if not keys:
+        return "_(none — no frame applies)_"
+    parts = []
+    for k in keys:
+        label = CANONICAL_LABELS.get(k, k)
+        strength = (strengths or {}).get(k, "")
+        parts.append(f"`{label}` :gray[({strength})]" if strength else f"`{label}`")
+    return "  ".join(parts)
 
 
-rows, flags_by_uuid, judgments_by_uuid, source_name = load_data()
+rows, flags_by_uuid, source_name = load_data()
 rows_by_uuid = {r["uuid"]: r for r in rows}
 uuids_all = [r["uuid"] for r in rows]
 
@@ -89,7 +94,7 @@ if "idx" not in st.session_state:
     st.session_state.idx = 0
 
 st.sidebar.title("mm-framing validation")
-st.sidebar.caption(f"Source: `{source_name}` · {len(rows)} rows")
+st.sidebar.caption(f"Source: `{source_name}` · {len(rows)} rows (non-news filtered out)")
 
 view_mode = st.sidebar.radio("Show", ["Flagged only", "All rows"], index=0)
 if view_mode == "Flagged only":
@@ -128,7 +133,6 @@ if col_next.button("Next ➡", width='stretch') and st.session_state.idx < len(v
 uuid = view_uuids[st.session_state.idx]
 row = rows_by_uuid[uuid]
 row_flags = flags_by_uuid.get(uuid, [])
-judgment = judgments_by_uuid.get(uuid, {})
 
 st.title(row.get("title", "(no title)"))
 meta_cols = st.columns(4)
@@ -138,14 +142,10 @@ meta_cols[2].markdown(f"**Published**  \n{row.get('date_publish', '—')}")
 if row.get("url"):
     meta_cols[3].link_button("Open original article", row["url"], width='stretch')
 
-non_judgment_flags = [
-    f for f in row_flags
-    if f["code"] not in ("text_frame_questionable", "img_frame_questionable")
-]
-if non_judgment_flags:
+if row_flags:
     with st.container(border=True):
-        st.markdown("**⚠️ Other automated flags for this row:**")
-        for f in non_judgment_flags:
+        st.markdown("**⚠️ Automated flags for this row:**")
+        for f in row_flags:
             st.markdown(f"- `{f['code']}`" + (f" — {f['detail']}" if f.get("detail") else ""))
 
 img_col, text_col = st.columns([1, 1.4])
@@ -157,13 +157,15 @@ with img_col:
     if local_path and full_path and full_path.exists():
         st.image(str(full_path), width='stretch')
     else:
-        st.warning(f"Image unavailable ({row.get('image_error', 'not scraped')}). Check the original article link above.")
+        st.warning("Image unavailable.")
 
-    st.markdown(f"**img-generic-frame:** {frame_chip_line(row.get('_img_generic_frame_parsed') or [])}")
-    st.caption(f"Original model justification: {row.get('img-frame-exp', '')}")
-    judge_verdict_block(judgment.get("img_frame_verdict"), judgment.get("img_frame_reasoning"))
-    st.markdown(f"**img-entity-name:** {row.get('img-entity-name', '—')}  ·  **sentiment:** {row.get('img-entity-sentiment', '—')}")
-    st.caption(row.get("img-entity-sentiment-exp", ""))
+    st.markdown(f"**Original img-generic-frame:** {old_frame_chip_line(row.get('img-generic-frame'))}")
+    st.caption(row.get("img-frame-exp", ""))
+    st.markdown(
+        f"**Our new img-generic-frame:** "
+        f"{new_frame_chip_line(row.get('new_img_generic_frame') or [], row.get('new_img_generic_frame_strengths'))}"
+    )
+    st.caption(row.get("new_img_generic_frame_exp") or "")
 
 with text_col:
     st.subheader("Text")
@@ -172,34 +174,33 @@ with text_col:
         with st.expander(f"Scraped article text ({row.get('article_word_count', 0)} words)", expanded=True):
             st.write(article_text)
     else:
-        st.warning(f"Article text unavailable ({row.get('scrape_error', 'not scraped')}). Check the original article link above.")
+        st.warning("Article text unavailable.")
 
-    st.markdown(f"**topic:** {row.get('text-topic', '—')}")
-    st.caption(row.get("text-topic-exp", ""))
-    st.markdown(f"**text-generic-frame:** {frame_chip_line(row.get('_text_generic_frame_parsed') or [])}")
-    st.caption(f"Original model justification: {row.get('text-generic-frame-exp', '')}")
-    judge_verdict_block(judgment.get("text_frame_verdict"), judgment.get("text_frame_reasoning"))
-    st.markdown(f"**issue-frame:** {row.get('text-issue-frame', '—')}")
-    st.caption(row.get("text-issue-frame-exp", ""))
-    st.markdown(f"**entity:** {row.get('text-entity-name', '—')}  ·  **sentiment:** {row.get('text-entity-sentiment', '—')}")
-    st.caption(row.get("text-entity-sentiment-exp", ""))
+    st.markdown(f"**Original text-generic-frame:** {old_frame_chip_line(row.get('text-generic-frame'))}")
+    st.caption(row.get("text-generic-frame-exp", ""))
+    st.markdown(
+        f"**Our new text-generic-frame:** "
+        f"{new_frame_chip_line(row.get('new_text_generic_frame') or [], row.get('new_text_generic_frame_strengths'))}"
+    )
+    st.caption(row.get("new_text_generic_frame_exp") or "")
 
 st.divider()
 st.subheader("Your validation")
 
 existing = st.session_state.results.get(uuid, {})
 with st.form(key=f"form_{uuid}"):
+    existing_verdict = existing.get("verdict", "Not reviewed")
     verdict = st.selectbox(
         "Verdict", VERDICT_OPTIONS,
-        index=VERDICT_OPTIONS.index(existing.get("verdict", "Not reviewed")),
+        index=VERDICT_OPTIONS.index(existing_verdict) if existing_verdict in VERDICT_OPTIONS else 0,
     )
     corrected_text_frames = st.multiselect(
-        "If the text frame is wrong — what should it be?",
+        "Final text frame(s), if different from both above",
         list(CANONICAL_LABELS.values()),
         default=[v for v in existing.get("corrected_text_frames", "").split(";") if v],
     )
     corrected_img_frames = st.multiselect(
-        "If the image frame is wrong — what should it be?",
+        "Final image frame(s), if different from both above",
         list(CANONICAL_LABELS.values()),
         default=[v for v in existing.get("corrected_img_frames", "").split(";") if v],
     )

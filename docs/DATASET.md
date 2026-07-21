@@ -19,7 +19,8 @@ photograph, using vision/language LLMs rather than manual qualitative coding.
 - Validated against existing human-annotated data (Media Frames Corpus for text) and
   a small human double-annotation pass for images (600 images) and topics (190
   articles) done by the paper's authors — not full independent human annotation of
-  the whole set. Treat every row as an **LLM prediction**, not ground truth.
+  the whole set. Treat every row as an **LLM prediction**, not ground truth (this
+  project's own relabeling pass, below, treats it as exactly that).
 
 ## Splits
 
@@ -27,7 +28,7 @@ photograph, using vision/language LLMs rather than manual qualitative coding.
 - `valid_framing_subset` (`framing_subset.csv`, ~154K rows) — the paper's own
   filtered, framing-analysis-ready subset: drops "None"/invalid frame predictions,
   articles under 100 words, and Sports/Media topics. **This is what
-  `scripts/sample_dataset.py` samples from by default.**
+  `scripts/build_sample.py` samples from by default.**
 
 ## Important: the dataset stores labels, not source content
 
@@ -35,38 +36,40 @@ Neither the raw article text nor the image (or even an image URL) is stored as a
 column. The only columns are metadata (`title`, `date_publish`, `source_domain`,
 `political_leaning`, `url`) and the **LLM's output about** the text/image (labels +
 free-text justifications). The only path back to the actual source content is
-`url` — hence `scripts/scrape_articles.py`, which is a best-effort live fetch and
-will have real link-rot for two-year-old articles.
+`url` — hence `scripts/build_sample.py`'s scraping step, which is a best-effort
+live fetch and will have real link-rot for two-year-old articles.
 
 ## The 15-category generic frame taxonomy
 
 Both `text-generic-frame` and `img-generic-frame` — **the two main labels this
 project cares about** — draw from the same fixed, multi-label taxonomy, adapted
-from Boydstun et al. (2014) / the Media Frames Corpus:
+from Boydstun et al. (2014) / the Media Frames Corpus. Definitions below are the
+codebook's own wording, verbatim — `scripts/relabel_frames.py` passes these full
+definitions to the LLM annotator rather than relying on the surface label alone:
 
 | Frame | Definition |
 |---|---|
-| Economic | Costs, benefits, or monetary/financial implications |
-| Capacity & Resources | Availability (or lack) of physical, geographic, spatial, human, financial resources |
-| Morality | Perspective compelled by religious doctrine, duty, honor, righteousness |
-| Fairness & Equality | Equality/inequality in how laws, punishment, rewards, resources are applied |
-| Legality, Constitutionality & Jurisprudence | Constraints/freedoms via Constitution and judicial interpretation |
-| Policy Prescription & Evaluation | Specific policies proposed to address a problem |
-| Crime & Punishment | Enforcement/interpretation of laws, lawbreaking, sentencing |
-| Security & Defense | Security, threats to it, protection of person/family/nation |
-| Health & Safety | Healthcare access, illness, disease, sanitation, violence prevention |
-| Quality of Life | Effects on wealth, mobility, access to resources, happiness |
-| Cultural Identity | Social norms, trends, values, customs |
-| Public Opinion | General social attitudes, polling, demographics |
-| Political | Partisan maneuvering, lobbying, bipartisan deal-making |
-| External Regulation & Reputation | A country's external relations, trade agreements |
-| Other | Doesn't fit the above |
+| Economic | Costs, benefits, or other financial implications |
+| Capacity & Resources | Availability of physical, human or financial resources, and capacity of current systems |
+| Morality | Religious or ethical implications, considerations, issues, etc. |
+| Fairness & Equality | Balance or distribution of rights, responsibilities, and resources |
+| Legality, Constitutionality & Jurisprudence | Rights, freedoms, and authority of individuals, corporations, and government |
+| Policy Prescription & Evaluation | Discussion of specific policies aimed at addressing problems, needs, issues, etc. |
+| Crime & Punishment | Effectiveness and implications of laws and their enforcement |
+| Security & Defense | Threats to welfare of the individual, community, or nation |
+| Health & Safety | Health care, sanitation, public safety |
+| Quality of Life | Threats and opportunities for the individual's wealth, happiness, and well-being |
+| Cultural Identity | Traditions, customs, or values of a social group in relation to a policy issue |
+| Public Opinion | Attitudes and opinions of the general public, including polling and demographics |
+| Political | Considerations related to politics and politicians, including lobbying, elections, and attempts to sway voters |
+| External Regulation & Reputation | International reputation or foreign policy of the U.S. |
+| Other | Frames that do not fit into the above categories |
 
-**Caveat:** the raw CSV stores short-form tags (e.g. `security`, `legality`,
-`regulation`, `policy`), not these full names, and multiple tags per row (it's
-multi-label). `scripts/common.py::FRAME_TAG_ALIASES` maps observed short tags to
-this canonical set; anything it can't map is flagged by `flag_issues.py` as
-`unknown_frame_tag` for manual review rather than silently dropped or guessed at.
+**Caveat about the raw CSV:** it stores short-form tags (e.g. `security`,
+`legality`, `regulation`, `policy`), not these full names, and multiple tags per
+row (it's multi-label). `scripts/common.py::FRAME_TAG_ALIASES` maps observed short
+tags to this canonical set; anything it can't map is flagged by `flag_issues.py`
+as `unknown_frame_tag` for manual review rather than silently dropped or guessed at.
 
 ## Column reference
 
@@ -80,11 +83,13 @@ this canonical set; anything it can't map is flagged by `flag_issues.py` as
 | `political_leaning` | Publisher bias: left / left_lean / center / right_lean / right |
 | `text-topic` (+`-exp`) | LLM-derived main subject of the article, with justification |
 | `text-entity-name` / `-sentiment` (+`-exp`) | Key entity in the text and sentiment toward it |
-| `text-generic-frame` (+`-exp`) | **Main label.** Multi-label set from the 15-category taxonomy, stringified list |
+| `text-generic-frame` (+`-exp`) | **Original main label**, from the dataset. Multi-label set from the 15-category taxonomy, stringified list |
 | `text-issue-frame` (+`-exp`) | Free-form, issue-specific frame (not fixed vocabulary), e.g. "Geopolitical Tension" |
-| `img-generic-frame` (+`-exp`) | **Main label.** Same 15-category taxonomy applied to the lead image |
+| `img-generic-frame` (+`-exp`) | **Original main label**, from the dataset. Same 15-category taxonomy applied to the lead image |
 | `img-entity-name` / `-sentiment` (+`-exp`) | Key visual entity/subject and sentiment conveyed |
 | `gpt-topic` | Separate, broader GPT-generated topic classification |
+| `new_text_generic_frame` (+`_strengths`, `_exp`) | **This project's own relabel** of the text, strong/moderate-only, with per-frame strength and an explanation |
+| `new_img_generic_frame` (+`_strengths`, `_exp`) | **This project's own relabel** of the image, strong/moderate-only (empty = no frame applies), with per-frame strength and an explanation |
 
 ## What this project adds on top
 
@@ -98,17 +103,25 @@ this canonical set; anything it can't map is flagged by `flag_issues.py` as
   rejected, and why) is logged to `data/scrape_attempts_log.jsonl`.
 - `scripts/inspect_columns.py` — column-by-column stats + observed frame-tag
   frequency for the sample, cross-checked against the taxonomy above.
-- `scripts/judge_frames.py` — the semantic check: shows a vision LLM
-  (`anthropic/claude-haiku-4.5` via OpenRouter) the real scraped article text
-  and image for each row, plus the `text-generic-frame`/`img-generic-frame`
-  labels and the original labeling model's own justification, and asks it to
-  independently judge whether each label actually holds up — not just whether
-  the justification sounds plausible.
-- `scripts/flag_issues.py` — merges those semantic verdicts with cheap
-  structural/statistical checks (missing fields, malformed list literals,
-  out-of-taxonomy tags, suspiciously thin LLM explanations, out-of-range
-  dates) into one flags file, so the human reviewer is pointed at what's worth
-  their time.
+- `scripts/filter_news.py` — drops rows that aren't genuine news/journalism
+  (game/entertainment announcements, "best of" listicles, lifestyle content) —
+  framing analysis assumes editorial choices about a real-world issue, which
+  doesn't apply to that kind of content. Uses a cheap text-only LLM call per row.
+- `scripts/relabel_frames.py` — **ignores the dataset's original labels** and
+  generates fresh ones: two independent LLM calls per row (text first, then
+  image — the image call never sees the text call's output, so any divergence
+  is genuine signal), each returning only frames that apply **strongly or
+  moderately** (weak/tangential connections are dropped entirely, not just
+  hidden), with per-frame strength and an explanation. An empty image frame set
+  is an explicitly valid "no framing" outcome — most news images are purely
+  illustrative (e.g. a plain storefront photo in a story about that store).
+- `scripts/report_overlap.py` — compares the fresh relabeling against the
+  original dataset labels (Jaccard overlap, most-added/dropped frames) and
+  reports how often the new image frame set is a subset of the new text frame
+  set — useful signal when it isn't.
+- `scripts/flag_issues.py` — flags rows worth a closer look: structural issues
+  in the original columns, relabel-call failures, image frames not a subset of
+  text frames, and large old-vs-new disagreement.
 - `app/validate_app.py` — Streamlit UI for the manual validation pass: shows
-  the article text + image + both frame labels + the automated judge's
-  verdict and reasoning per row, defaulting to flagged rows first.
+  the article text + image, the original labels, and the new labels
+  side by side (with strength + explanation), defaulting to flagged rows first.

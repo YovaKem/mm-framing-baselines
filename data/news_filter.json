@@ -1,0 +1,1802 @@
+{
+  "e5ae3dc6-be86-438d-ba04-65b2c6f72417": {
+    "uuid": "e5ae3dc6-be86-438d-ba04-65b2c6f72417",
+    "is_news": false,
+    "reason": "This is a video game product announcement and industry commentary, not reporting on a real-world event or issue of public significance.",
+    "error": null
+  },
+  "ab545d58-b153-4942-9e72-063b424180f8": {
+    "uuid": "ab545d58-b153-4942-9e72-063b424180f8",
+    "is_news": false,
+    "reason": "This is a business strategy/marketing analysis article about retail loyalty programs with no real-world event, policy change, or newsworthy occurrence being reported on.",
+    "error": null
+  },
+  "a4b2e93e-3f76-4a58-ba0c-38c1c8e97340": {
+    "uuid": "a4b2e93e-3f76-4a58-ba0c-38c1c8e97340",
+    "is_news": false,
+    "reason": "This is a lifestyle listicle featuring restaurant recommendations and reviews with no real-world event, policy issue, or editorial framing of a genuine news story.",
+    "error": null
+  },
+  "ddb84722-f10d-423e-bd1a-90f22a670a48": {
+    "uuid": "ddb84722-f10d-423e-bd1a-90f22a670a48",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world event—local communities preparing for an impending winter weather event with coverage of government preparedness efforts and public response.",
+    "error": null
+  },
+  "cb915188-99af-4e3c-8aa7-1f8ad1beae40": {
+    "uuid": "cb915188-99af-4e3c-8aa7-1f8ad1beae40",
+    "is_news": true,
+    "reason": "This is a journalism piece analyzing survey data about college presidents' views on online versus in-person education programs, reporting on real findings and their implications for higher education policy and practice.",
+    "error": null
+  },
+  "96a5f34c-5396-4bc5-a578-3ccdb216c7c2": {
+    "uuid": "96a5f34c-5396-4bc5-a578-3ccdb216c7c2",
+    "is_news": true,
+    "reason": "This is financial analysis and commentary on real-world economic events (inflation shock, Federal Reserve policy, housing market trends) and their impact on a publicly traded company's stock performance.",
+    "error": null
+  },
+  "c1b9ca39-a7c6-4684-b9d0-6ac7568d4c3d": {
+    "uuid": "c1b9ca39-a7c6-4684-b9d0-6ac7568d4c3d",
+    "is_news": true,
+    "reason": "This article reports on a real-world geopolitical event—Turkey's detention of 33 people accused of spying for Israel's Mossad—with factual details about the operation, official statements, and international tensions during the Israel-Hamas war.",
+    "error": null
+  },
+  "87c232b0-b0fb-4c1e-9b54-09bcc4e40b5f": {
+    "uuid": "87c232b0-b0fb-4c1e-9b54-09bcc4e40b5f",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on a real-world legal event—Hunter Biden's lawsuit against the IRS—with factual reporting on the circumstances, legal arguments, and political context surrounding the case.",
+    "error": null
+  },
+  "d3834f04-25b2-43a9-b549-13e6c732a07c": {
+    "uuid": "d3834f04-25b2-43a9-b549-13e6c732a07c",
+    "is_news": true,
+    "reason": "This is genuine political journalism reporting on a real-world event—a candidate's announcement to run for state office in an upcoming election.",
+    "error": null
+  },
+  "51af341a-2b67-4308-ad16-4821a79c1b8a": {
+    "uuid": "51af341a-2b67-4308-ad16-4821a79c1b8a",
+    "is_news": false,
+    "reason": "This is a human-interest lifestyle feature about a viral social media personality and her pet, not reporting on a real-world event, policy issue, or matter of public concern.",
+    "error": null
+  },
+  "36ba8176-109b-4b8a-9005-8848c7a353a3": {
+    "uuid": "36ba8176-109b-4b8a-9005-8848c7a353a3",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on a real-world legal and political event—a lawsuit filed to remove a sitting congressman from a ballot based on constitutional grounds, with details about the case, parties involved, and relevant precedents.",
+    "error": null
+  },
+  "f0e59b73-461a-44d6-b8c1-e54cbc8ef9c1": {
+    "uuid": "f0e59b73-461a-44d6-b8c1-e54cbc8ef9c1",
+    "is_news": true,
+    "reason": "This is genuine news reporting on ongoing debt ceiling negotiations between the White House and House Republicans, covering statements from key political figures, the current status of talks, and the stakes involved in this real-world policy issue.",
+    "error": null
+  },
+  "cbda7ecd-8b79-4a5b-a6b9-4c34b72aa3e0": {
+    "uuid": "cbda7ecd-8b79-4a5b-a6b9-4c34b72aa3e0",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world policy development—the Biden administration's proposal for stricter lead exposure regulations—with factual details about the rule, its rationale, health impacts, and implementation.",
+    "error": null
+  },
+  "ae261318-de0f-4b73-9ec0-f80fce32d475": {
+    "uuid": "ae261318-de0f-4b73-9ec0-f80fce32d475",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world public health event—a confirmed outbreak of Legionnaires' disease at a specific location in New Hampshire, with official health department statements and epidemiological information provided.",
+    "error": null
+  },
+  "417e12dd-d79a-48e9-a073-bc819b1d6614": {
+    "uuid": "417e12dd-d79a-48e9-a073-bc819b1d6614",
+    "is_news": true,
+    "reason": "This article reports on the release and findings of the International Energy Agency's World Energy Outlook 2023 report, a significant real-world policy and energy analysis document with implications for global energy policy and climate action.",
+    "error": null
+  },
+  "43d87747-459e-44be-a019-86f2ab7287d0": {
+    "uuid": "43d87747-459e-44be-a019-86f2ab7287d0",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on a political controversy involving a presidential candidate's statements about Chinese land purchases, fact-checked by a major news organization.",
+    "error": null
+  },
+  "9b4ba346-bff3-4217-bbf8-22329719b138": {
+    "uuid": "9b4ba346-bff3-4217-bbf8-22329719b138",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on a real legal case involving a disgraced union official, federal prosecutors' decision to return seized property, and court rulings in a corruption scheme.",
+    "error": null
+  },
+  "e7a71ded-cedf-4480-80a6-6991e4614f12": {
+    "uuid": "e7a71ded-cedf-4480-80a6-6991e4614f12",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world event involving police use of force, an ongoing investigation, and public controversy with official statements from law enforcement.",
+    "error": null
+  },
+  "c631bf96-318f-4628-85a5-725e45341488": {
+    "uuid": "c631bf96-318f-4628-85a5-725e45341488",
+    "is_news": false,
+    "reason": "This is a shopping listicle featuring Black Friday product deals and promotional content, not journalism reporting on real-world events or issues.",
+    "error": null
+  },
+  "11cd2998-ed81-45ce-92ee-5686dff86ded": {
+    "uuid": "11cd2998-ed81-45ce-92ee-5686dff86ded",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world scientific event—Earth setting multiple heat records in a week—with analysis of contributing factors like climate change and El Niño, supported by expert sources and global photographic documentation.",
+    "error": null
+  },
+  "eeaf6a2f-c608-40df-a120-d9193d808685": {
+    "uuid": "eeaf6a2f-c608-40df-a120-d9193d808685",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on real-world events involving public figures (actors Woody Harrelson and Matthew McConaughey) and their public statements about a potential family relationship, including interviews with major media outlets and upcoming entertainment projects.",
+    "error": null
+  },
+  "30cfef7a-58be-4bda-890d-6af7e324d9bb": {
+    "uuid": "30cfef7a-58be-4bda-890d-6af7e324d9bb",
+    "is_news": true,
+    "reason": "This is a legitimate news report covering a real-world event—a public safety incident involving bus crashes in Venice that resulted in injuries and deaths, along with official government response and ongoing investigation.",
+    "error": null
+  },
+  "0516800c-7f44-4df2-a427-6aea34a43b5b": {
+    "uuid": "0516800c-7f44-4df2-a427-6aea34a43b5b",
+    "is_news": true,
+    "reason": "This article reports on a real political controversy involving statements by elected officials (AOC and DeSantis) regarding a high-profile criminal case (Jordan Neely's death), which is a genuine news event with political and social significance.",
+    "error": null
+  },
+  "f7d6701e-1f1a-4597-9d13-565c7a02f8b5": {
+    "uuid": "f7d6701e-1f1a-4597-9d13-565c7a02f8b5",
+    "is_news": true,
+    "reason": "This is a legitimate news report covering a real-world incident involving law enforcement action, drug trafficking, and a fatality in the Caribbean, with official statements and factual details about the event.",
+    "error": null
+  },
+  "aee3cae3-f085-4bdf-8d7d-73e87fd2b093": {
+    "uuid": "aee3cae3-f085-4bdf-8d7d-73e87fd2b093",
+    "is_news": true,
+    "reason": "This is a genuine news story reporting on a real-world event involving celebrities experiencing a travel disruption at Boston Logan International Airport, including their interaction with airport authorities.",
+    "error": null
+  },
+  "b89902ac-d302-41e1-8139-1c0b8d3dbe58": {
+    "uuid": "b89902ac-d302-41e1-8139-1c0b8d3dbe58",
+    "is_news": true,
+    "reason": "This is genuine entertainment journalism reporting on viewership data and critical reception of a real-world event (the Super Bowl halftime show), with factual information about audience metrics and performer details.",
+    "error": null
+  },
+  "c8c7da83-1e39-4984-828a-e1152b6f6d57": {
+    "uuid": "c8c7da83-1e39-4984-828a-e1152b6f6d57",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world political event—the swearing-in of Paraguay's new president and his diplomatic statements regarding Taiwan relations, a significant geopolitical issue.",
+    "error": null
+  },
+  "dec935bc-6639-42f2-8268-3d176064e27b": {
+    "uuid": "dec935bc-6639-42f2-8268-3d176064e27b",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world labor dispute involving a strike at a major UK homelessness charity, covering the conflict between workers, union leadership, and management with direct quotes and specific details about the industrial action.",
+    "error": null
+  },
+  "275c42f0-9796-41ad-9da4-5f1f4c93417d": {
+    "uuid": "275c42f0-9796-41ad-9da4-5f1f4c93417d",
+    "is_news": true,
+    "reason": "This is genuine news journalism reporting on a real-world tragedy—the Titan submersible disaster during a Titanic expedition—with factual reporting on search efforts, official statements from US Navy and Coast Guard, and information about the victims.",
+    "error": null
+  },
+  "b13ccdbe-3883-4a34-96a6-64a17e24365a": {
+    "uuid": "b13ccdbe-3883-4a34-96a6-64a17e24365a",
+    "is_news": true,
+    "reason": "This is genuine political journalism reporting on real-world events involving UK parliamentary proceedings, the Partygate scandal investigation, and political figures' responses to a parliamentary committee report.",
+    "error": null
+  },
+  "9d56228f-73bb-4448-948f-17617ca8b65a": {
+    "uuid": "9d56228f-73bb-4448-948f-17617ca8b65a",
+    "is_news": false,
+    "reason": "This is a lifestyle listicle providing nutritional advice and food recommendations with no real-world event, policy issue, or editorial framing of a current controversy to analyze.",
+    "error": null
+  },
+  "02e6aca0-1c61-4d7a-bd63-eda08ea43a3a": {
+    "uuid": "02e6aca0-1c61-4d7a-bd63-eda08ea43a3a",
+    "is_news": true,
+    "reason": "This is a genuine news article reporting on a real criminal case involving a murder charge, arrest, and court proceedings in California.",
+    "error": null
+  },
+  "5b5f1f4b-bf55-4722-aaa5-623d45b231e3": {
+    "uuid": "5b5f1f4b-bf55-4722-aaa5-623d45b231e3",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on a real-world policy issue—a watchdog group's analysis of Biden administration regulatory costs and their economic impact on households, which is a substantive political and economic story.",
+    "error": null
+  },
+  "f1ea4708-47a4-4dd4-87a0-c5d2577ec16c": {
+    "uuid": "f1ea4708-47a4-4dd4-87a0-c5d2577ec16c",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world legal/political event — former President Trump's request to delay a federal trial date, including details about court filings, charges, and upcoming hearings.",
+    "error": null
+  },
+  "560ec6c5-711a-4897-849d-4c27d39ecaae": {
+    "uuid": "560ec6c5-711a-4897-849d-4c27d39ecaae",
+    "is_news": true,
+    "reason": "This is a genuine news report about a real-world incident involving vandalism/property damage at a public facility, police investigation, and community impact, covered by local journalism.",
+    "error": null
+  },
+  "bb756406-d020-4e40-8a67-77a7ddd8cf38": {
+    "uuid": "bb756406-d020-4e40-8a67-77a7ddd8cf38",
+    "is_news": false,
+    "reason": "This is a leadership advice/opinion column based on personal anecdotes and management theory concepts, not reporting on real-world events or issues.",
+    "error": null
+  },
+  "e0c218e8-7400-4004-b34b-150cd13460e8": {
+    "uuid": "e0c218e8-7400-4004-b34b-150cd13460e8",
+    "is_news": false,
+    "reason": "This is a business advice/opinion article about company valuation and M&A readiness with no real-world event, policy issue, or newsworthy occurrence being reported on.",
+    "error": null
+  },
+  "1d081290-b8db-4c49-bf31-ab4481cf0fb6": {
+    "uuid": "1d081290-b8db-4c49-bf31-ab4481cf0fb6",
+    "is_news": true,
+    "reason": "This is a business news article reporting on Mattel's financial performance and the Barbie brand's revenue figures, with analysis of the company's business strategy and upcoming film release.",
+    "error": null
+  },
+  "ed5ead9e-2f87-4472-9a6d-0011d54dd8a7": {
+    "uuid": "ed5ead9e-2f87-4472-9a6d-0011d54dd8a7",
+    "is_news": true,
+    "reason": "This article reports on a real-world event involving a legal dispute between a musician and a political candidate regarding intellectual property rights during a presidential campaign.",
+    "error": null
+  },
+  "62c512a4-16e8-4c2b-ba74-eedc55c114da": {
+    "uuid": "62c512a4-16e8-4c2b-ba74-eedc55c114da",
+    "is_news": false,
+    "reason": "This is a personal travel review and experience narrative about a theme park visit, not journalism reporting on real-world events, policy, or issues of public interest.",
+    "error": null
+  },
+  "3a4d45c5-a288-4170-98db-7ab0c0e7a00a": {
+    "uuid": "3a4d45c5-a288-4170-98db-7ab0c0e7a00a",
+    "is_news": false,
+    "reason": "This is a branded thought leadership/business advice article promoting loyalty program strategies, not reporting on real-world events or issues.",
+    "error": null
+  },
+  "eba7dd45-fb09-45b5-8f7f-5bfd8990000f": {
+    "uuid": "eba7dd45-fb09-45b5-8f7f-5bfd8990000f",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world political event—the German parliament's failure to pass assisted suicide legislation following a constitutional court ruling—covering policy debates with substantive details about competing proposals.",
+    "error": null
+  },
+  "6b2c56b8-78a5-4523-8638-144db2a76bc8": {
+    "uuid": "6b2c56b8-78a5-4523-8638-144db2a76bc8",
+    "is_news": true,
+    "reason": "This is a financial analysis piece examining real-world economic conditions and market trends, specifically addressing whether the 2023 stock market rally represents a bubble—a legitimate editorial analysis of actual market events and economic data.",
+    "error": null
+  },
+  "58798a31-30d0-415d-95f6-c2a648ce6240": {
+    "uuid": "58798a31-30d0-415d-95f6-c2a648ce6240",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real criminal investigation involving a serial killer's confession to police regarding a 24-year-old missing person case.",
+    "error": null
+  },
+  "79e7f20d-e228-40a8-93bb-0cddbcfbc8be": {
+    "uuid": "79e7f20d-e228-40a8-93bb-0cddbcfbc8be",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on Stevie Nicks' public comments about the TV series 'Daisy Jones & the Six,' including her Instagram post and reactions from cast and production members.",
+    "error": null
+  },
+  "dec0ca8a-9527-42a8-aad8-da11d515cf58": {
+    "uuid": "dec0ca8a-9527-42a8-aad8-da11d515cf58",
+    "is_news": true,
+    "reason": "This is a genuine news article reporting on a real criminal incident involving federal charges against a Virginia man for assaulting congressional staffers, including details about the arrest, charges, and investigation.",
+    "error": null
+  },
+  "b56cd99c-e35a-4151-81b1-b6f7891db91e": {
+    "uuid": "b56cd99c-e35a-4151-81b1-b6f7891db91e",
+    "is_news": true,
+    "reason": "This is a genuine news article reporting on a real criminal case involving arrest, charges, and investigation by law enforcement authorities.",
+    "error": null
+  },
+  "acb545a9-ab07-4811-a76e-c74af0d11dad": {
+    "uuid": "acb545a9-ab07-4811-a76e-c74af0d11dad",
+    "is_news": false,
+    "reason": "This is a recipe post with instructional cooking content, not journalism reporting on real-world events or issues.",
+    "error": null
+  },
+  "1fbb9dcd-e4bd-4f90-bff7-4792c7561a29": {
+    "uuid": "1fbb9dcd-e4bd-4f90-bff7-4792c7561a29",
+    "is_news": true,
+    "reason": "This is genuine news reporting on real-world military events during the Ukraine-Russia conflict, covering Ukraine's counteroffensive operations, official statements from both sides, and expert analysis of the ongoing war.",
+    "error": null
+  },
+  "69c873c7-9368-4a1c-8d36-a490a342c0cc": {
+    "uuid": "69c873c7-9368-4a1c-8d36-a490a342c0cc",
+    "is_news": true,
+    "reason": "This is genuine journalism reporting on real-world political events: Supreme Court oral arguments in Trump's immunity case and Senate passage of Ukraine aid, with analysis from NBC News reporters covering these significant developments.",
+    "error": null
+  },
+  "003d833c-c886-4bc6-bc81-d61e31dcca4c": {
+    "uuid": "003d833c-c886-4bc6-bc81-d61e31dcca4c",
+    "is_news": true,
+    "reason": "This is genuine journalism reporting on the real-world reconstruction of Notre Dame Cathedral's roof following the 2019 fire, covering the deliberate choice to use medieval techniques, the people involved, and the project's progress toward reopening.",
+    "error": null
+  },
+  "07a38abd-729f-4825-8390-088aaf921bc9": {
+    "uuid": "07a38abd-729f-4825-8390-088aaf921bc9",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world diplomatic and legal situation involving the potential prisoner exchange between the US and Russia regarding a jailed American journalist.",
+    "error": null
+  },
+  "d2948c02-6d70-420a-9745-57af3514a6bb": {
+    "uuid": "d2948c02-6d70-420a-9745-57af3514a6bb",
+    "is_news": true,
+    "reason": "This is genuine journalism reporting on a real-world event: the Independent Office for Police Conduct's announcement of investigations into the Metropolitan Police's handling of allegations against serial rapist David Carrick, a significant institutional accountability story.",
+    "error": null
+  },
+  "528dbb29-38f7-4206-a64b-83dcda8324ae": {
+    "uuid": "528dbb29-38f7-4206-a64b-83dcda8324ae",
+    "is_news": true,
+    "reason": "This is a genuine news/journalism piece reporting on OSI Group's leadership transition and its significant role in the food supply chain, with reporting on real business developments and industry figures.",
+    "error": null
+  },
+  "40fac6a9-cc51-438a-b34f-40d2e6af1e36": {
+    "uuid": "40fac6a9-cc51-438a-b34f-40d2e6af1e36",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world geopolitical event: a U.S. military official's public statements about Japan's defense spending increases and regional security concerns involving China and North Korea.",
+    "error": null
+  },
+  "2039f78a-a0b9-4610-884b-f260d0078c7f": {
+    "uuid": "2039f78a-a0b9-4610-884b-f260d0078c7f",
+    "is_news": true,
+    "reason": "This article reports on real-world legal and political events: Special Counsel Jack Smith's Supreme Court filing in Trump's election interference case, legal expert commentary on the prosecutions, and developments in ongoing criminal proceedings with direct relevance to the 2024 election.",
+    "error": null
+  },
+  "101f3e50-4615-49d3-9545-94c265487b57": {
+    "uuid": "101f3e50-4615-49d3-9545-94c265487b57",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a political figure's policy proposal and public statements made during a podcast interview, including factual context and fact-checking about fentanyl trafficking and border security.",
+    "error": null
+  },
+  "788173da-bb42-4f4a-b356-5e62b9fba18c": {
+    "uuid": "788173da-bb42-4f4a-b356-5e62b9fba18c",
+    "is_news": true,
+    "reason": "This is genuine journalism reporting on a real-world policy development—the federal government's proposed rule to reduce silica exposure limits for miners—with historical context, expert commentary, and real-world impacts on workers' health.",
+    "error": null
+  },
+  "a0896430-d525-45c5-9efe-34f62404eba5": {
+    "uuid": "a0896430-d525-45c5-9efe-34f62404eba5",
+    "is_news": true,
+    "reason": "This is a genuine news report covering a real-world tragic event (a fatal dog attack) with reporting from police officials, specific details about the incident, and official statements.",
+    "error": null
+  },
+  "5b022aee-8f56-4b9d-baf8-651f46f37884": {
+    "uuid": "5b022aee-8f56-4b9d-baf8-651f46f37884",
+    "is_news": false,
+    "reason": "This is a lifestyle advice/self-help article providing general tips on workplace productivity during the holiday season, not reporting on any real-world event, policy, or issue.",
+    "error": null
+  },
+  "f361fef5-0401-44f3-8e92-fb99297757b0": {
+    "uuid": "f361fef5-0401-44f3-8e92-fb99297757b0",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world political event—President Biden's decision to cancel part of his Asia trip and skip a Quad summit due to the U.S. debt crisis—with analysis of its diplomatic and geopolitical implications.",
+    "error": null
+  },
+  "5dfdd0af-e86f-4a67-a9b7-833f8a7f1b64": {
+    "uuid": "5dfdd0af-e86f-4a67-a9b7-833f8a7f1b64",
+    "is_news": true,
+    "reason": "This is a legitimate news report covering a real-world event involving a high-ranking government official's health situation and its impact on national security operations and international commitments.",
+    "error": null
+  },
+  "869307cc-569c-4db5-b1f3-5f320f2042f7": {
+    "uuid": "869307cc-569c-4db5-b1f3-5f320f2042f7",
+    "is_news": true,
+    "reason": "This is a year-in-review article reporting on real technological developments and innovations in drone technology that occurred in 2023, with specific examples of actual products, companies, and institutions.",
+    "error": null
+  },
+  "b90110dd-27ec-48c3-ab32-6c61f3fd126e": {
+    "uuid": "b90110dd-27ec-48c3-ab32-6c61f3fd126e",
+    "is_news": true,
+    "reason": "This is genuine journalism reporting on a real-world event—a major NHS junior doctor strike in England—with coverage of the underlying labor dispute, pay negotiations, and its impact on healthcare waiting lists.",
+    "error": null
+  },
+  "957d3083-003a-4d77-91c1-882b8a55d2fa": {
+    "uuid": "957d3083-003a-4d77-91c1-882b8a55d2fa",
+    "is_news": false,
+    "reason": "This is a lifestyle travel listicle featuring personal recommendations and experiences rather than reporting on a real-world event, policy, or issue with editorial framing.",
+    "error": null
+  },
+  "57030bdf-d784-4aad-a8c6-c206577b5334": {
+    "uuid": "57030bdf-d784-4aad-a8c6-c206577b5334",
+    "is_news": false,
+    "reason": "This is promotional/advertorial content written by a Medicare sales industry professional advocating for selling financial products to seniors, not journalism reporting on a real-world event or issue.",
+    "error": null
+  },
+  "6ead63c4-a1d5-48bb-94e0-3793a6139540": {
+    "uuid": "6ead63c4-a1d5-48bb-94e0-3793a6139540",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world political event—the arrest of Pakistan's former prime minister Imran Khan, the subsequent protests, and the government's response—covering developments in an ongoing political and constitutional crisis.",
+    "error": null
+  },
+  "416d83db-b373-462a-8784-82dcfc3f3403": {
+    "uuid": "416d83db-b373-462a-8784-82dcfc3f3403",
+    "is_news": true,
+    "reason": "This is an opinion/analysis piece that frames the real-world Israel-Gaza conflict through philosophical and moral lenses, discussing how concepts of revenge apply to actual geopolitical events and policy decisions.",
+    "error": null
+  },
+  "f81104b8-7d1a-40bd-8c95-367c56ca2acd": {
+    "uuid": "f81104b8-7d1a-40bd-8c95-367c56ca2acd",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on a real product launch by an e-cigarette company timed to King Charles III's coronation, including commentary from the company CEO and discussion of the cultural phenomenon surrounding the king's appearance.",
+    "error": null
+  },
+  "7b3a5281-099f-41bf-b0e0-36097a2a67e3": {
+    "uuid": "7b3a5281-099f-41bf-b0e0-36097a2a67e3",
+    "is_news": true,
+    "reason": "This is an opinion/analysis piece addressing real-world policy issues—labor shortages, workforce development, and community college funding—in response to actual economic conditions and government initiatives.",
+    "error": null
+  },
+  "6ced93e9-c871-49e4-b1dc-8c1e1e54f424": {
+    "uuid": "6ced93e9-c871-49e4-b1dc-8c1e1e54f424",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on a real-world event—a public figure's relocation decision and his statements about it to media outlets, which is a factual news story about a celebrity's life decision and public commentary.",
+    "error": null
+  },
+  "cc81569a-9644-4d7e-b588-61c242e62eb7": {
+    "uuid": "cc81569a-9644-4d7e-b588-61c242e62eb7",
+    "is_news": true,
+    "reason": "This is a genuine news article reporting on a real-world event (Tesla's lithium refinery groundbreaking ceremony in Texas) and the incident involving the Cybertruck prototype getting stuck, with factual details about the event, attendees, and vehicle specifications.",
+    "error": null
+  },
+  "b10f6ef6-1203-42cd-82fb-f6701405b5ec": {
+    "uuid": "b10f6ef6-1203-42cd-82fb-f6701405b5ec",
+    "is_news": true,
+    "reason": "This is a genuine news opinion/analysis piece from The Guardian examining the real-world legal proceedings against Donald Trump, including his criminal indictments and their potential impact on the 2024 election.",
+    "error": null
+  },
+  "3b43c3e5-22bc-4cb4-9dfe-5346b732946a": {
+    "uuid": "3b43c3e5-22bc-4cb4-9dfe-5346b732946a",
+    "is_news": false,
+    "reason": "This is a lifestyle newsletter featuring entertainment content such as gift guides, puzzles, pet product recommendations, and human interest stories with no real editorial framing of substantive real-world issues or events.",
+    "error": null
+  },
+  "3ada1ba4-105f-4031-b163-a1f77ff49889": {
+    "uuid": "3ada1ba4-105f-4031-b163-a1f77ff49889",
+    "is_news": true,
+    "reason": "This article reports on a real-world political and security event—a major military and police operation in El Salvador targeting gang members—with factual details about government actions, policy context, and human rights concerns.",
+    "error": null
+  },
+  "5f68123d-61be-4cdf-ba0a-f2845807dece": {
+    "uuid": "5f68123d-61be-4cdf-ba0a-f2845807dece",
+    "is_news": true,
+    "reason": "This article reports on a real-world event—thousands of marine creatures washing ashore in Argentina following a storm—which is a genuine news occurrence with factual reporting about the species, location, and circumstances.",
+    "error": null
+  },
+  "3e8d2a5c-e1fe-4591-af55-ff82be2e9dbe": {
+    "uuid": "3e8d2a5c-e1fe-4591-af55-ff82be2e9dbe",
+    "is_news": true,
+    "reason": "This is a genuine news article reporting on a real political event—Rep. Alexandria Ocasio-Cortez's endorsement of President Biden's 2024 re-election bid and the subsequent backlash from progressive activists and commentators.",
+    "error": null
+  },
+  "9292ca58-8bb5-464d-a9cb-3c4f00243ea0": {
+    "uuid": "9292ca58-8bb5-464d-a9cb-3c4f00243ea0",
+    "is_news": true,
+    "reason": "This is a genuine news article reporting on a real-world criminal case involving a law enforcement official charged with insurance fraud, including specific details about the alleged crime, investigation, and court proceedings.",
+    "error": null
+  },
+  "68ac4a00-85c3-49e6-a6ce-f5550c456818": {
+    "uuid": "68ac4a00-85c3-49e6-a6ce-f5550c456818",
+    "is_news": true,
+    "reason": "This is a genuine news article reporting on a real-world political event—an FBI Director's testimony before a House Judiciary Committee hearing regarding allegations of political bias in federal investigations.",
+    "error": null
+  },
+  "213562f2-bbe4-4cd6-9211-ccb027e434c2": {
+    "uuid": "213562f2-bbe4-4cd6-9211-ccb027e434c2",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world event — the discovery and confirmation of cocaine in the White House West Wing, including investigation details, official responses, and security implications.",
+    "error": null
+  },
+  "9449d41e-92e6-42b7-ad69-c9c71b7f7208": {
+    "uuid": "9449d41e-92e6-42b7-ad69-c9c71b7f7208",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world event—the death of an inmate under investigation as a homicide—involving government institutions, law enforcement, and the criminal justice system.",
+    "error": null
+  },
+  "98a893fc-3779-423f-912f-772c7149fd00": {
+    "uuid": "98a893fc-3779-423f-912f-772c7149fd00",
+    "is_news": true,
+    "reason": "This article reports on a real-world political event — a protester disrupting a CNN interview with Kerry Kennedy during a Biden endorsement announcement by the Kennedy family, along with RFK Jr.'s response and the broader context of third-party candidate dynamics in the 2024 presidential election.",
+    "error": null
+  },
+  "19a7badb-f8e0-48de-9b24-dac472fbb7fe": {
+    "uuid": "19a7badb-f8e0-48de-9b24-dac472fbb7fe",
+    "is_news": false,
+    "reason": "This is entertainment/lifestyle content about a viral social media video with no real-world event, policy issue, or editorial framing of a genuine news story.",
+    "error": null
+  },
+  "58c63b4a-49ca-4063-90ee-bd3b235d3be6": {
+    "uuid": "58c63b4a-49ca-4063-90ee-bd3b235d3be6",
+    "is_news": true,
+    "reason": "This article reports on a real political candidate's statement about a genuine news event (an earthquake), includes her campaign context, and provides factual counterpoints from NASA, making it legitimate news coverage of a public figure's controversial claim.",
+    "error": null
+  },
+  "6d16960e-9583-4a8c-a6bf-25e264e6f3c3": {
+    "uuid": "6d16960e-9583-4a8c-a6bf-25e264e6f3c3",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world event involving an investigation into alleged misconduct by off-duty military personnel during civil unrest in France, covering official statements, local government responses, and the broader context of national riots.",
+    "error": null
+  },
+  "d8fbf6a3-de3e-444d-a879-026e20637151": {
+    "uuid": "d8fbf6a3-de3e-444d-a879-026e20637151",
+    "is_news": false,
+    "reason": "This is a music album review, which is entertainment content focused on critiquing an artistic product rather than reporting on real-world events or issues.",
+    "error": null
+  },
+  "50c8a9b5-dacb-4543-8864-bef5d1e3227f": {
+    "uuid": "50c8a9b5-dacb-4543-8864-bef5d1e3227f",
+    "is_news": true,
+    "reason": "This article reports on real-world political and cultural developments, specifically congressional hearings on UFOs/UAPs, whistleblower testimony, and the resulting shift in public interest and institutional responses.",
+    "error": null
+  },
+  "69e3eabd-27e8-4838-ab52-a7fea1ad41ed": {
+    "uuid": "69e3eabd-27e8-4838-ab52-a7fea1ad41ed",
+    "is_news": true,
+    "reason": "This is genuine news journalism reporting on real-world events from the October 7, 2023 Hamas attacks on Israel, specifically covering the funeral of a family killed in the attacks and the broader context of casualties and mourning in both Israel and Gaza.",
+    "error": null
+  },
+  "ee880ac5-7536-408c-91ce-283461896dc9": {
+    "uuid": "ee880ac5-7536-408c-91ce-283461896dc9",
+    "is_news": true,
+    "reason": "This is a genuine news article reporting on real-world criminal events involving a shooting incident, police standoff, and criminal charges filed by prosecutors.",
+    "error": null
+  },
+  "0fca5cd6-6e12-4437-9bf9-6234df5bc41b": {
+    "uuid": "0fca5cd6-6e12-4437-9bf9-6234df5bc41b",
+    "is_news": true,
+    "reason": "This is a genuine news report covering a real-world incident involving a shooting at a university, police response, arrest, and injury — a public safety event of editorial significance.",
+    "error": null
+  },
+  "d3c92f2f-2405-4d64-8cc9-f7c67c5a3c7c": {
+    "uuid": "d3c92f2f-2405-4d64-8cc9-f7c67c5a3c7c",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real criminal case involving a Pentagon intelligence leak, covering court proceedings, prosecutorial filings, and national security implications.",
+    "error": null
+  },
+  "3ca87376-2310-49cd-9324-5f309a0cfa34": {
+    "uuid": "3ca87376-2310-49cd-9324-5f309a0cfa34",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on a peer-reviewed scientific study from Tulane University examining the health impacts of loneliness on diabetic patients, including direct quotes from the lead researcher.",
+    "error": null
+  },
+  "93383a62-765f-429d-a440-0029209ba9f6": {
+    "uuid": "93383a62-765f-429d-a440-0029209ba9f6",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world event involving a death in custody, legal settlement, and ongoing investigation into jail conditions by the Department of Justice.",
+    "error": null
+  },
+  "0fbdd4c4-289f-43e9-a06f-1de47b895cf6": {
+    "uuid": "0fbdd4c4-289f-43e9-a06f-1de47b895cf6",
+    "is_news": false,
+    "reason": "This is a real estate listing announcement about a celebrity property sale, which is entertainment/lifestyle content rather than journalism reporting on a real-world event, policy issue, or matter of public concern.",
+    "error": null
+  },
+  "22f688fc-21cc-4408-8256-2eb39e68ed73": {
+    "uuid": "22f688fc-21cc-4408-8256-2eb39e68ed73",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world crime event—a mass shooting during Halloween celebrations in Tampa, Florida—with details about casualties, police investigation, and official statements from authorities.",
+    "error": null
+  },
+  "167c7508-e082-4b92-a5cb-7fd7e91732a9": {
+    "uuid": "167c7508-e082-4b92-a5cb-7fd7e91732a9",
+    "is_news": true,
+    "reason": "This article reports on a real-world crime event (a burglary) involving a public figure, covering details about the incident, law enforcement involvement, and a broader trend of similar crimes in Los Angeles.",
+    "error": null
+  },
+  "67208fb2-6023-42df-9468-a8ade4d5fdac": {
+    "uuid": "67208fb2-6023-42df-9468-a8ade4d5fdac",
+    "is_news": true,
+    "reason": "This article reports on a real-world industry analysis and economic data about cannabis revenue projections across U.S. states, which constitutes legitimate business/economic news coverage.",
+    "error": null
+  },
+  "f9e2b13d-dccb-470e-82a9-47c9cdf9b2e3": {
+    "uuid": "f9e2b13d-dccb-470e-82a9-47c9cdf9b2e3",
+    "is_news": false,
+    "reason": "This is an entertainment listicle about reality TV show contestants and drama, not reporting on real-world events or issues with editorial framing.",
+    "error": null
+  },
+  "9102bca6-3021-4e5e-856b-e62da027fe99": {
+    "uuid": "9102bca6-3021-4e5e-856b-e62da027fe99",
+    "is_news": true,
+    "reason": "This article reports on a real political event—Marjorie Taylor Greene's removal from the Freedom Caucus—with direct quotes from politicians and coverage of the controversy surrounding it.",
+    "error": null
+  },
+  "d206c171-494a-4b23-9b1e-52c3271647ce": {
+    "uuid": "d206c171-494a-4b23-9b1e-52c3271647ce",
+    "is_news": true,
+    "reason": "This is genuine journalism reporting on an ongoing criminal trial and real-world legal proceedings against Kevin Spacey, covering court testimony, charges, and the broader context of sexual assault allegations against a public figure.",
+    "error": null
+  },
+  "fdddfcbc-8de3-44f6-81a4-24644a3651dc": {
+    "uuid": "fdddfcbc-8de3-44f6-81a4-24644a3651dc",
+    "is_news": false,
+    "reason": "This is a lifestyle/business advice article using gardening as a metaphor for corporate leadership, not reporting on real-world events or issues.",
+    "error": null
+  },
+  "c8e1c991-0b4e-46c7-94bb-9f191129e92c": {
+    "uuid": "c8e1c991-0b4e-46c7-94bb-9f191129e92c",
+    "is_news": true,
+    "reason": "This is genuine political journalism reporting on President Biden's statements about the debt ceiling and the contrast with his previous campaign messaging about presidential accountability.",
+    "error": null
+  },
+  "1a117015-360c-4887-8f1c-4c1dcc3656b6": {
+    "uuid": "1a117015-360c-4887-8f1c-4c1dcc3656b6",
+    "is_news": true,
+    "reason": "This is genuine music industry journalism reporting on a real-world chart performance event—Taylor Swift's song reaching No. 1 on Billboard's Adult Contemporary chart—with factual data about rankings and comparisons.",
+    "error": null
+  },
+  "64d53e22-c2e6-4ba5-84af-01de68a093ce": {
+    "uuid": "64d53e22-c2e6-4ba5-84af-01de68a093ce",
+    "is_news": true,
+    "reason": "This is a news digest/roundup that frames and analyzes real-world events including Supreme Court ethics reform, Trump's legal charges, Europe's heat wave, and political responses to cultural moments.",
+    "error": null
+  },
+  "b26a2f85-c7fe-43cf-b0c2-63b9d9a9ee7b": {
+    "uuid": "b26a2f85-c7fe-43cf-b0c2-63b9d9a9ee7b",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world planning/legal dispute involving a public figure's family, covering enforcement notices, planning permissions, and appeals to local authorities.",
+    "error": null
+  },
+  "8b51c77a-c8a4-4252-89db-6e8f455272a4": {
+    "uuid": "8b51c77a-c8a4-4252-89db-6e8f455272a4",
+    "is_news": true,
+    "reason": "This is an opinion/analysis piece about a real Supreme Court decision on affirmative action in college admissions, which is a genuine news event with significant policy implications.",
+    "error": null
+  },
+  "4b6df803-7568-4480-9608-b5974d65e36f": {
+    "uuid": "4b6df803-7568-4480-9608-b5974d65e36f",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world legal proceeding—a criminal trial involving former President Trump—covering expected witness testimony and the charges involved.",
+    "error": null
+  },
+  "be4dcac3-80da-4c6c-acb4-482102ccf4c1": {
+    "uuid": "be4dcac3-80da-4c6c-acb4-482102ccf4c1",
+    "is_news": false,
+    "reason": "This is a product review of a portable back massager with no real-world event, policy issue, or editorial framing of a genuine news topic.",
+    "error": null
+  },
+  "5b15e595-2108-4a3d-8ef0-55720bb6cbf2": {
+    "uuid": "5b15e595-2108-4a3d-8ef0-55720bb6cbf2",
+    "is_news": false,
+    "reason": "This is a luxury real estate listing article focused on marketing a specific property for sale, not reporting on a real-world event or issue of public interest.",
+    "error": null
+  },
+  "48bf4882-8c99-412c-a1ee-db60aacc0041": {
+    "uuid": "48bf4882-8c99-412c-a1ee-db60aacc0041",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world criminal justice development: the identification of a serial killer victim after nearly three decades using forensic genealogy, involving actual law enforcement agencies, named officials, and documented investigative procedures.",
+    "error": null
+  },
+  "b76092c9-d611-4b56-a2da-85e899560923": {
+    "uuid": "b76092c9-d611-4b56-a2da-85e899560923",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on a real-world court ruling regarding voting rights policy in Mississippi, including the legal arguments, implications, and political response.",
+    "error": null
+  },
+  "60a2d48e-da77-4a2b-becf-247cfa3574e0": {
+    "uuid": "60a2d48e-da77-4a2b-becf-247cfa3574e0",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on findings from a national NBC News poll about voter priorities and single-issue voting behavior in a political context.",
+    "error": null
+  },
+  "db64fbcb-8bfb-4850-a453-1c0dd1506b62": {
+    "uuid": "db64fbcb-8bfb-4850-a453-1c0dd1506b62",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real legal proceeding involving a sitting U.S. Representative's criminal case and bail modification request.",
+    "error": null
+  },
+  "d98a5644-1dc9-417f-92e5-0bc1f58d9fc4": {
+    "uuid": "d98a5644-1dc9-417f-92e5-0bc1f58d9fc4",
+    "is_news": true,
+    "reason": "This is genuine journalism reporting on a real-world economic issue affecting the Maine lobster fishing industry, with specific details about inflation, regulatory impacts, and interviews with industry stakeholders.",
+    "error": null
+  },
+  "f8de8c84-8490-4076-80f1-552ae684dfe7": {
+    "uuid": "f8de8c84-8490-4076-80f1-552ae684dfe7",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world legal decision involving environmental policy, court proceedings, and business operations in North Carolina.",
+    "error": null
+  },
+  "16c7ca85-659b-4f4c-b10e-1a5a6e62a5c6": {
+    "uuid": "16c7ca85-659b-4f4c-b10e-1a5a6e62a5c6",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on Sharon Stone's public statements about a real medical event (her 2001 stroke and brain hemorrhage) and its documented impact on her life and career, based on interviews with established publications.",
+    "error": null
+  },
+  "8f9b4b88-2f18-41cb-a462-add271bf394b": {
+    "uuid": "8f9b4b88-2f18-41cb-a462-add271bf394b",
+    "is_news": true,
+    "reason": "This is a genuine news article reporting on a real-world tragic event—a fatal fireworks accident on Fourth of July—with specific details about the incident, location, victim, and official investigation.",
+    "error": null
+  },
+  "41df0bbf-27dc-453d-811b-a964c02d8030": {
+    "uuid": "41df0bbf-27dc-453d-811b-a964c02d8030",
+    "is_news": true,
+    "reason": "This is a political analysis/opinion piece responding to real-world events—Senator Manchin's recent comments about Congress and the actual legislative dysfunction of the 118th Congress—which constitutes genuine journalism framing of a real political issue.",
+    "error": null
+  },
+  "25f71c99-0926-4ec5-b86e-e5dff0ad9da8": {
+    "uuid": "25f71c99-0926-4ec5-b86e-e5dff0ad9da8",
+    "is_news": false,
+    "reason": "This is entertainment industry reporting focused on box office performance metrics and commercial success rather than framing a real-world issue or event of public significance.",
+    "error": null
+  },
+  "24bdfeba-7883-4ae5-8424-5bf98d83cd0b": {
+    "uuid": "24bdfeba-7883-4ae5-8424-5bf98d83cd0b",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world criminal incident involving animal cruelty charges, police investigation, court proceedings, and a specific identified suspect.",
+    "error": null
+  },
+  "caab6d01-9b03-44fe-a7db-0d6ae9bdc933": {
+    "uuid": "caab6d01-9b03-44fe-a7db-0d6ae9bdc933",
+    "is_news": true,
+    "reason": "This article reports on real-world economic commentary and data from political and business figures discussing actual economic indicators (retail sales, inflation, interest rates, gas prices) and policy debates, which constitutes genuine news coverage of economic and political issues.",
+    "error": null
+  },
+  "53cf844e-51d6-4117-94d3-f6edae5b25fb": {
+    "uuid": "53cf844e-51d6-4117-94d3-f6edae5b25fb",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world political event involving Oregon state government, election law enforcement, and a dispute over legislative consequences.",
+    "error": null
+  },
+  "0dbd9e1a-4db7-496d-8b3f-d37aaac52321": {
+    "uuid": "0dbd9e1a-4db7-496d-8b3f-d37aaac52321",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world legal event—a judge's ruling and sanctions against Donald Trump in an ongoing civil fraud trial, which is a significant court proceeding with public interest.",
+    "error": null
+  },
+  "e09707a0-3128-45bd-b521-b3c7ab9e22cf": {
+    "uuid": "e09707a0-3128-45bd-b521-b3c7ab9e22cf",
+    "is_news": true,
+    "reason": "This is genuine news reporting on real-world legal and political events, specifically Trump's ongoing civil litigation related to January 6 and his legal strategy to delay cases.",
+    "error": null
+  },
+  "54ad656f-d879-44d5-9152-e9b153b9dda8": {
+    "uuid": "54ad656f-d879-44d5-9152-e9b153b9dda8",
+    "is_news": true,
+    "reason": "This article reports on a real-world policy event—the Biden administration's regulatory actions in early 2024—with factual claims about costs and comparisons to previous administrations, making it genuine news coverage of government policy.",
+    "error": null
+  },
+  "6a1eef0a-ef75-48ec-8456-c05dc40843f1": {
+    "uuid": "6a1eef0a-ef75-48ec-8456-c05dc40843f1",
+    "is_news": false,
+    "reason": "This is a lifestyle/entertainment guide providing stargazing tips and celestial event predictions rather than reporting on real-world events or issues.",
+    "error": null
+  },
+  "8367e90f-6b66-403b-9ef1-3a5747787b8c": {
+    "uuid": "8367e90f-6b66-403b-9ef1-3a5747787b8c",
+    "is_news": true,
+    "reason": "This is genuine journalism reporting on a real-world political event—House Speaker Mike Johnson's visit to Columbia University to address campus antisemitism concerns amid ongoing Gaza solidarity protests—with factual reporting on statements, reactions, and the broader context of campus activism.",
+    "error": null
+  },
+  "f428df17-18c5-4695-92ef-e0fdb09f9cd4": {
+    "uuid": "f428df17-18c5-4695-92ef-e0fdb09f9cd4",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world business/policy controversy, specifically covering a peer-reviewed study's critique of McKinsey's DEI research methodology and findings, which is a substantive editorial framing of an actual event with public interest implications.",
+    "error": null
+  },
+  "76d8d994-449c-4643-9ea2-923f513b8156": {
+    "uuid": "76d8d994-449c-4643-9ea2-923f513b8156",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a significant court ruling involving government regulation, free speech, and social media policy with real-world legal and political implications.",
+    "error": null
+  },
+  "9fe3ae0c-7196-4096-bb0e-a14060dafbb3": {
+    "uuid": "9fe3ae0c-7196-4096-bb0e-a14060dafbb3",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world event involving a permit violation investigation by San Francisco city officials regarding the installation of an 'X' logo on a building, with factual details about the incident and regulatory context.",
+    "error": null
+  },
+  "d002d31c-094d-404c-9c59-8398059d1742": {
+    "uuid": "d002d31c-094d-404c-9c59-8398059d1742",
+    "is_news": false,
+    "reason": "This is a lifestyle product recommendation listicle featuring influencer shopping picks, not journalism reporting on real-world events or issues.",
+    "error": null
+  },
+  "62e155e4-a406-4791-8b74-a383d028062f": {
+    "uuid": "62e155e4-a406-4791-8b74-a383d028062f",
+    "is_news": true,
+    "reason": "This is a legitimate news/journalism article providing educational reporting on a real-world religious observance (Eid al-Fitr) with a specific 2024 date, written by an academic expert, explaining cultural practices and their significance.",
+    "error": null
+  },
+  "8e25c83e-1e44-4c89-af6d-1fde179826ef": {
+    "uuid": "8e25c83e-1e44-4c89-af6d-1fde179826ef",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world event (the coronation) covering police security operations, protest rights, and the application of new public order legislation.",
+    "error": null
+  },
+  "9055e88e-cb98-415f-b97d-70dee89da701": {
+    "uuid": "9055e88e-cb98-415f-b97d-70dee89da701",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world event—King Charles III's coronation concert—covering celebrity appearances, royal family interactions, and the ceremonial proceedings that occurred in May 2023.",
+    "error": null
+  },
+  "b293d82f-8690-40e3-b5af-57dae54f62a2": {
+    "uuid": "b293d82f-8690-40e3-b5af-57dae54f62a2",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a cultural policy event—the Library of Congress's selection of recordings for the National Recording Registry, which is a real institutional decision with cultural significance.",
+    "error": null
+  },
+  "f6083f22-a167-4126-90a1-5f50782175ab": {
+    "uuid": "f6083f22-a167-4126-90a1-5f50782175ab",
+    "is_news": true,
+    "reason": "This article reports on real-world political developments regarding Hungary's blocking of EU military aid to Ukraine and diplomatic negotiations between the two countries.",
+    "error": null
+  },
+  "32bebaac-7361-4c28-a25d-6c5295986cae": {
+    "uuid": "32bebaac-7361-4c28-a25d-6c5295986cae",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world diplomatic incident involving allegations of weapons transfers, international relations, and geopolitical consequences with official statements from U.S. and South African government officials.",
+    "error": null
+  },
+  "3006f7a4-7e2f-4dd6-9c93-dc30859f64b8": {
+    "uuid": "3006f7a4-7e2f-4dd6-9c93-dc30859f64b8",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world regulatory event (FDA clearance of a medical device) with business, healthcare policy, and scientific implications.",
+    "error": null
+  },
+  "782a728d-81e8-4816-81fc-0a7ec4173d15": {
+    "uuid": "782a728d-81e8-4816-81fc-0a7ec4173d15",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on Germany's economic stagnation, analyzing real-world economic data, policy challenges, and expert commentary on a significant business/economic issue.",
+    "error": null
+  },
+  "b60589ee-a678-459e-a811-712c61ce6eca": {
+    "uuid": "b60589ee-a678-459e-a811-712c61ce6eca",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world incident involving police conduct, a disabled Indigenous teenager's arrest, and calls for parliamentary inquiry into police use of force.",
+    "error": null
+  },
+  "270f444d-d5af-4886-bb40-22c1f7aea5d4": {
+    "uuid": "270f444d-d5af-4886-bb40-22c1f7aea5d4",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world public health crisis in Brazil, covering the dengue outbreak, government response measures, vaccination campaign, and the timing conflict with Carnival celebrations.",
+    "error": null
+  },
+  "ccee235e-e0e5-4e4c-a6ed-12917bd63012": {
+    "uuid": "ccee235e-e0e5-4e4c-a6ed-12917bd63012",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on a real-world event—a labor rally during the 2023 Hollywood strikes—with factual reporting on statements from celebrities, union leaders, and the context of ongoing labor negotiations.",
+    "error": null
+  },
+  "1a5447ef-0614-4556-b534-f200a88264e9": {
+    "uuid": "1a5447ef-0614-4556-b534-f200a88264e9",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world event involving a public figure facing serious allegations, resulting in concrete consequences from a major platform.",
+    "error": null
+  },
+  "5bd1e2ac-3ce8-4647-be84-b027e988651c": {
+    "uuid": "5bd1e2ac-3ce8-4647-be84-b027e988651c",
+    "is_news": true,
+    "reason": "This is a fact-check article examining claims about a real-world event (the death of a public figure) and evaluating the verifiability of reported causes, which constitutes genuine journalism addressing a real-world issue.",
+    "error": null
+  },
+  "1205263f-a365-417a-9c55-b905f44bbb2d": {
+    "uuid": "1205263f-a365-417a-9c55-b905f44bbb2d",
+    "is_news": false,
+    "reason": "This is entertainment/lifestyle content reporting on a viral TikTok anecdote about a personal dating mishap, not journalism covering a real-world event, policy issue, or matter of public concern.",
+    "error": null
+  },
+  "7b4b32a6-67c5-4d35-bf57-b00769b5847b": {
+    "uuid": "7b4b32a6-67c5-4d35-bf57-b00769b5847b",
+    "is_news": true,
+    "reason": "This is a genuine news article reporting on a real-world incident involving the deaths of two Americans in Mexico, including identification of victims, investigation details, and official statements from authorities.",
+    "error": null
+  },
+  "031e40d7-21b4-48ff-8f54-d564771d54b1": {
+    "uuid": "031e40d7-21b4-48ff-8f54-d564771d54b1",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world medical development—the FDA approval and clinical implementation of a new burn treatment medication—with quotes from medical professionals and specific details about its impact on patient care.",
+    "error": null
+  },
+  "3cc650e0-b776-4e49-9fa6-540b297b3f2f": {
+    "uuid": "3cc650e0-b776-4e49-9fa6-540b297b3f2f",
+    "is_news": true,
+    "reason": "This is a genuine news report covering a real-world incident of animal cruelty, law enforcement intervention, and a rescue organization's response to help the affected animal.",
+    "error": null
+  },
+  "918d9561-8f39-4f56-83c6-a251f6c73d70": {
+    "uuid": "918d9561-8f39-4f56-83c6-a251f6c73d70",
+    "is_news": true,
+    "reason": "This is an opinion/analysis piece about real-world economic policy and its effects, addressing genuine issues like inflation, household income, and energy policy under the Biden administration.",
+    "error": null
+  },
+  "16de2459-ff02-4012-8ebd-2ffa437d269b": {
+    "uuid": "16de2459-ff02-4012-8ebd-2ffa437d269b",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world political event in Turkey—an opposition rally that was disrupted by violence during the 2023 presidential election campaign, with official government responses and detentions.",
+    "error": null
+  },
+  "1d7745e3-087c-4ab0-8387-7aa793cea4e0": {
+    "uuid": "1d7745e3-087c-4ab0-8387-7aa793cea4e0",
+    "is_news": false,
+    "reason": "This is a lifestyle listicle providing baby naming suggestions with no real-world event, policy issue, or editorial framing of an actual news story.",
+    "error": null
+  },
+  "44b3187a-17ef-43bf-8ecc-478bee37e990": {
+    "uuid": "44b3187a-17ef-43bf-8ecc-478bee37e990",
+    "is_news": false,
+    "reason": "This is a film review of a fictional movie ('Tiger Stripes'), which is entertainment/arts criticism rather than reporting on real-world events or issues.",
+    "error": null
+  },
+  "8e02ff70-7a16-4568-bbf3-5103edf082e2": {
+    "uuid": "8e02ff70-7a16-4568-bbf3-5103edf082e2",
+    "is_news": true,
+    "reason": "This is an opinion/analysis piece about real-world events — the UAW strike against the Big Three automakers and the author's firsthand account of walking picket lines — which constitutes legitimate news journalism framing of an ongoing labor dispute.",
+    "error": null
+  },
+  "965533c7-fcd7-4d5e-9a7b-a57ac4c28922": {
+    "uuid": "965533c7-fcd7-4d5e-9a7b-a57ac4c28922",
+    "is_news": true,
+    "reason": "This is an opinion/analysis piece about real-world policy events (Florida's DEI legislation passed by Governor DeSantis) and the broader political controversy surrounding DEI initiatives, which constitutes genuine editorial framing of a real-world issue.",
+    "error": null
+  },
+  "2d65d08d-2128-44a1-8398-d6723d8ca144": {
+    "uuid": "2d65d08d-2128-44a1-8398-d6723d8ca144",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world political event—a rally following Trump's indictment related to January 6—with on-the-ground reporting of voter reactions and political sentiment.",
+    "error": null
+  },
+  "f6b34443-1f68-4b38-97eb-7058bdaf76ea": {
+    "uuid": "f6b34443-1f68-4b38-97eb-7058bdaf76ea",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world geopolitical incident involving US-Philippines-China relations, military actions in the South China Sea, and official government statements and diplomatic responses.",
+    "error": null
+  },
+  "724c6700-f378-45e5-8d3b-66cbe00c459b": {
+    "uuid": "724c6700-f378-45e5-8d3b-66cbe00c459b",
+    "is_news": true,
+    "reason": "This is genuine journalism reporting on a peer-reviewed scientific study about voice assistants' performance in emergency medical situations, with real-world implications for public health and technology policy.",
+    "error": null
+  },
+  "9f4a2c4d-c2ac-4660-a674-3ef40ed42a35": {
+    "uuid": "9f4a2c4d-c2ac-4660-a674-3ef40ed42a35",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world public safety issue involving multiple deaths of US citizens abroad and an official government warning, with specific details about dates, locations, and named individuals.",
+    "error": null
+  },
+  "259dfdfe-b060-481d-a9c1-9a85a6d13114": {
+    "uuid": "259dfdfe-b060-481d-a9c1-9a85a6d13114",
+    "is_news": true,
+    "reason": "This is genuine journalism reporting on real-world economic data about Australian meat pie consumption trends, featuring analysis from economists and industry sources responding to recent news coverage about declining pie sales.",
+    "error": null
+  },
+  "95d7768c-a7f0-4e91-8a2e-20c38f9fa94c": {
+    "uuid": "95d7768c-a7f0-4e91-8a2e-20c38f9fa94c",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world crime event—the escape of a convicted murderer from a Pennsylvania prison and the subsequent manhunt, including surveillance footage, law enforcement response, and public safety warnings.",
+    "error": null
+  },
+  "0f7957b7-6731-4406-b6d0-d51182839fea": {
+    "uuid": "0f7957b7-6731-4406-b6d0-d51182839fea",
+    "is_news": true,
+    "reason": "This is genuine business/economics journalism reporting on real-world trends in beef pricing, consumer demand, and market conditions with data from industry sources and experts.",
+    "error": null
+  },
+  "82c5243b-5206-42f4-847b-9ed3a213f9d1": {
+    "uuid": "82c5243b-5206-42f4-847b-9ed3a213f9d1",
+    "is_news": true,
+    "reason": "This article reports on a genuine clinical trial published in JAMA regarding bempedoic acid as a statin alternative, which is a real-world medical research finding with public health implications.",
+    "error": null
+  },
+  "4fe0f506-e50d-4a65-90a6-edf897c4c8b0": {
+    "uuid": "4fe0f506-e50d-4a65-90a6-edf897c4c8b0",
+    "is_news": true,
+    "reason": "This is genuine political journalism reporting on a real-world event—Congress's passage of a stopgap spending bill to prevent a government shutdown, including voting results, political context, and statements from key lawmakers.",
+    "error": null
+  },
+  "01525fd5-d595-4ac0-8d4f-7047334c106f": {
+    "uuid": "01525fd5-d595-4ac0-8d4f-7047334c106f",
+    "is_news": true,
+    "reason": "This article reports on genuine political events and intra-party conflict within Congress, specifically documenting a real dispute between Republican lawmakers over House Speaker elections and their public communications.",
+    "error": null
+  },
+  "27364c37-bf97-4038-a98d-2719ba576c25": {
+    "uuid": "27364c37-bf97-4038-a98d-2719ba576c25",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real court proceeding involving the Joran van der Sloot case, a high-profile criminal matter with documented legal developments, judicial rulings, and statements from involved parties.",
+    "error": null
+  },
+  "af34032a-3c18-4b9a-b953-c5d82ea6d1fd": {
+    "uuid": "af34032a-3c18-4b9a-b953-c5d82ea6d1fd",
+    "is_news": false,
+    "reason": "This is a product advertisement and promotional deal announcement for a stock screener app, not journalism reporting on real-world events or issues.",
+    "error": null
+  },
+  "08329fbd-3084-4503-9a1b-77f7474d23a7": {
+    "uuid": "08329fbd-3084-4503-9a1b-77f7474d23a7",
+    "is_news": false,
+    "reason": "This is a travel lifestyle guide/listicle about airline stopover programs with no real-world event, policy change, or editorial framing of a current issue to analyze.",
+    "error": null
+  },
+  "dadeccc0-2021-45c6-8d15-37f6c0979bf2": {
+    "uuid": "dadeccc0-2021-45c6-8d15-37f6c0979bf2",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world event—mass looting in Philadelphia following a controversial police shooting case—featuring an interview with an affected business owner discussing the incident and its impact.",
+    "error": null
+  },
+  "edad8e09-2f2b-4f1d-bd76-cc66275c929f": {
+    "uuid": "edad8e09-2f2b-4f1d-bd76-cc66275c929f",
+    "is_news": true,
+    "reason": "This is a genuine news article reporting on a real-world law enforcement operation targeting human trafficking across multiple countries, with specific details about arrests, investigations, and criminal allegations.",
+    "error": null
+  },
+  "a1cea610-4945-402c-a565-dfaa9bdf2111": {
+    "uuid": "a1cea610-4945-402c-a565-dfaa9bdf2111",
+    "is_news": true,
+    "reason": "This is an opinion/analysis piece about real-world events—specifically documented government spending decisions and audits related to COVID-19 contracts in New York—that frames these events through a critical political lens.",
+    "error": null
+  },
+  "a94e5533-0a5f-4475-82f1-834de20c0fb8": {
+    "uuid": "a94e5533-0a5f-4475-82f1-834de20c0fb8",
+    "is_news": true,
+    "reason": "This article reports on a real-world business event—a significant corporate leadership transition involving a major executive departing from a Fortune 500 company's board of directors.",
+    "error": null
+  },
+  "179e854a-305d-4e46-8c10-4d703c9679c8": {
+    "uuid": "179e854a-305d-4e46-8c10-4d703c9679c8",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world political event: Alabama Republicans' response to a Supreme Court ruling on congressional redistricting and voting rights, covering the policy decision, legal context, and reactions from multiple stakeholders.",
+    "error": null
+  },
+  "d4fbf74a-3f4e-45d2-8840-e7975c83fa8c": {
+    "uuid": "d4fbf74a-3f4e-45d2-8840-e7975c83fa8c",
+    "is_news": true,
+    "reason": "This is a genuine news article reporting on a real-world tragic event (a fatal shark attack) with factual details, expert commentary, and context about related incidents.",
+    "error": null
+  },
+  "24b6b2c4-72cd-45d8-945d-0bf640b7046c": {
+    "uuid": "24b6b2c4-72cd-45d8-945d-0bf640b7046c",
+    "is_news": false,
+    "reason": "This is an opinion/thought leadership piece by a marketing executive about AI trends in fintech, not reporting on a real-world event, policy change, or newsworthy development.",
+    "error": null
+  },
+  "b94b0805-cf9a-4f32-a051-e905877a499c": {
+    "uuid": "b94b0805-cf9a-4f32-a051-e905877a499c",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on statements Emma Watson made in a Financial Times interview about her personal views on alcohol, her family's vineyard business, her brother's gin venture, and her decision to step back from acting.",
+    "error": null
+  },
+  "9d02e52f-a991-4700-8be0-5a7842f4afdf": {
+    "uuid": "9d02e52f-a991-4700-8be0-5a7842f4afdf",
+    "is_news": true,
+    "reason": "This is a legitimate news analysis piece examining a real political controversy involving a House Republican's investigation claims about President Biden, the credibility of whistleblower allegations, and the lack of supporting evidence presented so far.",
+    "error": null
+  },
+  "0c0ce059-6e29-40ea-9499-5e84bc61374a": {
+    "uuid": "0c0ce059-6e29-40ea-9499-5e84bc61374a",
+    "is_news": false,
+    "reason": "This is a music album review focused on evaluating an artistic work's qualities and performance, not reporting on real-world events or issues.",
+    "error": null
+  },
+  "778a34d8-18cb-4022-8d0f-5b9b80ac16b3": {
+    "uuid": "778a34d8-18cb-4022-8d0f-5b9b80ac16b3",
+    "is_news": true,
+    "reason": "This article reports on a real-world criminal case and the political response to it, covering a murder investigation, immigration policy implications, and official government statements from senators.",
+    "error": null
+  },
+  "c4ac9f79-a18a-4837-b47e-15ddea3ff2cc": {
+    "uuid": "c4ac9f79-a18a-4837-b47e-15ddea3ff2cc",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world legal proceeding—the Trump civil fraud trial in New York—covering the judge's conduct, court rulings, and political reactions to a significant ongoing case.",
+    "error": null
+  },
+  "6225934a-cc45-444e-8c70-2ff22ec5e211": {
+    "uuid": "6225934a-cc45-444e-8c70-2ff22ec5e211",
+    "is_news": false,
+    "reason": "This is a lifestyle/entertainment piece about pet naming trends with no real-world event or issue being reported; it's essentially a novelty story based on celebrity gossip and a pet insurance company's marketing data.",
+    "error": null
+  },
+  "7713b8c3-59bd-4c60-8b11-dbc6e67d7715": {
+    "uuid": "7713b8c3-59bd-4c60-8b11-dbc6e67d7715",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world weather event (El Niño-driven cold snap in Tonga) with its impacts on local businesses, residents, and meteorological records.",
+    "error": null
+  },
+  "8ce071dc-e7ba-48b7-9d5f-f910a8bd60ae": {
+    "uuid": "8ce071dc-e7ba-48b7-9d5f-f910a8bd60ae",
+    "is_news": false,
+    "reason": "This is a sponsored opinion/advertorial piece promoting GoDaddy's domain registration services rather than reporting on a real-world news event or issue.",
+    "error": null
+  },
+  "e027e904-8f3c-4e70-b217-c61b7030b2e6": {
+    "uuid": "e027e904-8f3c-4e70-b217-c61b7030b2e6",
+    "is_news": false,
+    "reason": "This is entertainment celebrity gossip coverage focused on actors' personal relationship details rather than reporting on a real-world event, policy issue, or matter of public significance.",
+    "error": null
+  },
+  "e1d00c9b-e1ef-4370-adca-368a087e2ace": {
+    "uuid": "e1d00c9b-e1ef-4370-adca-368a087e2ace",
+    "is_news": true,
+    "reason": "This article reports on real-world events including a celebrity telethon fundraiser for LGBTQ charities, public statements by actors about anti-LGBTQ legislation, and coverage of a contemporary policy issue affecting the LGBTQ community.",
+    "error": null
+  },
+  "3accdb48-4d5d-4d81-9495-1e48f75ca834": {
+    "uuid": "3accdb48-4d5d-4d81-9495-1e48f75ca834",
+    "is_news": true,
+    "reason": "This article reports on a real-world event—Fitch's downgrade of the U.S. credit rating—and covers the Biden administration's response and Treasury Secretary's statement, which are genuine news developments with policy and economic implications.",
+    "error": null
+  },
+  "7ccb2043-fa44-48e4-893b-81a8469047e0": {
+    "uuid": "7ccb2043-fa44-48e4-893b-81a8469047e0",
+    "is_news": true,
+    "reason": "This is a genuine news article reporting on real-world events involving border security apprehensions, government agency statements, and national security policy matters.",
+    "error": null
+  },
+  "9375c784-7f8d-45b0-9a0a-c3056a988086": {
+    "uuid": "9375c784-7f8d-45b0-9a0a-c3056a988086",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world disaster event—a deadly apartment building fire in Hanoi, Vietnam—with factual details about casualties, causes, witness accounts, and official responses.",
+    "error": null
+  },
+  "047b209d-4c83-4e6e-93fd-63b6de0f3856": {
+    "uuid": "047b209d-4c83-4e6e-93fd-63b6de0f3856",
+    "is_news": false,
+    "reason": "This is a music album review and promotional piece about CeCe Winans' new album, focusing on entertainment product coverage rather than reporting on real-world events, issues, or controversies.",
+    "error": null
+  },
+  "9be5253a-fae1-4dad-983a-f4599599a45e": {
+    "uuid": "9be5253a-fae1-4dad-983a-f4599599a45e",
+    "is_news": true,
+    "reason": "This is opinion/analysis commentary on real-world events (Hunter Biden legal proceedings, IRS investigation, federal charges) that constitute genuine news, even though the piece presents a particular political perspective rather than neutral reporting.",
+    "error": null
+  },
+  "b0aae63a-3f2d-44e5-9895-2beb93997e57": {
+    "uuid": "b0aae63a-3f2d-44e5-9895-2beb93997e57",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world tragedy—a military aircraft crash with fatalities during joint exercises in Australia, including identification of victims and official statements from military and government officials.",
+    "error": null
+  },
+  "6b78fb39-ec63-40e7-a1ac-cf66f15a0903": {
+    "uuid": "6b78fb39-ec63-40e7-a1ac-cf66f15a0903",
+    "is_news": true,
+    "reason": "This is a genuine news article reporting on a real-world aviation incident involving an emergency landing caused by severe weather, with specific details about the flight, damage, passengers, and airline response.",
+    "error": null
+  },
+  "a9ec28cd-86c7-4094-b3b4-15edd32de85d": {
+    "uuid": "a9ec28cd-86c7-4094-b3b4-15edd32de85d",
+    "is_news": false,
+    "reason": "This is entertainment industry speculation and analysis about Grammy Award predictions for a music soundtrack, lacking reporting on real-world events, policy, or substantive issues beyond promotional music industry commentary.",
+    "error": null
+  },
+  "c3229154-664c-44a2-ad32-70cd149e3eaa": {
+    "uuid": "c3229154-664c-44a2-ad32-70cd149e3eaa",
+    "is_news": true,
+    "reason": "This is genuine political journalism reporting on a real-world event—Arizona's Supreme Court decision upholding a Civil War-era abortion ban—and analyzing the apparent contradiction between Kari Lake's current opposition to the law and her previous public support for it.",
+    "error": null
+  },
+  "fa60d32e-55d9-4b17-866f-1b3bda4c2f07": {
+    "uuid": "fa60d32e-55d9-4b17-866f-1b3bda4c2f07",
+    "is_news": true,
+    "reason": "This article reports on a genuine scientific study examining the correlation between vision impairment and dementia risk, presenting real research findings from a real health study with named researchers and institutions.",
+    "error": null
+  },
+  "a0d18e87-0baf-4c2b-9ea4-948a3cdf533d": {
+    "uuid": "a0d18e87-0baf-4c2b-9ea4-948a3cdf533d",
+    "is_news": true,
+    "reason": "This article reports on a real-world political event—former President Trump's social media post regarding a witness in Georgia's election fraud investigation and the legal implications of potential witness intimidation—which is a legitimate news story about ongoing legal proceedings and political controversy.",
+    "error": null
+  },
+  "d1e4e936-2bfb-485b-89f5-58171ba22993": {
+    "uuid": "d1e4e936-2bfb-485b-89f5-58171ba22993",
+    "is_news": true,
+    "reason": "This article reports on a real-world event—Taylor Swift's distribution of bonuses to Eras Tour workers—and includes factual reporting about the tour's success, financial details, and tax implications of the payments.",
+    "error": null
+  },
+  "fdc97523-1e75-4490-bfb5-0005901c8cf4": {
+    "uuid": "fdc97523-1e75-4490-bfb5-0005901c8cf4",
+    "is_news": true,
+    "reason": "This is an opinion/analysis piece about CNN's editorial decision to host a Trump town hall during the 2024 presidential election cycle, which is a real-world media and political event worthy of journalistic commentary.",
+    "error": null
+  },
+  "38b87c67-87cc-48b7-b0a5-96139284802f": {
+    "uuid": "38b87c67-87cc-48b7-b0a5-96139284802f",
+    "is_news": true,
+    "reason": "This is genuine news journalism reporting on a real-world policy issue—pending tariffs on tinplate steel resulting from trade petitions filed by a U.S. steelmaker and union, with analysis of the potential economic impacts on consumers and various industries.",
+    "error": null
+  },
+  "fda3ca18-da7e-40d5-a932-da81168de182": {
+    "uuid": "fda3ca18-da7e-40d5-a932-da81168de182",
+    "is_news": true,
+    "reason": "This article reports on a real-world legal/political event (a federal judge's gag order against Trump in ongoing criminal cases) and includes commentary from a public figure, which constitutes legitimate news coverage of a significant political development.",
+    "error": null
+  },
+  "71f7a297-3c4c-4654-9b89-3c397c2ca89d": {
+    "uuid": "71f7a297-3c4c-4654-9b89-3c397c2ca89d",
+    "is_news": true,
+    "reason": "This is a genuine news article reporting on a real criminal case involving murder charges filed against a Pennsylvania resident, including police investigation details, charges, and official statements from prosecutors.",
+    "error": null
+  },
+  "0fdfc7bd-30f7-4d75-9bd7-0237c769878b": {
+    "uuid": "0fdfc7bd-30f7-4d75-9bd7-0237c769878b",
+    "is_news": false,
+    "reason": "This is entertainment journalism covering a celebrity's podcast appearance and personal beliefs, lacking any real-world event, policy issue, or newsworthy development beyond a public figure's casual remarks.",
+    "error": null
+  },
+  "807b6a62-950e-4d87-ac69-4ef65f6e5cf6": {
+    "uuid": "807b6a62-950e-4d87-ac69-4ef65f6e5cf6",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world emergency event—a dramatic rescue of a semi-truck driver from the Clark Memorial Bridge in Louisville, Kentucky—featuring interviews with first responders and details about the incident.",
+    "error": null
+  },
+  "5169ab42-ffdc-48ac-8194-927bad0410b0": {
+    "uuid": "5169ab42-ffdc-48ac-8194-927bad0410b0",
+    "is_news": false,
+    "reason": "This is a lifestyle/self-help article providing general advice about decision-making and mental health, not reporting on a real-world event, policy, or issue.",
+    "error": null
+  },
+  "bb1f8d29-98a0-48e6-a0dc-19c3b3f1c7e4": {
+    "uuid": "bb1f8d29-98a0-48e6-a0dc-19c3b3f1c7e4",
+    "is_news": true,
+    "reason": "This is genuine weather journalism reporting on current atmospheric conditions, meteorological patterns, and their real-world impacts including flooding across the Upper Midwest and Northeast.",
+    "error": null
+  },
+  "9222bb58-5f5b-4143-ae94-14702c365508": {
+    "uuid": "9222bb58-5f5b-4143-ae94-14702c365508",
+    "is_news": false,
+    "reason": "This is a lifestyle/educational feature about beer styles and IPA Day celebrations with no real-world event, policy issue, or newsworthy occurrence being reported on.",
+    "error": null
+  },
+  "71f1fdc2-a724-48a6-b610-fdda9fd74b6e": {
+    "uuid": "71f1fdc2-a724-48a6-b610-fdda9fd74b6e",
+    "is_news": false,
+    "reason": "This is a personal memoir/lifestyle essay about the author's experience with a medical condition, not journalism reporting on real-world events, policies, or issues.",
+    "error": null
+  },
+  "7e441958-d787-4563-a5be-14d75b81ebaf": {
+    "uuid": "7e441958-d787-4563-a5be-14d75b81ebaf",
+    "is_news": false,
+    "reason": "This is an opinion/thought leadership piece by a real estate executive using Star Wars as a metaphor to discuss industry trends, rather than reporting on a specific real-world news event or policy development.",
+    "error": null
+  },
+  "1993ba88-0eb5-4a4a-a55b-43071a10421b": {
+    "uuid": "1993ba88-0eb5-4a4a-a55b-43071a10421b",
+    "is_news": true,
+    "reason": "This is a genuine news article reporting on a real-world business controversy involving a café's pricing practices, customer complaints, and the resulting social media backlash, with direct quotes from the business owner and documented evidence.",
+    "error": null
+  },
+  "911da2f4-1976-4684-8787-0a5c24ed4c32": {
+    "uuid": "911da2f4-1976-4684-8787-0a5c24ed4c32",
+    "is_news": true,
+    "reason": "This is genuine financial news reporting on a real-world business event—Carl Icahn's restructuring of personal loan agreements in response to a short-seller attack and federal investigation, with documented stock price impacts and regulatory filings.",
+    "error": null
+  },
+  "f3c6add1-5276-4b31-ae9d-21298a23b737": {
+    "uuid": "f3c6add1-5276-4b31-ae9d-21298a23b737",
+    "is_news": true,
+    "reason": "This is a genuine news article reporting on a real security incident involving a high-level government official, including investigation details, official statements, and contextual information about rising threats to officials.",
+    "error": null
+  },
+  "8192b67b-1046-47f2-9f87-c6345a433545": {
+    "uuid": "8192b67b-1046-47f2-9f87-c6345a433545",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world legal development involving FTX's bankruptcy proceedings and a lawsuit against Sam Bankman-Fried's parents, covering actual events in an ongoing high-profile criminal and civil case.",
+    "error": null
+  },
+  "190c381e-6f1c-443c-94a4-2da393a29a87": {
+    "uuid": "190c381e-6f1c-443c-94a4-2da393a29a87",
+    "is_news": false,
+    "reason": "This is a business/marketing advice article providing instructional content about brand strategy concepts, not reporting on real-world events, policies, or issues.",
+    "error": null
+  },
+  "8b66a550-073e-4995-a204-4437d5d422b6": {
+    "uuid": "8b66a550-073e-4995-a204-4437d5d422b6",
+    "is_news": true,
+    "reason": "This is a news article reporting on actor Ray Liotta's death and using it as a news hook to explain the medical condition (atherosclerosis) that caused it, which is a legitimate journalistic approach to covering a real-world event.",
+    "error": null
+  },
+  "41e838e1-4275-4d4d-b1fe-ee332d6ab507": {
+    "uuid": "41e838e1-4275-4d4d-b1fe-ee332d6ab507",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real legal settlement involving voter suppression allegations, court rulings, and financial penalties against political operatives in a 2020 election-related case.",
+    "error": null
+  },
+  "20a50640-7240-4c52-a510-105409eac59b": {
+    "uuid": "20a50640-7240-4c52-a510-105409eac59b",
+    "is_news": false,
+    "reason": "This is a travel/hospitality lifestyle article promoting a specific hotel's amenities and dining venues, not reporting on a real-world news event or issue.",
+    "error": null
+  },
+  "317b623c-7e74-45c1-b3c7-b9b7f2b4b9bf": {
+    "uuid": "317b623c-7e74-45c1-b3c7-b9b7f2b4b9bf",
+    "is_news": true,
+    "reason": "This is genuine news reporting on real-world events, specifically covering Queen Camilla's family's roles and prominence at her coronation ceremony, a significant royal event.",
+    "error": null
+  },
+  "5785f9a2-11c2-4c05-b0c0-c23f64246d4f": {
+    "uuid": "5785f9a2-11c2-4c05-b0c0-c23f64246d4f",
+    "is_news": true,
+    "reason": "This is genuine political journalism reporting on a real-world event—a Fox News interview with a presidential candidate discussing his actual policy proposals and how he responded to questioning about them.",
+    "error": null
+  },
+  "c9a4529a-59d8-46ce-a425-a13ce3758c72": {
+    "uuid": "c9a4529a-59d8-46ce-a425-a13ce3758c72",
+    "is_news": true,
+    "reason": "This is genuine political news reporting on a real-world event—House Republicans' introduction of impeachment articles against a sitting Cabinet secretary—with factual details about the allegations, statements from key political figures, and official responses.",
+    "error": null
+  },
+  "46162dd6-f13b-443e-9634-8fbc3c977ad1": {
+    "uuid": "46162dd6-f13b-443e-9634-8fbc3c977ad1",
+    "is_news": true,
+    "reason": "This is a genuine news article reporting on a real-world incident involving law enforcement, a missing person case, and military personnel at a U.S. Marine Corps base.",
+    "error": null
+  },
+  "463d2d9d-ddbd-47c0-99ef-da0e7be2f3f6": {
+    "uuid": "463d2d9d-ddbd-47c0-99ef-da0e7be2f3f6",
+    "is_news": false,
+    "reason": "This is a lifestyle/travel listicle featuring personal anecdotes from a content creator about moving abroad, with no real-world event, policy issue, or editorial framing of a genuine news story.",
+    "error": null
+  },
+  "f8041b68-56ad-4c12-98f5-66effcce6f0e": {
+    "uuid": "f8041b68-56ad-4c12-98f5-66effcce6f0e",
+    "is_news": true,
+    "reason": "This article reports on real-world events including anti-Israel protests at Columbia University, NYPD response, arrests, campus safety concerns, and statements from government officials and university leadership.",
+    "error": null
+  },
+  "8875b502-d398-4684-8c08-0bc7c1a2fb9a": {
+    "uuid": "8875b502-d398-4684-8c08-0bc7c1a2fb9a",
+    "is_news": false,
+    "reason": "This is a lifestyle advice article about interpersonal communication and managing unsolicited advice, not reporting on real-world events or issues.",
+    "error": null
+  },
+  "17ea7687-a898-4936-83be-c99a1a4c1ddd": {
+    "uuid": "17ea7687-a898-4936-83be-c99a1a4c1ddd",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world political and economic event—the U.S. debt ceiling negotiations and the Treasury Department's updated deadline for potential default, which has significant policy and financial implications.",
+    "error": null
+  },
+  "94dc891a-79ca-46c5-a291-ff84d7bfe683": {
+    "uuid": "94dc891a-79ca-46c5-a291-ff84d7bfe683",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on a real-world event—a public statement by Elon Musk on his social media platform—and provides context about his ongoing positions on gender-related terminology and trans rights, including policy changes he has implemented.",
+    "error": null
+  },
+  "a85c1dea-318e-4e6c-a86d-05900d2e9868": {
+    "uuid": "a85c1dea-318e-4e6c-a86d-05900d2e9868",
+    "is_news": true,
+    "reason": "This is a music industry news article reporting on chart performance data and commercial success metrics for a real music release.",
+    "error": null
+  },
+  "8721a1a4-4372-4f91-b926-78ebfe8ec35a": {
+    "uuid": "8721a1a4-4372-4f91-b926-78ebfe8ec35a",
+    "is_news": true,
+    "reason": "This is a genuine news analysis piece reporting on and framing real-world events—Congress's budget and spending decisions, specific legislative proposals, and deficit implications—with editorial analysis of how political dealmaking affects fiscal policy.",
+    "error": null
+  },
+  "618456c0-cca9-45f9-a5cb-fa7cecaa360a": {
+    "uuid": "618456c0-cca9-45f9-a5cb-fa7cecaa360a",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world crime event—a shooting at Morgan State University in Baltimore—with factual details about casualties, official statements from police and university leadership, and photographic documentation of the incident.",
+    "error": null
+  },
+  "5602ce28-4124-4705-a2f0-762169f204b4": {
+    "uuid": "5602ce28-4124-4705-a2f0-762169f204b4",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world criminal justice event—a murder conviction, sentencing, and subsequent political response involving a Texas soldier, a protester's death, and a governor's pardon announcement.",
+    "error": null
+  },
+  "5b319aab-ea4f-4b0d-b881-46575a09eed9": {
+    "uuid": "5b319aab-ea4f-4b0d-b881-46575a09eed9",
+    "is_news": true,
+    "reason": "This is a genuine news article reporting on a real-world incident of monument vandalism at the Colosseum in Rome, official government responses, and the broader issue of tourist behavior at cultural sites.",
+    "error": null
+  },
+  "91aa07e0-b572-4f88-bfd9-1bb865c11314": {
+    "uuid": "91aa07e0-b572-4f88-bfd9-1bb865c11314",
+    "is_news": true,
+    "reason": "This is genuine political journalism reporting on a real-world controversy involving an MP's absence from her constituency and delayed resignation, with direct quotes from constituents and documented facts about her parliamentary voting record and public appearances.",
+    "error": null
+  },
+  "79518fa4-35c0-486e-b191-5de735cccbd9": {
+    "uuid": "79518fa4-35c0-486e-b191-5de735cccbd9",
+    "is_news": true,
+    "reason": "This is a political opinion/analysis piece about a real news event—Tucker Carlson's interview with Donald Trump during the 2024 Republican primary—that frames and critiques the segment's content and Trump's performance.",
+    "error": null
+  },
+  "b2fb7e69-8d74-4a40-90f3-18d3b4febf2c": {
+    "uuid": "b2fb7e69-8d74-4a40-90f3-18d3b4febf2c",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world policy issue regarding government funding of the monarchy, including official Treasury decisions, financial figures, and commentary from political figures.",
+    "error": null
+  },
+  "98d7b832-830e-4a04-9141-c79a9365b1cd": {
+    "uuid": "98d7b832-830e-4a04-9141-c79a9365b1cd",
+    "is_news": false,
+    "reason": "This is an opinion/thought leadership piece by a technology executive proposing solutions to counterfeiting, not journalism reporting on a specific real-world event, policy development, or news-driven investigation.",
+    "error": null
+  },
+  "672445ed-98ec-4932-9f99-65b465e7b270": {
+    "uuid": "672445ed-98ec-4932-9f99-65b465e7b270",
+    "is_news": true,
+    "reason": "This is genuine journalism reporting on an ongoing labor dispute in Los Angeles, covering union strike actions, worker demands, boycott campaigns, and their economic impact on the tourism industry.",
+    "error": null
+  },
+  "aab419c7-4d68-4459-84f4-76ccb7ec7b43": {
+    "uuid": "aab419c7-4d68-4459-84f4-76ccb7ec7b43",
+    "is_news": false,
+    "reason": "This is a book review and analysis piece about an economics book on health policy, not reporting on a real-world news event or current issue.",
+    "error": null
+  },
+  "39073945-29b1-48b8-b5bf-31b17a8d168c": {
+    "uuid": "39073945-29b1-48b8-b5bf-31b17a8d168c",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world event involving criminal charges, a significant data breach affecting a police force, security concerns, and ongoing investigations in Northern Ireland.",
+    "error": null
+  },
+  "84e31085-bbdc-4703-9764-063a425e30cd": {
+    "uuid": "84e31085-bbdc-4703-9764-063a425e30cd",
+    "is_news": false,
+    "reason": "This is a sponsored thought leadership article by a software company CEO promoting technology solutions for employee management, not journalism reporting on real-world events or issues.",
+    "error": null
+  },
+  "6ba55d27-0228-4d78-a90f-6bbb720b5422": {
+    "uuid": "6ba55d27-0228-4d78-a90f-6bbb720b5422",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world event—a wildfire in Greece that triggered explosions at a military ammunition depot, resulting in evacuations, military response, and documented casualties and damage.",
+    "error": null
+  },
+  "1a4ef6c1-06e3-4917-b1b0-90ca700df5c3": {
+    "uuid": "1a4ef6c1-06e3-4917-b1b0-90ca700df5c3",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world event—a hospital closure due to storm flooding with significant operational and public health implications.",
+    "error": null
+  },
+  "0eae33ff-eef5-4697-8c2a-9b90239e6825": {
+    "uuid": "0eae33ff-eef5-4697-8c2a-9b90239e6825",
+    "is_news": true,
+    "reason": "This is genuine political news reporting on Labour's policy position regarding energy company taxation and windfall taxes, with factual details about corporate profits, government policy, and political statements.",
+    "error": null
+  },
+  "415f6768-a2c2-4962-aeb2-17a17838d85d": {
+    "uuid": "415f6768-a2c2-4962-aeb2-17a17838d85d",
+    "is_news": true,
+    "reason": "This is genuine political news reporting on a real congressional action—a House Republican filing a censure resolution against a Democratic colleague for a documented incident involving a fire alarm in a congressional building.",
+    "error": null
+  },
+  "8e1e7aa6-edc4-4c23-be5e-762fe39d9da7": {
+    "uuid": "8e1e7aa6-edc4-4c23-be5e-762fe39d9da7",
+    "is_news": true,
+    "reason": "This article reports on a real-world event—Taylor Swift wearing a dress from an independent fashion brand that resulted in a documented sell-out—with quotes from the brand founders and specific details about the commercial impact, making it genuine news coverage of a celebrity-driven business story.",
+    "error": null
+  },
+  "712cc1b4-2d12-4d80-a639-2dc7cafabf91": {
+    "uuid": "712cc1b4-2d12-4d80-a639-2dc7cafabf91",
+    "is_news": false,
+    "reason": "This is a lifestyle/consumer guide article recommending food choices at a restaurant, not reporting on real-world events, policy, or issues of public concern.",
+    "error": null
+  },
+  "4f0cb4f1-c0aa-435e-9c59-36dddf186c3d": {
+    "uuid": "4f0cb4f1-c0aa-435e-9c59-36dddf186c3d",
+    "is_news": true,
+    "reason": "This is genuine political journalism reporting on real-world UK political events including statements from government officials, policy disputes over immigration and Northern Ireland governance, and public spending decisions.",
+    "error": null
+  },
+  "d87643bb-2bde-41c8-81f3-9d2c4c08e2af": {
+    "uuid": "d87643bb-2bde-41c8-81f3-9d2c4c08e2af",
+    "is_news": false,
+    "reason": "This is a lifestyle/travel how-to article providing consumer tips and product information rather than reporting on a real-world event, policy issue, or newsworthy development.",
+    "error": null
+  },
+  "f17324a7-315d-4ef3-81de-eaf0094ade70": {
+    "uuid": "f17324a7-315d-4ef3-81de-eaf0094ade70",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world tragic incident involving a vehicle collision at a school in London, with verified details from police, emergency services, and local officials.",
+    "error": null
+  },
+  "b0f855e0-96ca-45de-97ef-3d4504f11710": {
+    "uuid": "b0f855e0-96ca-45de-97ef-3d4504f11710",
+    "is_news": false,
+    "reason": "This is a lifestyle/human interest feature about a senior living facility's birthday party event with no real-world news value, policy implications, or editorial framing of an actual issue or controversy.",
+    "error": null
+  },
+  "51de73e7-0073-4952-ba1d-03d8773d51b7": {
+    "uuid": "51de73e7-0073-4952-ba1d-03d8773d51b7",
+    "is_news": false,
+    "reason": "This is a travel lifestyle article providing dining and tourism recommendations for Aspen, Colorado, with no real-world event, policy issue, or newsworthy development being reported.",
+    "error": null
+  },
+  "55cf20e8-ba04-4965-883d-521bb9cdd615": {
+    "uuid": "55cf20e8-ba04-4965-883d-521bb9cdd615",
+    "is_news": true,
+    "reason": "This is a genuine news report covering a real-world criminal incident involving assault charges, court proceedings, and sentencing in the United Kingdom.",
+    "error": null
+  },
+  "0153d91b-4569-437c-a4e4-4e958836b383": {
+    "uuid": "0153d91b-4569-437c-a4e4-4e958836b383",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on a real-world legal settlement involving a utility company's liability for a 2016 wildfire, with official statements from government authorities and factual details about the incident and its consequences.",
+    "error": null
+  },
+  "3d8dd65c-f96c-4962-b487-48e365169444": {
+    "uuid": "3d8dd65c-f96c-4962-b487-48e365169444",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world event involving a public official, a criminal investigation decision by a city attorney, and the political context surrounding the incident.",
+    "error": null
+  },
+  "1ce3f381-941f-4011-8f36-bf389226936c": {
+    "uuid": "1ce3f381-941f-4011-8f36-bf389226936c",
+    "is_news": true,
+    "reason": "This article reports on a real-world event (King Charles' Trooping the Colour birthday celebration) and Kate Middleton's fashion choices and jewelry tribute to Princess Diana at that event.",
+    "error": null
+  },
+  "9e25ee8e-ae5a-40fe-acbf-deeec1a3c602": {
+    "uuid": "9e25ee8e-ae5a-40fe-acbf-deeec1a3c602",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on a real-world event involving a high-ranking law enforcement official's self-inflicted gunshot wound, including official statements from state authorities, police departments, and government officials.",
+    "error": null
+  },
+  "12758a0f-6346-4068-9adb-809ea76cb34d": {
+    "uuid": "12758a0f-6346-4068-9adb-809ea76cb34d",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on a U.S. senator's statements about corporate policies and consumer backlash against major companies, covering real political commentary on contemporary business and cultural issues.",
+    "error": null
+  },
+  "11d1e37e-be20-4c91-bfdc-a47dbb2df7fc": {
+    "uuid": "11d1e37e-be20-4c91-bfdc-a47dbb2df7fc",
+    "is_news": true,
+    "reason": "This is a genuine news article reporting on a real-world community event and human interest story about a local man's charitable activities, as evidenced by the news outlet attribution (News 3) and specific details about an ongoing real initiative in Henderson, Nevada.",
+    "error": null
+  },
+  "4546d7cb-bdc1-48f5-ad0b-6ccb8ea8f704": {
+    "uuid": "4546d7cb-bdc1-48f5-ad0b-6ccb8ea8f704",
+    "is_news": false,
+    "reason": "This is entertainment/music industry coverage focused on chart performance and streaming metrics rather than reporting on a real-world event, policy issue, or newsworthy development with broader significance.",
+    "error": null
+  },
+  "3c3eed9b-e086-4941-8e6b-35c27297f3dc": {
+    "uuid": "3c3eed9b-e086-4941-8e6b-35c27297f3dc",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on a real criminal case involving a guilty plea in federal court, covering the facts, legal proceedings, and background of an actual crime that received international attention.",
+    "error": null
+  },
+  "d5e84c82-bf40-4712-8bde-e48822a1489d": {
+    "uuid": "d5e84c82-bf40-4712-8bde-e48822a1489d",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world geopolitical event involving Taiwan, the U.S., and China, covering defense policy, military aid negotiations, and international relations.",
+    "error": null
+  },
+  "3706958b-65ca-4b54-8a5e-54911dbfbcf9": {
+    "uuid": "3706958b-65ca-4b54-8a5e-54911dbfbcf9",
+    "is_news": true,
+    "reason": "This is genuine entertainment industry news reporting on CBS's television programming decisions, including show cancellations and renewal announcements.",
+    "error": null
+  },
+  "6594291c-6d88-4bb4-8630-920d2dc02d8d": {
+    "uuid": "6594291c-6d88-4bb4-8630-920d2dc02d8d",
+    "is_news": false,
+    "reason": "This is a product review and shopping guide listicle with no real-world event or issue being reported on, making it lifestyle/consumer content rather than journalism.",
+    "error": null
+  },
+  "b91e45c6-7eb8-4632-b205-a467008deec5": {
+    "uuid": "b91e45c6-7eb8-4632-b205-a467008deec5",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on real-world geopolitical events, specifically analyzing claims and counterclaims about a drone attack on the Kremlin, featuring statements from US officials, Ukrainian leadership, and Russian authorities.",
+    "error": null
+  },
+  "30705ecb-8a6e-44cc-8bde-cf76d2def40a": {
+    "uuid": "30705ecb-8a6e-44cc-8bde-cf76d2def40a",
+    "is_news": false,
+    "reason": "This is entertainment/lifestyle content about a social media personality's TikTok videos, not reporting on a real-world event, policy issue, or newsworthy development.",
+    "error": null
+  },
+  "0a3fc4a3-43a4-4ae1-8231-8ba671d64faa": {
+    "uuid": "0a3fc4a3-43a4-4ae1-8231-8ba671d64faa",
+    "is_news": true,
+    "reason": "This article reports on a real-world criminal justice event—the arrest of a suspect in the Gilgo Beach serial murders case—and includes newsworthy details about the investigation, victims, and the suspect's background.",
+    "error": null
+  },
+  "528a044b-10c1-47ff-ae87-c085677d6ed8": {
+    "uuid": "528a044b-10c1-47ff-ae87-c085677d6ed8",
+    "is_news": true,
+    "reason": "This is a genuine news article reporting on a real-world transportation disruption event, including specific details about the ferry service suspension, affected routes, and passenger information.",
+    "error": null
+  },
+  "baf310e7-9f5a-45f9-aa67-d7e9779c7cd9": {
+    "uuid": "baf310e7-9f5a-45f9-aa67-d7e9779c7cd9",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on a real-world criminal investigation and terrorism charges involving the stabbing of a Sydney bishop, with details about arrests, charges, and police operations.",
+    "error": null
+  },
+  "2221055d-4208-4b58-af10-378d98e78a5e": {
+    "uuid": "2221055d-4208-4b58-af10-378d98e78a5e",
+    "is_news": true,
+    "reason": "This is genuine business journalism reporting on American Express's quarterly financial results, earnings performance, and market reaction to the company's earnings announcement.",
+    "error": null
+  },
+  "cd82c244-db18-4f01-91a0-16b5ade94748": {
+    "uuid": "cd82c244-db18-4f01-91a0-16b5ade94748",
+    "is_news": true,
+    "reason": "This article reports on a media analysis study examining differential news coverage of two major political stories (Trump indictment and Biden bribery allegations) by major broadcast networks, which is a legitimate media criticism/journalism story about real-world events and editorial decisions.",
+    "error": null
+  },
+  "daefaa09-d337-42ab-8200-220bcc366fdc": {
+    "uuid": "daefaa09-d337-42ab-8200-220bcc366fdc",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world policy issue involving congressional action, border security funding, and government agency operations.",
+    "error": null
+  },
+  "e210fdd6-9a39-4260-b444-1b54afc12988": {
+    "uuid": "e210fdd6-9a39-4260-b444-1b54afc12988",
+    "is_news": true,
+    "reason": "This is genuine news reporting on real-world geopolitical events, specifically North Korea's nuclear rhetoric escalation, a U.S. soldier's border crossing incident, and military developments on the Korean Peninsula.",
+    "error": null
+  },
+  "2d6ab6c7-c34e-486c-a564-cac3f9e36bc4": {
+    "uuid": "2d6ab6c7-c34e-486c-a564-cac3f9e36bc4",
+    "is_news": false,
+    "reason": "This is a shopping listicle promoting retail deals with no real-world event or issue being reported on; it is product promotion and consumer content rather than journalism.",
+    "error": null
+  },
+  "c657ab76-d165-4fc1-a284-8329454da5c0": {
+    "uuid": "c657ab76-d165-4fc1-a284-8329454da5c0",
+    "is_news": true,
+    "reason": "This is genuine journalism reporting on real-world military developments in the Ukraine-Russia war, including analysis of defensive strategy shifts, fortification efforts, and statements from Ukrainian military leadership.",
+    "error": null
+  },
+  "e2fa4a13-704b-4191-a4d1-fa3f6bb4581f": {
+    "uuid": "e2fa4a13-704b-4191-a4d1-fa3f6bb4581f",
+    "is_news": true,
+    "reason": "This is a genuine news article reporting on a real criminal case involving a homicide charge, court proceedings, and investigative details from law enforcement.",
+    "error": null
+  },
+  "7f408246-7eb7-4679-9ea1-fbbff199333f": {
+    "uuid": "7f408246-7eb7-4679-9ea1-fbbff199333f",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world legal development—an Illinois appeals court's decision upholding Jussie Smollett's conviction—with editorial framing examining the implications for Vice President Harris' previous public statements about the case.",
+    "error": null
+  },
+  "23525919-9416-4383-8be3-fc74732adda6": {
+    "uuid": "23525919-9416-4383-8be3-fc74732adda6",
+    "is_news": false,
+    "reason": "This is a lifestyle listicle promoting wellness retreats with no real-world event or issue being reported on; it functions as travel/hospitality content rather than journalism covering actual news.",
+    "error": null
+  },
+  "e3115995-48bb-468a-8a3e-6cc8104332b6": {
+    "uuid": "e3115995-48bb-468a-8a3e-6cc8104332b6",
+    "is_news": true,
+    "reason": "This is a legitimate news report covering a real-world criminal incident involving a hostage situation, armed suspect, and police response in Japan.",
+    "error": null
+  },
+  "3793eb1d-a0b9-41e0-b847-5f60bd805c5c": {
+    "uuid": "3793eb1d-a0b9-41e0-b847-5f60bd805c5c",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world tragic event (a child's accidental drowning) involving a public figure, including official statements from authorities and the sports organization.",
+    "error": null
+  },
+  "649912ef-84dd-417c-a60f-e7b594c8bdc4": {
+    "uuid": "649912ef-84dd-417c-a60f-e7b594c8bdc4",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world legal/political event: an incarcerated defendant's statements about ongoing criminal proceedings involving a former president, with factual reporting on sentencing, charges, and judicial proceedings.",
+    "error": null
+  },
+  "38025480-abf1-4f71-b949-e7e09e0ccb4b": {
+    "uuid": "38025480-abf1-4f71-b949-e7e09e0ccb4b",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world crime incident involving a stabbing attack, police investigation, and international counterterrorism concerns.",
+    "error": null
+  },
+  "b934c56d-83dc-4038-bd98-ba56cacfa199": {
+    "uuid": "b934c56d-83dc-4038-bd98-ba56cacfa199",
+    "is_news": false,
+    "reason": "This is a personal lifestyle essay about an individual's experience with a boudoir photo shoot and body image, not reporting on a real-world event, policy issue, or newsworthy occurrence.",
+    "error": null
+  },
+  "6153597d-f0bf-404c-9082-eca5b6604a40": {
+    "uuid": "6153597d-f0bf-404c-9082-eca5b6604a40",
+    "is_news": true,
+    "reason": "This is a legitimate entertainment industry news article reporting on a real business decision by ABC to renew a television series, including viewership data and context about other network renewals.",
+    "error": null
+  },
+  "399d0195-3609-4499-b8b3-4f2be45628d1": {
+    "uuid": "399d0195-3609-4499-b8b3-4f2be45628d1",
+    "is_news": false,
+    "reason": "This is a shopping/retail promotional listicle highlighting Black Friday deals rather than reporting on a real-world news event or issue.",
+    "error": null
+  },
+  "0d8d3ae7-e086-4fdb-a0d9-6c10317746ca": {
+    "uuid": "0d8d3ae7-e086-4fdb-a0d9-6c10317746ca",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world issue—human trafficking and illegal border crossings—featuring reporting from an independent journalist, data from government sources (CBP), and analysis of an actual phenomenon affecting U.S. border security policy.",
+    "error": null
+  },
+  "95dbde86-de7f-4d15-830b-6cd3115e2057": {
+    "uuid": "95dbde86-de7f-4d15-830b-6cd3115e2057",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world legal proceeding involving former President Trump's arraignment in the January 6 case, covering courtroom arguments about trial scheduling and procedural matters.",
+    "error": null
+  },
+  "957250cd-c2eb-468e-b7f4-aa5dfe3067db": {
+    "uuid": "957250cd-c2eb-468e-b7f4-aa5dfe3067db",
+    "is_news": true,
+    "reason": "This is genuine news journalism reporting on real-world events (cocaine discovery in the White House, transgender activist incident at a White House event) and capturing public reaction to questions about presidential conduct and decorum.",
+    "error": null
+  },
+  "1c47bdf1-647f-47e0-bc4b-03d4168ed95d": {
+    "uuid": "1c47bdf1-647f-47e0-bc4b-03d4168ed95d",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world policy decision by transit authorities regarding infrastructure planning and funding for Penn Station, including analysis of the decision-making process and expert commentary.",
+    "error": null
+  },
+  "28ba4e48-0d9f-483a-8a1a-4708584c6394": {
+    "uuid": "28ba4e48-0d9f-483a-8a1a-4708584c6394",
+    "is_news": true,
+    "reason": "This is genuine financial/economic journalism reporting on research findings about inflation drivers and their real-world policy implications, with analysis of actual economic data and market trends.",
+    "error": null
+  },
+  "f8b37c13-7334-4e6b-8c36-f421221ff257": {
+    "uuid": "f8b37c13-7334-4e6b-8c36-f421221ff257",
+    "is_news": true,
+    "reason": "This is genuine journalism reporting on a real-world event—the Israeli military's storming of Nasser Hospital in Gaza—with firsthand accounts from a doctor and official statements from Gaza's Health Ministry.",
+    "error": null
+  },
+  "c2dbbdcb-c1ed-499b-99a4-4efad1ea504b": {
+    "uuid": "c2dbbdcb-c1ed-499b-99a4-4efad1ea504b",
+    "is_news": true,
+    "reason": "This article reports on a real political event—a former presidential candidate's campaign announcement regarding a policy proposal—and provides factual context about his previous statements on the issue.",
+    "error": null
+  },
+  "8dcef615-053d-4bf7-97ca-db586824a952": {
+    "uuid": "8dcef615-053d-4bf7-97ca-db586824a952",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on a real political event—a former Democratic leader's party switch and announcement of candidacy for a state office—with quotes from relevant political figures and factual details about the candidate's background and filing process.",
+    "error": null
+  },
+  "8b6b1b59-f8b2-42ad-bb12-74dd02daca3b": {
+    "uuid": "8b6b1b59-f8b2-42ad-bb12-74dd02daca3b",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world political and policy development—the Biden administration's plans for student loan forgiveness following a Supreme Court ruling, including recent court decisions and their implications.",
+    "error": null
+  },
+  "07700a87-f071-4dc9-a1ff-b7b6b751ab18": {
+    "uuid": "07700a87-f071-4dc9-a1ff-b7b6b751ab18",
+    "is_news": true,
+    "reason": "This is a legitimate news/journalism article reporting on the real-world death of a public figure, Anna Nicole Smith, including the official cause of death, investigation findings, and biographical context of a significant celebrity event.",
+    "error": null
+  },
+  "21375c81-747d-4679-b174-e0a6bf3ad382": {
+    "uuid": "21375c81-747d-4679-b174-e0a6bf3ad382",
+    "is_news": true,
+    "reason": "This is a genuine news article reporting on a real-world event—the death of a Polish mayor in Italy—with factual details about the incident, official statements, and police investigation.",
+    "error": null
+  },
+  "17f6a759-aacb-40db-a003-ad5f62291b2d": {
+    "uuid": "17f6a759-aacb-40db-a003-ad5f62291b2d",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on a real-world policy decision by the U.S. government regarding visa restrictions for Hungarian passport holders, with documented facts, official sources, and international diplomatic implications.",
+    "error": null
+  },
+  "6cc46722-1145-4cdd-93a1-e91ed715b8fd": {
+    "uuid": "6cc46722-1145-4cdd-93a1-e91ed715b8fd",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world transportation incident involving a CTA train crash, with coverage of the investigation, injuries, service disruptions, and official statements from authorities.",
+    "error": null
+  },
+  "246cc1dc-5216-4f70-a6b6-217218ba80c7": {
+    "uuid": "246cc1dc-5216-4f70-a6b6-217218ba80c7",
+    "is_news": true,
+    "reason": "This article reports on the real-world event of Twitter's rebranding to X by Elon Musk, analyzing the cultural phenomenon of The Simpsons' apparent prediction of this change.",
+    "error": null
+  },
+  "9788c727-0bc4-49c0-ae98-2415242ba17a": {
+    "uuid": "9788c727-0bc4-49c0-ae98-2415242ba17a",
+    "is_news": true,
+    "reason": "This is a legitimate news article reporting on a human rights organization's findings regarding Myanmar's military government's treatment of lawyers and the justice system, covering a real-world political and human rights issue.",
+    "error": null
+  },
+  "709a9834-8b10-4696-83da-1c3c32c87a07": {
+    "uuid": "709a9834-8b10-4696-83da-1c3c32c87a07",
+    "is_news": false,
+    "reason": "This is a lifestyle/self-help advice article by a life coach offering personal development guidance with no real-world event, policy issue, or newsworthy occurrence being reported or analyzed.",
+    "error": null
+  },
+  "ceadd23a-0368-465d-b894-f7f8212fb290": {
+    "uuid": "ceadd23a-0368-465d-b894-f7f8212fb290",
+    "is_news": true,
+    "reason": "This is genuine news reporting on a real-world crime investigation involving the illegal killing of endangered sea lions in Alaska, with official government response and legal consequences.",
+    "error": null
+  },
+  "f589a34a-738f-4e30-9be8-ddbf2380af12": {
+    "uuid": "f589a34a-738f-4e30-9be8-ddbf2380af12",
+    "is_news": false,
+    "reason": "This is a video game patch notes announcement and summary, not reporting on real-world events or issues.",
+    "error": null
+  },
+  "7a3fb1be-b565-44f4-a3a2-edc85f9a3a2e": {
+    "uuid": "7a3fb1be-b565-44f4-a3a2-edc85f9a3a2e",
+    "is_news": true,
+    "reason": "This is genuine news journalism analyzing real economic data from the Bureau of Labor Statistics' November employment report, discussing actual labor market trends and their policy implications.",
+    "error": null
+  }
+}
