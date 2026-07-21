@@ -10,6 +10,16 @@ ensemble majority vote) ground truth:
     against the no-oracle run, to see whether telling the model the correct
     text framing changes/improves its image predictions or just gets copied.
 
+Metrics follow the original paper's own methodology (arXiv:2503.20960):
+micro-averaged precision/recall/F1 (computed across all row x frame pairs,
+matching their reported "micro averaged F1 score of 0.5" for text), plus a
+non-zero-intersection rate (their "95.7%"/"84.2%" figures). Unlike the paper,
+our image labels allow an explicit "None" (empty set) — the non-zero-
+intersection rate is computed only over rows with a non-empty gold label
+(matching the paper's original definition, since their data had no empty
+labels), with a separate "None-agreement rate" reported for rows where the
+gold label genuinely is empty.
+
 Run after baseline_qwen_text.py, and baseline_qwen_vlm.py --no-oracle /
 --oracle.
 
@@ -35,53 +45,73 @@ def label_name(key):
     return CANONICAL_FRAMES[key].split(" — ")[0]
 
 
-def jaccard(a, b):
-    a, b = set(a), set(b)
-    if not a and not b:
+def per_row_f1(gold, pred):
+    """Per-row F1 with the standard 0/0 convention: both empty -> 1.0 (perfect
+    agreement on "nothing applies"), only one empty or no overlap -> 0.0."""
+    if not gold and not pred:
         return 1.0
-    if not a or not b:
+    tp = len(gold & pred)
+    if tp == 0:
         return 0.0
-    return len(a & b) / len(a | b)
+    p = tp / len(pred)
+    r = tp / len(gold)
+    return 2 * p * r / (p + r)
 
 
 def compare(rows, gold_field, pred_by_uuid, pred_field):
-    jaccards, identical, disjoint = [], 0, 0
+    tp = fp = fn = 0
+    identical = 0
     gold_sizes, pred_sizes = [], []
     missed, extra = Counter(), Counter()
+    nzi_hits, nzi_total = 0, 0  # non-zero intersection, over rows with non-empty gold
+    none_gold_total, none_gold_correct = 0, 0  # rows where gold IS empty ("None")
+    f1s = []
+
     for row in rows:
         gold = set(row.get(gold_field) or [])
         pred = set((pred_by_uuid.get(row["uuid"], {}) or {}).get(pred_field) or [])
-        jaccards.append(jaccard(gold, pred))
+
+        tp += len(gold & pred)
+        fp += len(pred - gold)
+        fn += len(gold - pred)
         if gold == pred:
             identical += 1
-        if jaccards[-1] == 0 and (gold or pred):
-            disjoint += 1
         gold_sizes.append(len(gold))
         pred_sizes.append(len(pred))
         missed.update(gold - pred)
         extra.update(pred - gold)
+        f1s.append(per_row_f1(gold, pred))
+
+        if gold:
+            nzi_total += 1
+            if gold & pred:
+                nzi_hits += 1
+        else:
+            none_gold_total += 1
+            if not pred:
+                none_gold_correct += 1
 
     n = len(rows)
+    precision = tp / (tp + fp) if (tp + fp) else 0.0
+    recall = tp / (tp + fn) if (tp + fn) else 0.0
+    f1 = 2 * precision * recall / (precision + recall) if (precision + recall) else 0.0
+
     return {
         "n": n,
-        "avg_jaccard": sum(jaccards) / n,
+        "precision": precision,
+        "recall": recall,
+        "f1": f1,
         "identical": identical,
-        "disjoint": disjoint,
+        "nzi_hits": nzi_hits,
+        "nzi_total": nzi_total,
+        "none_gold_total": none_gold_total,
+        "none_gold_correct": none_gold_correct,
         "avg_gold_size": sum(gold_sizes) / n,
         "avg_pred_size": sum(pred_sizes) / n,
         "missed": missed,
         "extra": extra,
-        "jaccards": jaccards,
+        "per_row_f1": f1s,
     }
-
-
-def top_frames_table(counter, n_rows):
-    lines = ["| Frame | Rows |", "|---|---:|"]
-    for key, count in counter.most_common(8):
-        lines.append(f"| {label_name(key)} | {count} |")
-    if not counter:
-        lines.append("| _(none)_ | |")
-    return "\n".join(lines)
 
 
 def main():
@@ -111,20 +141,41 @@ def main():
         (f"Image, with oracle — {VLM_MODEL_ID}", oracle_stats),
     ]
 
-    lines = [f"# Baseline report\n", f"Rows: {n}\n"]
+    lines = [
+        "# Baseline report\n",
+        f"Rows: {n}\n",
+        "Metrics follow the original paper's methodology: micro-averaged precision/recall/F1 "
+        "(computed across all row x frame pairs) and a non-zero-intersection rate. The paper's data "
+        "never had an empty (\"None\") gold label, so non-zero-intersection is computed only over "
+        "rows with a non-empty gold label here too; rows where gold genuinely is empty get their own "
+        "\"None-agreement\" stat instead.\n",
+    ]
 
     lines.append("## Summary\n")
-    lines.append("| Baseline | Avg Jaccard | Identical | Disjoint | Avg labels (gold) | Avg labels (pred) |")
-    lines.append("|---|---:|---:|---:|---:|---:|")
+    lines.append("| Baseline | Precision | Recall | F1 | Non-zero intersection | Identical | Avg labels (gold) | Avg labels (pred) |")
+    lines.append("|---|---:|---:|---:|---:|---:|---:|---:|")
     for name, s in settings:
+        nzi = f"{s['nzi_hits']}/{s['nzi_total']} ({s['nzi_hits']/s['nzi_total']:.0%})" if s["nzi_total"] else "n/a"
         lines.append(
-            f"| {name} | {s['avg_jaccard']:.2f} | {s['identical']}/{n} ({s['identical']/n:.0%}) | "
-            f"{s['disjoint']}/{n} ({s['disjoint']/n:.0%}) | {s['avg_gold_size']:.2f} | {s['avg_pred_size']:.2f} |"
+            f"| {name} | {s['precision']:.2f} | {s['recall']:.2f} | {s['f1']:.2f} | {nzi} | "
+            f"{s['identical']}/{n} ({s['identical']/n:.0%}) | {s['avg_gold_size']:.2f} | {s['avg_pred_size']:.2f} |"
         )
+
+    none_rows = [(name, s) for name, s in settings if s["none_gold_total"]]
+    if none_rows:
+        lines.append("\n### \"None\" (empty gold label) agreement\n")
+        lines.append("| Baseline | Rows where gold is None | Baseline also predicted None |")
+        lines.append("|---|---:|---:|")
+        for name, s in none_rows:
+            lines.append(
+                f"| {name} | {s['none_gold_total']}/{n} | "
+                f"{s['none_gold_correct']}/{s['none_gold_total']} ({s['none_gold_correct']/s['none_gold_total']:.0%}) |"
+            )
 
     for name, s in settings:
         lines.append(f"\n## {name}\n")
-        lines.append("**Most-missed** (in ground truth, baseline didn't predict) vs. **most over-predicted** (baseline predicted, not in ground truth):\n")
+        lines.append("**Most-missed** (in ground truth, baseline didn't predict — false negatives) vs. "
+                      "**most over-predicted** (baseline predicted, not in ground truth — false positives):\n")
         lines.append("| Missed | Rows | | Over-predicted | Rows |")
         lines.append("|---|---:|---|---|---:|")
         missed_list = s["missed"].most_common(8)
@@ -137,10 +188,10 @@ def main():
             lines.append(f"| {m_name} | {m[1]} | | {e_name} | {e[1]} |")
 
     # Does oracle help, or just get copied?
-    no_oracle_jaccards = no_oracle_stats["jaccards"]
-    oracle_jaccards = oracle_stats["jaccards"]
-    improved = sum(1 for a, b in zip(no_oracle_jaccards, oracle_jaccards) if b > a)
-    worsened = sum(1 for a, b in zip(no_oracle_jaccards, oracle_jaccards) if b < a)
+    no_oracle_f1s = no_oracle_stats["per_row_f1"]
+    oracle_f1s = oracle_stats["per_row_f1"]
+    improved = sum(1 for a, b in zip(no_oracle_f1s, oracle_f1s) if b > a)
+    worsened = sum(1 for a, b in zip(no_oracle_f1s, oracle_f1s) if b < a)
     unchanged = n - improved - worsened
 
     copy_count, oracle_nonempty = 0, 0
@@ -155,9 +206,11 @@ def main():
     lines.append("\n## Does the oracle text frame help image prediction, or just get copied?\n")
     lines.append("| | No oracle | With oracle |")
     lines.append("|---|---:|---:|")
-    lines.append(f"| Avg Jaccard vs. ground truth | {sum(no_oracle_jaccards)/n:.2f} | {sum(oracle_jaccards)/n:.2f} |")
+    lines.append(f"| Precision | {no_oracle_stats['precision']:.2f} | {oracle_stats['precision']:.2f} |")
+    lines.append(f"| Recall | {no_oracle_stats['recall']:.2f} | {oracle_stats['recall']:.2f} |")
+    lines.append(f"| F1 | {no_oracle_stats['f1']:.2f} | {oracle_stats['f1']:.2f} |")
     lines.append("")
-    lines.append("| Outcome of adding the oracle | Rows |")
+    lines.append("| Outcome of adding the oracle (per-row F1 change) | Rows |")
     lines.append("|---|---:|")
     lines.append(f"| Improved agreement | {improved}/{n} ({improved/n:.0%}) |")
     lines.append(f"| Worsened agreement | {worsened}/{n} ({worsened/n:.0%}) |")
