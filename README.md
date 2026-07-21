@@ -11,35 +11,56 @@ reference and important caveats about what the dataset does and doesn't contain.
 pip install -r requirements.txt
 ```
 
+The semantic frame-accuracy check (step 3 below) calls a vision LLM via
+[OpenRouter](https://openrouter.ai). Put your key in a local `.env` (already
+git-ignored, never commit it):
+
+```
+OPENROUTER_API_KEY=sk-or-v1-...
+```
+
 ## Pipeline
 
 Run in order from the project root:
 
 ```bash
-# 1. Draw a reproducible random sample of 300 rows (seed 42) from the
-#    paper's own filtered valid_framing_subset split.
-python scripts/sample_dataset.py
+# 1. Build a 300-row sample where EVERY row has both article text and a lead
+#    image successfully scraped. Draws from a seeded shuffle of the paper's
+#    valid_framing_subset split and keeps pulling further into that order
+#    until 300 rows clear both bars (roughly half of attempts fail due to
+#    link rot / paywalls on these 2023-2024 articles — see caveat below).
+python scripts/build_sample.py
 
-# 2. Best-effort scrape of each row's original article text + lead image.
-#    Live links from 2023-2024 will have real rot — failures are recorded,
-#    not silently dropped.
-python scripts/scrape_articles.py
-
-# 3. Column-by-column stats + observed frame-tag frequency, written to
+# 2. Column-by-column stats + observed frame-tag frequency, written to
 #    data/inspection_report.md and printed to stdout.
 python scripts/inspect_columns.py
 
-# 4. Structural sweep flagging likely data-quality issues per row
-#    (missing/malformed fields, out-of-taxonomy tags, thin explanations,
-#    scrape failures) — written to data/flags.json.
+# 3. Semantic accuracy check: shows a vision LLM (anthropic/claude-haiku-4.5
+#    via OpenRouter) the real article text + image for each row, alongside
+#    the text-generic-frame / img-generic-frame labels and the original
+#    model's justification, and asks it to independently judge whether each
+#    label is actually well-supported. Written to data/frame_judgments.json.
+python scripts/judge_frames.py
+
+# 4. Merges the semantic judgments with structural checks (missing/malformed
+#    fields, out-of-taxonomy tags, thin explanations) into data/flags.json.
 python scripts/flag_issues.py
 
-# 5. Manual validation UI, defaults to showing only flagged rows first.
+# 5. Manual validation UI — shows the article text + image + both frame
+#    labels + the automated judge's verdict and reasoning per row, defaults
+#    to showing only flagged rows first.
 streamlit run app/validate_app.py
 ```
 
 Your validation decisions are saved incrementally to `data/validation_results.csv`
 (safe to stop and resume the Streamlit app at any time).
+
+**Sampling caveat:** because step 1 keeps drawing rows until 300 are fully
+scrapeable, the final sample is a random draw *conditioned on being
+scrapeable* — biased toward outlets/links still live and unpaywalled two years
+later — not a strict random sample of the full dataset. Every attempt (kept or
+rejected, and why) is logged to `data/scrape_attempts_log.jsonl` for
+transparency.
 
 ## Viewing the Streamlit app over SSH
 
@@ -56,14 +77,14 @@ own machine:
 ```
 scripts/
   common.py           shared paths, the 15-category frame taxonomy, parsing helpers
-  sample_dataset.py   step 1
-  scrape_articles.py  step 2
-  inspect_columns.py  step 3
+  build_sample.py     step 1 — oversample + scrape until 300 complete rows
+  inspect_columns.py  step 2
+  judge_frames.py     step 3 — LLM semantic frame-accuracy check
   flag_issues.py      step 4
 app/
   validate_app.py     step 5 — Streamlit validation UI
 docs/
   DATASET.md          dataset schema, taxonomy, and paper notes
-data/                  generated artifacts (raw sample + images gitignored,
-                       flags/report/validation results tracked)
+data/                 generated artifacts (raw sample/images/attempt-log
+                      gitignored, flags/judgments/report/validation results tracked)
 ```

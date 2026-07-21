@@ -88,14 +88,27 @@ this canonical set; anything it can't map is flagged by `flag_issues.py` as
 
 ## What this project adds on top
 
-- `scripts/sample_dataset.py` — reproducible random sample of 300 rows (seed 42).
-- `scripts/scrape_articles.py` — best-effort live scrape of article text (via
-  `trafilatura`) and lead image (`og:image`/`twitter:image`) for each sampled row,
-  caching results and recording *why* a row failed when it does.
+- `scripts/build_sample.py` — draws from a seeded shuffle of the dataset and
+  scrapes each row's original article text (`trafilatura`) and lead image
+  (`og:image`/`twitter:image`), continuing until 300 rows have **both**
+  successfully — because a one-shot random 300 loses roughly half its rows to
+  link rot/paywalls on these 2023-2024 articles. This trades strict random-
+  sampling purity for guaranteed scrapeability: the final sample is biased
+  toward outlets/links still live and unpaywalled. Every attempt (kept or
+  rejected, and why) is logged to `data/scrape_attempts_log.jsonl`.
 - `scripts/inspect_columns.py` — column-by-column stats + observed frame-tag
   frequency for the sample, cross-checked against the taxonomy above.
-- `scripts/flag_issues.py` — structural/statistical sweep (missing fields,
-  malformed list literals, out-of-taxonomy tags, suspiciously thin LLM
-  explanations, scrape failures, out-of-range dates) that flags rows *before*
-  manual review, so the human reviewer is pointed at what's worth their time.
-- `app/validate_app.py` — Streamlit UI for the actual manual validation pass.
+- `scripts/judge_frames.py` — the semantic check: shows a vision LLM
+  (`anthropic/claude-haiku-4.5` via OpenRouter) the real scraped article text
+  and image for each row, plus the `text-generic-frame`/`img-generic-frame`
+  labels and the original labeling model's own justification, and asks it to
+  independently judge whether each label actually holds up — not just whether
+  the justification sounds plausible.
+- `scripts/flag_issues.py` — merges those semantic verdicts with cheap
+  structural/statistical checks (missing fields, malformed list literals,
+  out-of-taxonomy tags, suspiciously thin LLM explanations, out-of-range
+  dates) into one flags file, so the human reviewer is pointed at what's worth
+  their time.
+- `app/validate_app.py` — Streamlit UI for the manual validation pass: shows
+  the article text + image + both frame labels + the automated judge's
+  verdict and reasoning per row, defaulting to flagged rows first.

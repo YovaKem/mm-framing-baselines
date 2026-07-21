@@ -19,8 +19,8 @@ from common import (  # noqa: E402
     CANONICAL_FRAMES,
     DATA_DIR,
     FLAGS_PATH,
+    FRAME_JUDGMENTS_PATH,
     SAMPLE_PATH,
-    SCRAPED_PATH,
     VALIDATION_RESULTS_PATH,
     normalize_frame_tags,
     read_jsonl,
@@ -42,10 +42,10 @@ CANONICAL_LABELS = {k: v.split(" — ")[0] for k, v in CANONICAL_FRAMES.items()}
 
 @st.cache_data
 def load_data():
-    path = SCRAPED_PATH if SCRAPED_PATH.exists() else SAMPLE_PATH
-    rows = read_jsonl(path)
+    rows = read_jsonl(SAMPLE_PATH)
     flags = json.loads(FLAGS_PATH.read_text()) if FLAGS_PATH.exists() else {}
-    return rows, flags, path.name
+    judgments = json.loads(FRAME_JUDGMENTS_PATH.read_text()) if FRAME_JUDGMENTS_PATH.exists() else {}
+    return rows, flags, judgments, SAMPLE_PATH.name
 
 
 def load_results():
@@ -70,7 +70,16 @@ def frame_chip_line(tags):
     return " ".join(parts) if parts else "_(none)_"
 
 
-rows, flags_by_uuid, source_name = load_data()
+def judge_verdict_block(verdict, reasoning):
+    if verdict == "questionable":
+        st.error(f"⚠️ **Judge: questionable** — {reasoning}")
+    elif verdict == "accurate":
+        st.success(f"✅ Judge: accurate — {reasoning}")
+    else:
+        st.caption("No automated judgment available for this row (run scripts/judge_frames.py).")
+
+
+rows, flags_by_uuid, judgments_by_uuid, source_name = load_data()
 rows_by_uuid = {r["uuid"]: r for r in rows}
 uuids_all = [r["uuid"] for r in rows]
 
@@ -109,16 +118,17 @@ picked = st.sidebar.selectbox("Jump to row", jump_options, index=st.session_stat
 st.session_state.idx = jump_options.index(picked)
 
 col_prev, col_next = st.sidebar.columns(2)
-if col_prev.button("⬅ Prev", use_container_width=True) and st.session_state.idx > 0:
+if col_prev.button("⬅ Prev", width='stretch') and st.session_state.idx > 0:
     st.session_state.idx -= 1
     st.rerun()
-if col_next.button("Next ➡", use_container_width=True) and st.session_state.idx < len(view_uuids) - 1:
+if col_next.button("Next ➡", width='stretch') and st.session_state.idx < len(view_uuids) - 1:
     st.session_state.idx += 1
     st.rerun()
 
 uuid = view_uuids[st.session_state.idx]
 row = rows_by_uuid[uuid]
 row_flags = flags_by_uuid.get(uuid, [])
+judgment = judgments_by_uuid.get(uuid, {})
 
 st.title(row.get("title", "(no title)"))
 meta_cols = st.columns(4)
@@ -126,12 +136,16 @@ meta_cols[0].markdown(f"**Source**  \n{row.get('source_domain', '—')}")
 meta_cols[1].markdown(f"**Leaning**  \n{row.get('political_leaning', '—')}")
 meta_cols[2].markdown(f"**Published**  \n{row.get('date_publish', '—')}")
 if row.get("url"):
-    meta_cols[3].link_button("Open original article", row["url"], use_container_width=True)
+    meta_cols[3].link_button("Open original article", row["url"], width='stretch')
 
-if row_flags:
+non_judgment_flags = [
+    f for f in row_flags
+    if f["code"] not in ("text_frame_questionable", "img_frame_questionable")
+]
+if non_judgment_flags:
     with st.container(border=True):
-        st.markdown("**⚠️ Automated flags for this row:**")
-        for f in row_flags:
+        st.markdown("**⚠️ Other automated flags for this row:**")
+        for f in non_judgment_flags:
             st.markdown(f"- `{f['code']}`" + (f" — {f['detail']}" if f.get("detail") else ""))
 
 img_col, text_col = st.columns([1, 1.4])
@@ -141,12 +155,13 @@ with img_col:
     local_path = row.get("image_local_path")
     full_path = DATA_DIR / local_path if local_path else None
     if local_path and full_path and full_path.exists():
-        st.image(str(full_path), use_container_width=True)
+        st.image(str(full_path), width='stretch')
     else:
         st.warning(f"Image unavailable ({row.get('image_error', 'not scraped')}). Check the original article link above.")
 
     st.markdown(f"**img-generic-frame:** {frame_chip_line(row.get('_img_generic_frame_parsed') or [])}")
-    st.caption(row.get("img-frame-exp", ""))
+    st.caption(f"Original model justification: {row.get('img-frame-exp', '')}")
+    judge_verdict_block(judgment.get("img_frame_verdict"), judgment.get("img_frame_reasoning"))
     st.markdown(f"**img-entity-name:** {row.get('img-entity-name', '—')}  ·  **sentiment:** {row.get('img-entity-sentiment', '—')}")
     st.caption(row.get("img-entity-sentiment-exp", ""))
 
@@ -154,7 +169,7 @@ with text_col:
     st.subheader("Text")
     article_text = row.get("article_text")
     if article_text:
-        with st.expander(f"Scraped article text ({row.get('article_word_count', 0)} words)"):
+        with st.expander(f"Scraped article text ({row.get('article_word_count', 0)} words)", expanded=True):
             st.write(article_text)
     else:
         st.warning(f"Article text unavailable ({row.get('scrape_error', 'not scraped')}). Check the original article link above.")
@@ -162,7 +177,8 @@ with text_col:
     st.markdown(f"**topic:** {row.get('text-topic', '—')}")
     st.caption(row.get("text-topic-exp", ""))
     st.markdown(f"**text-generic-frame:** {frame_chip_line(row.get('_text_generic_frame_parsed') or [])}")
-    st.caption(row.get("text-generic-frame-exp", ""))
+    st.caption(f"Original model justification: {row.get('text-generic-frame-exp', '')}")
+    judge_verdict_block(judgment.get("text_frame_verdict"), judgment.get("text_frame_reasoning"))
     st.markdown(f"**issue-frame:** {row.get('text-issue-frame', '—')}")
     st.caption(row.get("text-issue-frame-exp", ""))
     st.markdown(f"**entity:** {row.get('text-entity-name', '—')}  ·  **sentiment:** {row.get('text-entity-sentiment', '—')}")
@@ -188,7 +204,7 @@ with st.form(key=f"form_{uuid}"):
         default=[v for v in existing.get("corrected_img_frames", "").split(";") if v],
     )
     notes = st.text_area("Notes", value=existing.get("notes", ""))
-    submitted = st.form_submit_button("Save", use_container_width=True)
+    submitted = st.form_submit_button("Save", width='stretch')
     if submitted:
         save_result(uuid, {
             "uuid": uuid,

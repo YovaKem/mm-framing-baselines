@@ -7,17 +7,21 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 IMAGES_DIR = DATA_DIR / "images"
 
-SAMPLE_PATH = DATA_DIR / "sample_300.jsonl"
-SCRAPED_PATH = DATA_DIR / "sample_300_scraped.jsonl"
+SAMPLE_PATH = DATA_DIR / "sample_300.jsonl"  # 300 rows, each with BOTH article text and image successfully scraped
+SCRAPE_ATTEMPTS_LOG_PATH = DATA_DIR / "scrape_attempts_log.jsonl"  # every row attempted, incl. rejected ones, for transparency
 FLAGS_PATH = DATA_DIR / "flags.json"
+FRAME_JUDGMENTS_PATH = DATA_DIR / "frame_judgments.json"
 VALIDATION_RESULTS_PATH = DATA_DIR / "validation_results.csv"
 INSPECTION_REPORT_PATH = DATA_DIR / "inspection_report.md"
 
 RANDOM_SEED = 42
 SAMPLE_SIZE = 300
+MIN_ARTICLE_WORDS = 100  # matches the paper's own filtering threshold
 
 HF_DATASET = "copenlu/mm-framing"
 HF_SPLIT = "valid_framing_subset"  # the paper's framing-analysis-ready subset (154k rows)
+
+OPENROUTER_JUDGE_MODEL = "anthropic/claude-haiku-4.5"
 
 # The 15 generic frames from Boydstun et al. (2014) / Media Frames Corpus, as used
 # for BOTH text-generic-frame and img-generic-frame in this dataset (see arXiv:2503.20960).

@@ -1,14 +1,17 @@
 """
-Automated sweep over the 300 sampled rows to flag likely data-quality issues
-BEFORE manual review, so the human validator can be pointed at the rows most
-worth their time instead of all 300 uniformly.
+Sweep over the 300 sampled rows to flag likely issues before manual review, so
+the human validator is pointed at what's worth their time instead of all 300
+uniformly. Two layers:
 
-Checks are intentionally structural/statistical (missing fields, malformed
-list literals, out-of-taxonomy tags, suspiciously short LLM explanations,
-scrape failures, out-of-range dates) — not semantic ("does this label look
-wrong"), which is what the manual review step is for.
+1. Structural/statistical checks (missing fields, malformed list literals,
+   out-of-taxonomy tags, suspiciously thin LLM explanations, out-of-range
+   dates) — cheap, deterministic, no model calls.
+2. Semantic verdicts from scripts/judge_frames.py (data/frame_judgments.json),
+   if present — an LLM's independent judgment of whether text-generic-frame /
+   img-generic-frame actually holds up against the real article text/image,
+   merged in here as flags with the judge's reasoning as the detail.
 
-Run after sample_dataset.py and (ideally) scrape_articles.py.
+Run after build_sample.py and (for the semantic layer) judge_frames.py.
 
 Usage:
     python scripts/flag_issues.py
@@ -20,9 +23,9 @@ from datetime import datetime
 from common import (
     ENTITY_SENTIMENT_VALUES,
     FLAGS_PATH,
+    FRAME_JUDGMENTS_PATH,
     POLITICAL_LEANING_VALUES,
     SAMPLE_PATH,
-    SCRAPED_PATH,
     normalize_frame_tags,
     read_jsonl,
 )
@@ -36,10 +39,9 @@ EXP_FIELDS = [
     "img-entity-sentiment-exp",
 ]
 SHORT_EXP_THRESHOLD = 15  # characters
-MIN_ARTICLE_WORDS = 100  # matches the paper's own filtering threshold
 
 
-def check_row(row, seen_uuids, seen_titles):
+def check_row(row, seen_uuids, seen_titles, judgment):
     flags = []
 
     def flag(code, detail=""):
@@ -65,7 +67,7 @@ def check_row(row, seen_uuids, seen_titles):
         flag("missing_url")
 
     # --- generic frame fields (the main labels) ---
-    for prefix, exp_field in [("text", "text-generic-frame-exp"), ("img", "img-generic-frame-exp")]:
+    for prefix in ["text", "img"]:
         parse_err = row.get(f"_{prefix}_generic_frame_parse_error")
         tags = row.get(f"_{prefix}_generic_frame_parsed") or []
         if parse_err:
@@ -113,25 +115,30 @@ def check_row(row, seen_uuids, seen_titles):
         if val and len(val) < SHORT_EXP_THRESHOLD:
             flag("suspiciously_short_explanation", f"{field}={val!r}")
 
-    # --- scrape outcomes (only present if scrape_articles.py has been run) ---
-    if "scrape_error" in row or "article_text" in row:
-        word_count = row.get("article_word_count") or 0
-        if not row.get("article_text"):
-            flag("article_text_unavailable", row.get("scrape_error") or "unknown")
-        elif word_count < MIN_ARTICLE_WORDS:
-            flag("article_text_too_short", f"{word_count} words")
-
-        if not row.get("image_local_path"):
-            flag("image_unavailable", row.get("image_error") or "unknown")
+    # --- semantic verdicts from judge_frames.py, if available ---
+    if judgment:
+        if judgment.get("error"):
+            flag("frame_judgment_failed", judgment["error"])
+        else:
+            if judgment.get("text_frame_verdict") == "questionable":
+                flag("text_frame_questionable", judgment.get("text_frame_reasoning", ""))
+            if judgment.get("img_frame_verdict") == "questionable":
+                flag("img_frame_questionable", judgment.get("img_frame_reasoning", ""))
 
     return flags
 
 
 def main():
-    path = SCRAPED_PATH if SCRAPED_PATH.exists() else SAMPLE_PATH
-    if not path.exists():
-        raise SystemExit(f"{SAMPLE_PATH} not found — run scripts/sample_dataset.py first")
-    rows = read_jsonl(path)
+    if not SAMPLE_PATH.exists():
+        raise SystemExit(f"{SAMPLE_PATH} not found — run scripts/build_sample.py first")
+    rows = read_jsonl(SAMPLE_PATH)
+
+    judgments = {}
+    if FRAME_JUDGMENTS_PATH.exists():
+        judgments = json.loads(FRAME_JUDGMENTS_PATH.read_text(encoding="utf-8"))
+    else:
+        print(f"NOTE: {FRAME_JUDGMENTS_PATH} not found — run scripts/judge_frames.py for the "
+              "semantic accuracy check. Continuing with structural checks only.\n")
 
     seen_uuids, seen_titles = set(), set()
     flags_by_uuid = {}
@@ -139,7 +146,7 @@ def main():
     flagged_row_count = 0
 
     for row in rows:
-        row_flags = check_row(row, seen_uuids, seen_titles)
+        row_flags = check_row(row, seen_uuids, seen_titles, judgments.get(row["uuid"]))
         flags_by_uuid[row["uuid"]] = row_flags
         if row_flags:
             flagged_row_count += 1
@@ -149,7 +156,7 @@ def main():
     with open(FLAGS_PATH, "w", encoding="utf-8") as f:
         json.dump(flags_by_uuid, f, indent=2, ensure_ascii=False)
 
-    print(f"Source: {path.name}")
+    print(f"Source: {SAMPLE_PATH.name}")
     print(f"Flagged {flagged_row_count}/{len(rows)} rows ({flagged_row_count / len(rows):.0%})\n")
     print("Flag code frequency:")
     for code, count in code_counter.most_common():

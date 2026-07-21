@@ -16,7 +16,6 @@ from common import (
     CANONICAL_FRAMES,
     INSPECTION_REPORT_PATH,
     SAMPLE_PATH,
-    SCRAPED_PATH,
     normalize_frame_tags,
     read_jsonl,
 )
@@ -47,11 +46,10 @@ COLUMN_DESCRIPTIONS = {
 
 
 def load_sample_df():
-    path = SCRAPED_PATH if SCRAPED_PATH.exists() else SAMPLE_PATH
-    if not path.exists():
-        raise SystemExit(f"{SAMPLE_PATH} not found — run scripts/sample_dataset.py first")
-    rows = read_jsonl(path)
-    return pd.DataFrame(rows), path
+    if not SAMPLE_PATH.exists():
+        raise SystemExit(f"{SAMPLE_PATH} not found — run scripts/build_sample.py first")
+    rows = read_jsonl(SAMPLE_PATH)
+    return pd.DataFrame(rows), SAMPLE_PATH
 
 
 def frame_tag_report(df, column):

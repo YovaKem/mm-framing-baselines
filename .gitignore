@@ -5,11 +5,13 @@ venv/
 *.egg-info/
 
 # Large / regeneratable data artifacts — regenerate via scripts/*.py.
-# Kept out of git: raw HF sample dump + scraped article text/images (large,
+# Kept out of git: raw sample + scrape-attempt log + scraped images (large,
 # and scraped text may be copyrighted). validation_results.csv, flags.json,
-# and inspection_report.md ARE tracked — they're the actual review output.
+# frame_judgments.json, and inspection_report.md ARE tracked — they're the
+# actual review output.
 data/*.jsonl
 data/images/*
 !data/images/.gitkeep
 
 .streamlit/
+.env
