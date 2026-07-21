@@ -29,6 +29,7 @@ Run after filter_news.py.
 Usage:
     python scripts/relabel_frames.py
     python scripts/relabel_frames.py --workers 6
+    python scripts/relabel_frames.py --image-only  # reuse existing text results, only redo image calls
 """
 import argparse
 import json
@@ -137,11 +138,24 @@ def call_llm(client, model, system_prompt, content, retries=2):
             "error": f"relabel_failed_after_retries: {last_error}"}
 
 
-def relabel_one(client, model, row):
+def build_text_content(row):
     article_text = (row.get("article_text") or "")[:MAX_ARTICLE_CHARS]
-    text_content = f"TITLE: {row.get('title', '')}\n\nTEXT:\n{article_text}"
-    text_result = call_llm(client, model, TEXT_SYSTEM_PROMPT, text_content)
+    return f"TITLE: {row.get('title', '')}\n\nTEXT:\n{article_text}"
 
+
+def relabel_text_one(client, model, row):
+    text_content = build_text_content(row)
+    text_result = call_llm(client, model, TEXT_SYSTEM_PROMPT, text_content)
+    return {
+        "new_text_generic_frame": text_result["frames"],
+        "new_text_generic_frame_strengths": text_result["frame_strengths"],
+        "new_text_generic_frame_exp": text_result["explanation"],
+        "new_text_generic_frame_error": text_result["error"],
+    }
+
+
+def relabel_image_one(client, model, row):
+    text_content = build_text_content(row)
     image_path = DATA_DIR / row["image_local_path"]
     b64 = encode_image_b64(image_path)
     image_content = [
@@ -149,13 +163,7 @@ def relabel_one(client, model, row):
         {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{b64}"}},
     ]
     image_result = call_llm(client, model, IMAGE_SYSTEM_PROMPT, image_content)
-
     return {
-        "uuid": row["uuid"],
-        "new_text_generic_frame": text_result["frames"],
-        "new_text_generic_frame_strengths": text_result["frame_strengths"],
-        "new_text_generic_frame_exp": text_result["explanation"],
-        "new_text_generic_frame_error": text_result["error"],
         "new_img_generic_frame": image_result["frames"],
         "new_img_generic_frame_strengths": image_result["frame_strengths"],
         "new_img_generic_frame_exp": image_result["explanation"],
@@ -163,10 +171,20 @@ def relabel_one(client, model, row):
     }
 
 
+def relabel_one(client, model, row):
+    result = {"uuid": row["uuid"]}
+    result.update(relabel_text_one(client, model, row))
+    result.update(relabel_image_one(client, model, row))
+    return result
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", default=OPENROUTER_MODEL)
     parser.add_argument("--workers", type=int, default=6)
+    parser.add_argument("--image-only", action="store_true",
+                         help="reuse existing text results from a prior run, only recompute image labels "
+                              "(for when only the image prompt/content changed)")
     args = parser.parse_args()
 
     if not NEWS_SAMPLE_PATH.exists():
@@ -174,18 +192,36 @@ def main():
     rows = read_jsonl(NEWS_SAMPLE_PATH)
 
     client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=os.environ["OPENROUTER_API_KEY"])
-
-    results = []
-    errors = 0
-    with ThreadPoolExecutor(max_workers=args.workers) as pool:
-        futures = {pool.submit(relabel_one, client, args.model, row): row["uuid"] for row in rows}
-        for future in tqdm(as_completed(futures), total=len(futures), desc=f"Relabeling with {args.model}"):
-            res = future.result()
-            results.append(res)
-            if res["new_text_generic_frame_error"] or res["new_img_generic_frame_error"]:
-                errors += 1
-
     out_path = relabel_model_path(args.model)
+
+    if args.image_only:
+        if not out_path.exists():
+            raise SystemExit(f"--image-only requires an existing {out_path} to reuse text results from")
+        existing_by_uuid = {r["uuid"]: r for r in read_jsonl(out_path)}
+
+        results = []
+        errors = 0
+        with ThreadPoolExecutor(max_workers=args.workers) as pool:
+            futures = {pool.submit(relabel_image_one, client, args.model, row): row for row in rows}
+            for future in tqdm(as_completed(futures), total=len(futures), desc=f"Re-imaging with {args.model}"):
+                row = futures[future]
+                image_res = future.result()
+                merged = dict(existing_by_uuid[row["uuid"]])
+                merged.update(image_res)
+                results.append(merged)
+                if image_res["new_img_generic_frame_error"]:
+                    errors += 1
+    else:
+        results = []
+        errors = 0
+        with ThreadPoolExecutor(max_workers=args.workers) as pool:
+            futures = {pool.submit(relabel_one, client, args.model, row): row["uuid"] for row in rows}
+            for future in tqdm(as_completed(futures), total=len(futures), desc=f"Relabeling with {args.model}"):
+                res = future.result()
+                results.append(res)
+                if res["new_text_generic_frame_error"] or res["new_img_generic_frame_error"]:
+                    errors += 1
+
     write_jsonl(out_path, results)
     print(f"\nRelabeled {len(results)} rows with {args.model} ({errors} had a call error after retries).")
     print(f"Wrote {out_path}")

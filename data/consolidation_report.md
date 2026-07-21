@@ -12,9 +12,10 @@ Rows: 238
 
 ### Image frames
 - Avg pairwise Jaccard across model pairs: 0.49
-- Rows where all 3 models produced identical sets: 32/238 (13%)
-- Avg frames kept per row after 2-of-3 consolidation: 1.45
-- Rows with zero frames surviving consolidation ("None"): 32/238
+- Rows where all 3 models produced identical sets: 36/238 (15%)
+- Avg frames kept per row after 2-of-3 consolidation: 1.40
+- Rows with zero frames surviving consolidation ("None"): 30/238
 
 ### Model call errors
 - google_gemini-3_5-flash_text: 1
+- google_gemini-3_5-flash_img: 1
