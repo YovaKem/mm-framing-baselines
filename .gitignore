@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Large / regeneratable data artifacts — regenerate via scripts/*.py.
+# Kept out of git: raw HF sample dump + scraped article text/images (large,
+# and scraped text may be copyrighted). validation_results.csv, flags.json,
+# and inspection_report.md ARE tracked — they're the actual review output.
+data/*.jsonl
+data/images/*
+!data/images/.gitkeep
+
+.streamlit/
