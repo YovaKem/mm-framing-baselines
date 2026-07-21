@@ -22,8 +22,14 @@ remained.
 **Target labels.** Three LLMs (`anthropic/claude-haiku-4.5`, `openai/gpt-5.4-mini`,
 `google/gemini-3.5-flash`) each independently labeled every article's **text
 frame(s)** and **image frame(s)** zero-shot, from the same 15-category taxonomy.
-A frame was kept as the **consensus target label** if at least 2 of the 3 models
-independently assigned it — separately for text and for image.
+For every frame it assigned, a model also rated how strongly it applied —
+**strong** (one of the main angles) or **moderate** (clearly present, but
+secondary); anything weaker than that was dropped entirely rather than reported,
+so the frame lists aren't padded with tangential matches. A frame became the
+**consensus target label** if at least 2 of the 3 models independently assigned
+it, at either strength — separately for text and for image. A stricter
+**strong-only target** keeps a frame only if at least 2 of the 3 models
+specifically rated it "strong".
 
 **Baselines.** Two small open-weight models were evaluated zero-shot against that
 consensus target:
@@ -34,24 +40,34 @@ consensus target:
 
 ## Results
 
+**All frames (strong + moderate)**
+
 | Baseline | Precision | Recall | F1 |
 |---|---:|---:|---:|
 | Text | 0.58 | 0.60 | 0.59 |
 | Image, without oracle | 0.50 | 0.58 | 0.53 |
 | Image, with oracle | 0.54 | 0.73 | **0.62** |
 
+**Strong frames only** (both the target and the baseline's own prediction
+restricted to frames rated "strong")
+
+| Baseline | Precision | Recall | F1 |
+|---|---:|---:|---:|
+| Text | 0.63 | 0.50 | 0.56 |
+| Image, without oracle | 0.48 | 0.66 | **0.55** |
+| Image, with oracle | 0.33 | 0.89 | 0.48 |
+
 (Metrics follow the original paper's own evaluation methodology — micro-averaged
 precision/recall/F1 — for direct comparability.)
 
-Giving the image model the correct text frame as context measurably helps
-(F1 0.62 vs. 0.53) — but 71% of those "with oracle" predictions turn out to be an
-exact copy of the given text frame, so at least part of that gain looks like the
-model leaning on the handed-to-it answer rather than an independent visual
-judgment. That copying shows up clearly when the comparison is restricted to
-each side's *high-confidence* ("strong") frames only: there, the oracle setting's
-precision collapses (0.33) even as recall climbs (0.89) — it starts over-applying
-the given text frame rather than judging the image on its own — and the
-no-oracle setting actually wins on F1 (0.55 vs. 0.48). Full breakdown in
+Giving the image model the correct text frame as context measurably helps when
+moderate frames are counted too (F1 0.62 vs. 0.53) — but that **reverses** once
+restricted to strong frames only (F1 0.48 vs. 0.55): precision collapses to 0.33
+as the model over-applies the given text frame rather than judging the image on
+its own, with recall alone climbing to 0.89. Consistent with that, 71% of
+"with oracle" predictions turn out to be an exact copy of the given text frame —
+a good chunk of the apparent gain is the model leaning on the handed-to-it
+answer, not an independent visual judgment. Full breakdown in
 [`data/baselines_report.md`](data/baselines_report.md).
 
 For context, the three labeling LLMs agree with *each other* at a similar level
