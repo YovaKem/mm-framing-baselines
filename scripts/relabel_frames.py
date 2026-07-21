@@ -1,7 +1,8 @@
 """
 Generate fresh text and image generic-frame labels from scratch, ignoring the
-dataset's original labels, and store them side by side with the originals for
-comparison (see scripts/report_overlap.py).
+dataset's original labels. Run once per model in common.ENSEMBLE_MODELS;
+scripts/consolidate_annotations.py combines the results into a single target
+label per row (2-of-3 majority vote).
 
 Per row, two independent sequential calls (text first, then image — the image
 call is NOT shown the text call's own OUTPUT/labels, so any text/image

@@ -13,12 +13,9 @@ SAMPLE_PATH = DATA_DIR / "sample_300.jsonl"  # 300 rows, each with BOTH article 
 SCRAPE_ATTEMPTS_LOG_PATH = DATA_DIR / "scrape_attempts_log.jsonl"  # every row attempted, incl. rejected ones, for transparency
 NEWS_FILTER_PATH = DATA_DIR / "news_filter.json"  # per-row is_news verdict + reason
 NEWS_SAMPLE_PATH = DATA_DIR / "sample_news.jsonl"  # SAMPLE_PATH minus rows filtered out as non-news
-RELABELED_PATH = DATA_DIR / "sample_relabeled.jsonl"  # NEWS_SAMPLE_PATH + single-model (claude-haiku-4.5) fresh labels — superseded by the 3-model ensemble below, kept for the overlap-vs-original report
-OVERLAP_REPORT_PATH = DATA_DIR / "overlap_report.md"
 CONSOLIDATED_PATH = DATA_DIR / "sample_consolidated.jsonl"  # NEWS_SAMPLE_PATH + each model's labels + the 2-of-3 majority-vote consolidated labels
 CONSOLIDATION_REPORT_PATH = DATA_DIR / "consolidation_report.md"
 FLAGS_PATH = DATA_DIR / "flags.json"
-VALIDATION_RESULTS_PATH = DATA_DIR / "validation_results.csv"
 INSPECTION_REPORT_PATH = DATA_DIR / "inspection_report.md"
 
 RANDOM_SEED = 42

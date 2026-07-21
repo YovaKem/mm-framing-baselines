@@ -20,6 +20,16 @@ Metrics follow the original paper's methodology: micro-averaged precision/recall
 | Image, no oracle — Qwen/Qwen3-VL-4B-Instruct | 30/238 | 18/30 (60%) |
 | Image, with oracle — Qwen/Qwen3-VL-4B-Instruct | 30/238 | 23/30 (77%) |
 
+## Summary — strong framings only
+
+Same comparison, restricted to high-confidence frames on both sides: a gold frame counts only if >=2 of the 3 ensemble models rated it "strong" (not "moderate"), and a baseline prediction counts only where the baseline itself rated that frame "strong".
+
+| Baseline | Precision | Recall | F1 | Non-zero intersection | Identical | Avg labels (gold) | Avg labels (pred) |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Text — Qwen/Qwen3-4B-Instruct-2507 | 0.63 | 0.50 | 0.56 | 145/221 (66%) | 98/238 (41%) | 1.23 | 0.97 |
+| Image, no oracle — Qwen/Qwen3-VL-4B-Instruct | 0.48 | 0.66 | 0.55 | 101/147 (69%) | 112/238 (47%) | 0.67 | 0.92 |
+| Image, with oracle — Qwen/Qwen3-VL-4B-Instruct | 0.33 | 0.89 | 0.48 | 131/147 (89%) | 58/238 (24%) | 0.67 | 1.82 |
+
 ## Text — Qwen/Qwen3-4B-Instruct-2507
 
 **Most-missed** (in ground truth, baseline didn't predict — false negatives) vs. **most over-predicted** (baseline predicted, not in ground truth — false positives):

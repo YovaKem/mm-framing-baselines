@@ -59,6 +59,36 @@ def per_row_f1(gold, pred):
 
 
 def compare(rows, gold_field, pred_by_uuid, pred_field):
+    pairs = [
+        (set(row.get(gold_field) or []), set((pred_by_uuid.get(row["uuid"], {}) or {}).get(pred_field) or []))
+        for row in rows
+    ]
+    return compare_pairs(pairs)
+
+
+def strong_gold_frames(row, modality):
+    """Frames the CONSOLIDATED target holds at "strong" strength: kept only if
+    >=2 of the 3 ensemble models rated that specific frame "strong" (not just
+    "moderate") for this row, per modality ("text" or "img")."""
+    by_model = row.get("by_model") or {}
+    frame_field = f"{modality}_frames"
+    strength_field = f"{modality}_frame_strengths"
+    counts = Counter()
+    for m in by_model.values():
+        for f in m.get(frame_field, []):
+            if m.get(strength_field, {}).get(f) == "strong":
+                counts[f] += 1
+    return {f for f, c in counts.items() if c >= 2}
+
+
+def strong_pred_frames(pred_row, frame_field, strength_field):
+    """The baseline's own frames it rated "strong" (drops its "moderate" ones)."""
+    frames = pred_row.get(frame_field) or []
+    strengths = pred_row.get(strength_field) or {}
+    return {f for f in frames if strengths.get(f) == "strong"}
+
+
+def compare_pairs(pairs):
     tp = fp = fn = 0
     identical = 0
     gold_sizes, pred_sizes = [], []
@@ -67,10 +97,7 @@ def compare(rows, gold_field, pred_by_uuid, pred_field):
     none_gold_total, none_gold_correct = 0, 0  # rows where gold IS empty ("None")
     f1s = []
 
-    for row in rows:
-        gold = set(row.get(gold_field) or [])
-        pred = set((pred_by_uuid.get(row["uuid"], {}) or {}).get(pred_field) or [])
-
+    for gold, pred in pairs:
         tp += len(gold & pred)
         fp += len(pred - gold)
         fn += len(gold - pred)
@@ -91,7 +118,7 @@ def compare(rows, gold_field, pred_by_uuid, pred_field):
             if not pred:
                 none_gold_correct += 1
 
-    n = len(rows)
+    n = len(pairs)
     precision = tp / (tp + fp) if (tp + fp) else 0.0
     recall = tp / (tp + fn) if (tp + fn) else 0.0
     f1 = 2 * precision * recall / (precision + recall) if (precision + recall) else 0.0
@@ -112,6 +139,20 @@ def compare(rows, gold_field, pred_by_uuid, pred_field):
         "extra": extra,
         "per_row_f1": f1s,
     }
+
+
+def summary_table(settings, n):
+    lines = [
+        "| Baseline | Precision | Recall | F1 | Non-zero intersection | Identical | Avg labels (gold) | Avg labels (pred) |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|",
+    ]
+    for name, s in settings:
+        nzi = f"{s['nzi_hits']}/{s['nzi_total']} ({s['nzi_hits']/s['nzi_total']:.0%})" if s["nzi_total"] else "n/a"
+        lines.append(
+            f"| {name} | {s['precision']:.2f} | {s['recall']:.2f} | {s['f1']:.2f} | {nzi} | "
+            f"{s['identical']}/{n} ({s['identical']/n:.0%}) | {s['avg_gold_size']:.2f} | {s['avg_pred_size']:.2f} |"
+        )
+    return "\n".join(lines)
 
 
 def main():
@@ -152,14 +193,7 @@ def main():
     ]
 
     lines.append("## Summary\n")
-    lines.append("| Baseline | Precision | Recall | F1 | Non-zero intersection | Identical | Avg labels (gold) | Avg labels (pred) |")
-    lines.append("|---|---:|---:|---:|---:|---:|---:|---:|")
-    for name, s in settings:
-        nzi = f"{s['nzi_hits']}/{s['nzi_total']} ({s['nzi_hits']/s['nzi_total']:.0%})" if s["nzi_total"] else "n/a"
-        lines.append(
-            f"| {name} | {s['precision']:.2f} | {s['recall']:.2f} | {s['f1']:.2f} | {nzi} | "
-            f"{s['identical']}/{n} ({s['identical']/n:.0%}) | {s['avg_gold_size']:.2f} | {s['avg_pred_size']:.2f} |"
-        )
+    lines.append(summary_table(settings, n))
 
     none_rows = [(name, s) for name, s in settings if s["none_gold_total"]]
     if none_rows:
@@ -171,6 +205,43 @@ def main():
                 f"| {name} | {s['none_gold_total']}/{n} | "
                 f"{s['none_gold_correct']}/{s['none_gold_total']} ({s['none_gold_correct']/s['none_gold_total']:.0%}) |"
             )
+
+    # Strong-only: keep a gold frame only if >=2 of 3 ensemble models rated it "strong"
+    # (not just "moderate"), and a baseline's own prediction only where IT rated a frame
+    # "strong". Same three settings, filtered down to each side's high-confidence frames.
+    text_strong_pairs = [
+        (
+            strong_gold_frames(row, "text"),
+            strong_pred_frames(text_by_uuid.get(row["uuid"], {}), "new_text_generic_frame", "new_text_generic_frame_strengths"),
+        )
+        for row in rows
+    ]
+    no_oracle_strong_pairs = [
+        (
+            strong_gold_frames(row, "img"),
+            strong_pred_frames(no_oracle_by_uuid.get(row["uuid"], {}), "new_img_generic_frame", "new_img_generic_frame_strengths"),
+        )
+        for row in rows
+    ]
+    oracle_strong_pairs = [
+        (
+            strong_gold_frames(row, "img"),
+            strong_pred_frames(oracle_by_uuid.get(row["uuid"], {}), "new_img_generic_frame", "new_img_generic_frame_strengths"),
+        )
+        for row in rows
+    ]
+    strong_settings = [
+        (f"Text — {TEXT_MODEL_ID}", compare_pairs(text_strong_pairs)),
+        (f"Image, no oracle — {VLM_MODEL_ID}", compare_pairs(no_oracle_strong_pairs)),
+        (f"Image, with oracle — {VLM_MODEL_ID}", compare_pairs(oracle_strong_pairs)),
+    ]
+    lines.append("\n## Summary — strong framings only\n")
+    lines.append(
+        "Same comparison, restricted to high-confidence frames on both sides: a gold frame counts "
+        "only if >=2 of the 3 ensemble models rated it \"strong\" (not \"moderate\"), and a baseline "
+        "prediction counts only where the baseline itself rated that frame \"strong\".\n"
+    )
+    lines.append(summary_table(strong_settings, n))
 
     for name, s in settings:
         lines.append(f"\n## {name}\n")

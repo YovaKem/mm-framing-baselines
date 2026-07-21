@@ -1,7 +1,6 @@
 datasets>=2.19
 pandas>=2.0
 pyarrow>=14
-streamlit>=1.33
 pillow>=10
 huggingface_hub>=0.22
 requests>=2.31

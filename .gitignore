@@ -7,18 +7,16 @@ venv/
 # Kept out of git: raw sample/scrape-attempt-log/scraped-images/consolidated
 # rows (large, and full scraped article text may be copyrighted). The
 # per-model relabel_*.jsonl and baseline_*.jsonl files hold only labels +
-# explanations (no copyrighted text) and ARE tracked, along with
-# validation_results.csv, flags.json, and the *_report.md files — they're
-# the actual review/baseline output.
+# explanations (no copyrighted text) and ARE tracked, along with flags.json
+# and the *_report.md files — they're the actual review/baseline output.
 data/*.jsonl
 !data/relabel_*.jsonl
 !data/baseline_*.jsonl
 data/images/*
 !data/images/.gitkeep
 
-# Local-model venv (torch/transformers/etc.) — regenerate via the README's
+# Local-model venv (torch/transformers/etc.) — regenerate via docs/PIPELINE.md's
 # venv setup, not tracked (large, platform-specific wheels).
 .venv/
 
-.streamlit/
 .env
