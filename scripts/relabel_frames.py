@@ -1,39 +1,36 @@
 """
-Generate fresh text and image generic-frame labels from scratch, ignoring the
-dataset's original labels. Run once per model in common.ENSEMBLE_MODELS;
+Generate fresh text generic-frame labels from scratch, ignoring the dataset's
+original labels. Run once per model in common.ENSEMBLE_MODELS;
 scripts/consolidate_annotations.py combines the results into a single target
-label per row (2-of-3 majority vote).
+label per row (2-of-3 majority vote) — the silver-standard TEXT ground truth
+(no human text-frame annotation exists, unlike image frames, which come from
+the paper's own human double-annotation pass — see scripts/build_human_sample.py
+and scripts/consolidate_annotations.py).
 
-Per row, two independent sequential calls (text first, then image — the image
-call is NOT shown the text call's own OUTPUT/labels, so any text/image
-divergence is genuine signal rather than an artifact of anchoring):
-
-  1. TEXT: given the article title + scraped text, return only frames that
-     apply STRONGLY or MODERATELY — weak/tangential connections are dropped
-     entirely, not just hidden.
-  2. IMAGE: given the SAME full article title + text (as context/grounding)
-     plus the image itself, judge which frames the IMAGE specifically
-     visually conveys — not the article's topic in the abstract. Frames
-     often overlap with the text's (the image usually illustrates the
-     story) but this isn't required: an image can carry its own distinct
-     framing the text never develops, or fail to visually convey a frame
-     the text discusses. Many news images are purely illustrative (e.g. a
-     plain storefront photo in a story about that store) and carry no
-     framing at all — an EMPTY frame list ("None") is an explicitly valid,
-     expected outcome, not a failure.
+TEXT_SYSTEM_PROMPT/IMAGE_SYSTEM_PROMPT follow the paper's own text- and
+image-framing prompts verbatim (arXiv:2503.20960 PDF, pp.18-19; per-frame
+description text lives in common.TEXT_FRAME_DESCRIPTIONS/
+IMAGE_FRAME_DESCRIPTIONS), dropping the paper's topic/entity/issue-specific-
+frame sub-tasks (out of scope here — generic frame only) and its
+strong/moderate/weak strength grading (the paper's prompts don't have it).
+Two deliberate deviations from the paper: (1) the image prompt is given the
+full article title+text as context, even though the paper's own image prompt
+is image-only; (2) both prompts are also used, unchanged, by the Qwen
+baseline/finetune scripts (baseline_qwen_text.py, baseline_qwen_vlm.py,
+finetune_qwen_text.py, finetune_qwen_vlm.py) so every baseline is scored
+against ground truth generated under the exact prompt it's run with.
 
 Requires OPENROUTER_API_KEY in .env. Uses anthropic/claude-haiku-4.5 by
 default (common.OPENROUTER_MODEL).
 
-Run after filter_news.py.
+Run after scripts/build_human_sample.py (no news-filtering step for this
+sample — see that script's docstring).
 
 Usage:
     python scripts/relabel_frames.py
-    python scripts/relabel_frames.py --workers 6
-    python scripts/relabel_frames.py --image-only  # reuse existing text results, only redo image calls
+    python scripts/relabel_frames.py --model openai/gpt-5.4-mini --workers 6
 """
 import argparse
-import json
 import os
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -45,64 +42,67 @@ from tqdm import tqdm
 from common import (
     CANONICAL_FRAMES,
     CANONICAL_LABEL_TO_KEY,
-    DATA_DIR,
+    IMAGE_FRAME_DESCRIPTIONS,
     NEWS_SAMPLE_PATH,
     OPENROUTER_MODEL,
-    encode_image_b64,
+    TEXT_FRAME_DESCRIPTIONS,
     extract_json_object,
     read_jsonl,
     relabel_model_path,
+    strip_none_key,
     write_jsonl,
 )
 
 load_dotenv()
 
 MAX_ARTICLE_CHARS = 6000
-FRAME_LIST_BLOCK = "\n".join(f"- {v}" for v in CANONICAL_FRAMES.values())
 
-TEXT_SYSTEM_PROMPT = f"""You are a media framing analyst labeling news articles with a \
-fixed taxonomy (Boydstun et al. / Media Frames Corpus):
 
-{FRAME_LIST_BLOCK}
+def frame_list_block(descriptions):
+    display_name = lambda k: CANONICAL_FRAMES[k].split(" — ")[0]  # noqa: E731
+    return "\n".join(f"{display_name(k)} - {descriptions[k]}" for k in CANONICAL_FRAMES)
 
-Given the article's title and text, decide which frames are STRONGLY or MODERATELY \
-present as a way the article frames its subject:
-- strong: central to how the article is written — a reader would name this as one of the
-  main angles.
-- moderate: clearly and substantively present, but not the main angle.
-- weak (DO NOT INCLUDE AT ALL): only mentioned in passing, or arguable but not
-  substantively developed. Do not pad the list with weak matches — it is normal and often
-  correct to return just one or two frames, even a single one.
 
-Respond with ONLY a JSON object (no markdown fences, no extra text):
-{{"frames": [{{"frame": "<exact name from the list above>", "strength": "strong"|"moderate"}}, ...], \
-"explanation": "<1-3 sentences justifying the selected set as a whole>"}}"""
+TEXT_FRAME_LIST_BLOCK = frame_list_block(TEXT_FRAME_DESCRIPTIONS)
+IMAGE_FRAME_LIST_BLOCK = frame_list_block(IMAGE_FRAME_DESCRIPTIONS)
 
-IMAGE_SYSTEM_PROMPT = f"""You are a media framing analyst labeling the LEAD IMAGE of news \
-articles with a fixed taxonomy (Boydstun et al. / Media Frames Corpus), applied visually:
+TEXT_SYSTEM_PROMPT = f"""You are an intelligent and logical journalism scholar conducting analysis of news \
+articles. Your task is to read the article and answer the following question about the article. Only output \
+the json and no other text.
 
-{FRAME_LIST_BLOCK}
+Framing is a way of classifying and categorizing information that allows audiences to make sense of and give \
+meaning to the world around them (Goffman, 1974).
+Entman (1993) has defined framing as "making some aspects of reality more salient in a text in order to \
+promote a particular problem definition, causal interpretation, moral evaluation, and/or treatment \
+recommendation for the item described".
+Frames serve as metacommunicative structures that use reasoning devices such as metaphors, lexical choices, \
+images, symbols, and actors to evoke a latent message for media users (Gamson, 1995).
 
-You are given the full article text and its lead image. Read the article for context — who/what \
-it's about, what's happening — but apply the frame labels specifically to what the IMAGE ITSELF \
-visually conveys, not to the article's topic in the abstract. Image frames often overlap with the \
-frames present in the text, since the image usually illustrates the story, but this is NOT a \
-requirement: the image can carry its own distinct framing that the text never develops, or fail to \
-visually convey a frame the text discusses. Use the article to understand what you're looking at, \
-not as a source to copy frame labels from.
-- strong: the image's composition/subject centrally conveys this frame.
-- moderate: the image substantively supports this frame, but not centrally.
-- weak (DO NOT INCLUDE): a stretch, or true only because of the article's topic rather than what's
-  actually shown in the image.
+A set of generic news frames with a name and description are:
+{TEXT_FRAME_LIST_BLOCK}
 
-Many news images are purely illustrative/neutral (a plain storefront photo, a generic stock
-photo, a headshot, a building exterior) and convey NO editorial frame at all — in that case
-return an EMPTY frames list. This is a common, entirely valid, EXPECTED outcome, not a
-failure to find something — do not force a weak match just to return something.
+Given the list of news frames, and the news article, carefully analyse the article and choose the appropriate \
+frames used in the article from the above list. Only choose frames from the provided list. If none of the \
+frames apply, choose "None" as the answer.
 
-Respond with ONLY a JSON object (no markdown fences, no extra text):
-{{"frames": [{{"frame": "<exact name from the list above>", "strength": "strong"|"moderate"}}, ...], \
-"explanation": "<1-3 sentences; if empty, briefly say why the image is neutral/illustrative>"}}"""
+Respond with ONLY a JSON object (no markdown fences, no extra text; add escape characters where necessary to \
+make it a valid JSON output):
+{{"frames-list": ["<all frame names that apply from the list above>"], "reason": "<reasoning for the frames chosen>"}}"""
+
+IMAGE_SYSTEM_PROMPT = f"""You are an intelligent and logical journalism scholar conducting analysis of images \
+associated with news articles.
+
+A set of generic news frames with a name and description are:
+{IMAGE_FRAME_LIST_BLOCK}
+
+You are given the full article title and text (for context — who/what it's about, what's happening) and its \
+lead image. Carefully analyse the IMAGE and choose the appropriate frames from the above list based on what \
+the image itself visually conveys, not the article's topic in the abstract. Only choose frames from the \
+provided list. If none of the frames apply, choose "None" as the answer.
+
+Respond with ONLY a JSON object (no markdown fences, no extra text; add escape characters where necessary to \
+make it a valid JSON output):
+{{"frames-list": ["<all frame names that apply from the list above>"], "reason": "<reasoning for the frames chosen>"}}"""
 
 
 def call_llm(client, model, system_prompt, content, retries=2):
@@ -115,27 +115,24 @@ def call_llm(client, model, system_prompt, content, retries=2):
                 temperature=0,
             )
             parsed = extract_json_object(resp.choices[0].message.content)
-            frames_raw = parsed.get("frames", [])
-            keys, frame_strengths, unrecognized = [], {}, []
-            for f in frames_raw:
-                name = str(f.get("frame", "")).strip()
-                key = CANONICAL_LABEL_TO_KEY.get(name)
+            names = parsed.get("frames-list", [])
+            keys, unrecognized = [], []
+            for name in names:
+                key = CANONICAL_LABEL_TO_KEY.get(str(name).strip().lower())
                 if key is None:
                     unrecognized.append(name)
                 else:
                     keys.append(key)
-                    frame_strengths[key] = f.get("strength", "")
             return {
-                "frames": keys,
-                "frame_strengths": frame_strengths,
+                "frames": strip_none_key(keys),
                 "unrecognized_frame_names": unrecognized,
-                "explanation": parsed.get("explanation", ""),
+                "explanation": parsed.get("reason", ""),
                 "error": None,
             }
         except Exception as e:  # noqa: BLE001
             last_error = str(e)
             time.sleep(1.5 * (attempt + 1))
-    return {"frames": [], "frame_strengths": {}, "unrecognized_frame_names": [], "explanation": None,
+    return {"frames": [], "unrecognized_frame_names": [], "explanation": None,
             "error": f"relabel_failed_after_retries: {last_error}"}
 
 
@@ -148,80 +145,35 @@ def relabel_text_one(client, model, row):
     text_content = build_text_content(row)
     text_result = call_llm(client, model, TEXT_SYSTEM_PROMPT, text_content)
     return {
+        "uuid": row["uuid"],
         "new_text_generic_frame": text_result["frames"],
-        "new_text_generic_frame_strengths": text_result["frame_strengths"],
         "new_text_generic_frame_exp": text_result["explanation"],
         "new_text_generic_frame_error": text_result["error"],
     }
-
-
-def relabel_image_one(client, model, row):
-    text_content = build_text_content(row)
-    image_path = DATA_DIR / row["image_local_path"]
-    b64 = encode_image_b64(image_path)
-    image_content = [
-        {"type": "text", "text": text_content},
-        {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{b64}"}},
-    ]
-    image_result = call_llm(client, model, IMAGE_SYSTEM_PROMPT, image_content)
-    return {
-        "new_img_generic_frame": image_result["frames"],
-        "new_img_generic_frame_strengths": image_result["frame_strengths"],
-        "new_img_generic_frame_exp": image_result["explanation"],
-        "new_img_generic_frame_error": image_result["error"],
-    }
-
-
-def relabel_one(client, model, row):
-    result = {"uuid": row["uuid"]}
-    result.update(relabel_text_one(client, model, row))
-    result.update(relabel_image_one(client, model, row))
-    return result
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", default=OPENROUTER_MODEL)
     parser.add_argument("--workers", type=int, default=6)
-    parser.add_argument("--image-only", action="store_true",
-                         help="reuse existing text results from a prior run, only recompute image labels "
-                              "(for when only the image prompt/content changed)")
     args = parser.parse_args()
 
     if not NEWS_SAMPLE_PATH.exists():
-        raise SystemExit(f"{NEWS_SAMPLE_PATH} not found — run scripts/filter_news.py first")
+        raise SystemExit(f"{NEWS_SAMPLE_PATH} not found — run scripts/build_human_sample.py first")
     rows = read_jsonl(NEWS_SAMPLE_PATH)
 
     client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=os.environ["OPENROUTER_API_KEY"])
     out_path = relabel_model_path(args.model)
 
-    if args.image_only:
-        if not out_path.exists():
-            raise SystemExit(f"--image-only requires an existing {out_path} to reuse text results from")
-        existing_by_uuid = {r["uuid"]: r for r in read_jsonl(out_path)}
-
-        results = []
-        errors = 0
-        with ThreadPoolExecutor(max_workers=args.workers) as pool:
-            futures = {pool.submit(relabel_image_one, client, args.model, row): row for row in rows}
-            for future in tqdm(as_completed(futures), total=len(futures), desc=f"Re-imaging with {args.model}"):
-                row = futures[future]
-                image_res = future.result()
-                merged = dict(existing_by_uuid[row["uuid"]])
-                merged.update(image_res)
-                results.append(merged)
-                if image_res["new_img_generic_frame_error"]:
-                    errors += 1
-    else:
-        results = []
-        errors = 0
-        with ThreadPoolExecutor(max_workers=args.workers) as pool:
-            futures = {pool.submit(relabel_one, client, args.model, row): row["uuid"] for row in rows}
-            for future in tqdm(as_completed(futures), total=len(futures), desc=f"Relabeling with {args.model}"):
-                res = future.result()
-                results.append(res)
-                if res["new_text_generic_frame_error"] or res["new_img_generic_frame_error"]:
-                    errors += 1
+    results = []
+    errors = 0
+    with ThreadPoolExecutor(max_workers=args.workers) as pool:
+        futures = {pool.submit(relabel_text_one, client, args.model, row): row["uuid"] for row in rows}
+        for future in tqdm(as_completed(futures), total=len(futures), desc=f"Relabeling text with {args.model}"):
+            res = future.result()
+            results.append(res)
+            if res["new_text_generic_frame_error"]:
+                errors += 1
 
     write_jsonl(out_path, results)
     print(f"\nRelabeled {len(results)} rows with {args.model} ({errors} had a call error after retries).")

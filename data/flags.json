@@ -1,310 +1,664 @@
 {
-  "87c232b0-b0fb-4c1e-9b54-09bcc4e40b5f": [],
-  "96a5f34c-5396-4bc5-a578-3ccdb216c7c2": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "ddb84722-f10d-423e-bd1a-90f22a670a48": [
+  "0074f73a-d30e-44dd-9400-2647d1831068": [],
+  "00a081b7-e1e5-4232-9b12-cd6a61a2f8c2": [
     {
       "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: policy_prescription_and_evaluation"
-    }
-  ],
-  "cb915188-99af-4e3c-8aa7-1f8ad1beae40": [
+      "detail": "image conveys frame(s) not in the text: health_and_safety, quality_of_life"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
-  "c1b9ca39-a7c6-4684-b9d0-6ac7568d4c3d": [
+  "00ba838f-e9fd-4b52-9004-e007cd5c79db": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: morality"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "01ef38ef-868a-41d1-89b7-4c6d2cfa4ecc": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "ethics and morality, legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "original_img_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    }
+  ],
+  "0294cf33-eab1-43e3-b202-a4371b63ea0c": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legacy and reputation"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "03ed949c-5225-479e-a0af-77b7ad1c3e53": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    }
+  ],
+  "04ad1d76-8550-4634-9d10-e710ac4a2ca6": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "04ed88e0-17f6-4bfd-8fea-c37d02b06cf1": [
+    {
+      "code": "missing_title",
+      "detail": ""
+    },
+    {
+      "code": "original_text_generic_frame_parse_error",
+      "detail": "missing"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: economic, quality_of_life"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "05b0ad03-dec7-4a9d-9a0a-5907d80e5d10": [
     {
       "code": "image_frame_not_subset_of_text",
       "detail": "image conveys frame(s) not in the text: crime_and_punishment"
     }
   ],
-  "cbda7ecd-8b79-4a5b-a6b9-4c34b72aa3e0": [
+  "066ea44a-af30-4b5e-9b9b-5f3c2abbfd19": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "07b3ba99-a24a-4bde-941c-edad1a0177b7": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: crime_and_punishment, cultural_identity, fairness_and_equality, morality, public_opinion"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "07ea3129-14c4-4918-8848-655ace57f517": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity, morality"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "089a28c6-1de0-4904-9058-f3930cd1188c": [
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    }
+  ],
+  "0911b762-237c-4f1b-99e5-7637cbaed46a": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: economic"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "09a8c148-ac95-42c0-aefb-a1aab286851f": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity, public_opinion"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "0a2780ef-bdaa-4a1e-9a4f-fac7e5003137": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "technology and infrastructure"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: economic"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "0a49b3e1-dad9-4856-9fc5-bc515730eb92": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources"
+    }
+  ],
+  "0a6a65fe-1529-46b2-a301-354dfa34f315": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "original_img_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    }
+  ],
+  "0b328272-6b74-4022-a2af-c812872a4926": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "0b3aa94d-f3c7-4dab-9790-73761573d46f": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "0bbc2741-129c-4f1a-bbd7-043be994ef70": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources, cultural_identity, health_and_safety"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    }
+  ],
+  "0be9b862-0e8b-4098-975d-382d2dd8dfa0": [],
+  "0dacec4a-efec-4544-8efc-b89d8e21fc36": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "0df831bd-aa37-43a1-969b-04a18d3b279a": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "0e5f3b4e-1080-483b-8a78-7a2c4559b293": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: economic"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    }
+  ],
+  "0ea38199-caed-41ca-958d-d1dbc0501678": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "safety and defense"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: public_opinion"
+    }
+  ],
+  "0f1cb1f4-6797-4e8d-a03c-77a5ed5f2699": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: political"
+    }
+  ],
+  "0fc475fe-8b57-4e3e-894a-d6be537130c0": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: economic"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "0fcfd8e3-c706-4021-8bd4-0e95a1be4c02": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity, morality"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "103d3bb9-8316-490c-a01d-c3c04236f8ef": [],
+  "1141988d-e3f5-40b5-b049-40f22c5b4456": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: public_opinion, security_and_defense"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "1155c6db-cbe7-4ddb-8734-77a00bcc9356": [
+    {
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.17"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "11bc8b70-3aee-49e6-8341-c9b3274763e2": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence, safety and defense"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "122011db-8be7-4ac4-b4c7-a00e65984475": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "12611745-bd10-4e23-8906-9be4a0b0b1e8": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: economic, fairness_and_equality, political, security_and_defense"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "12821fad-8a17-4dfe-bdf9-0720182ded14": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    }
+  ],
+  "12f322df-fedd-47c9-a734-32962aebc1c7": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity, political"
+    }
+  ],
+  "131f5de7-d7bc-48e5-8af8-e06ad9dfeec8": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "education"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    }
+  ],
+  "146e7630-f2da-4d3b-990a-6a3eef9972ca": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "1470c8c3-978b-460a-897f-26f9301559de": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    }
+  ],
+  "1471094b-e237-4d24-ae24-2e25ae386f17": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "original_img_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.17"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "14a36f44-2e64-4041-9a3c-68fd0238489d": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "1550bc4c-68cd-47c1-b04f-f5b5f524976e": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "15625a74-65a8-4073-ab64-eee86671e14f": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.17"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "161a041b-0885-44ed-ad69-4aa6256c1857": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources, economic, quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "1670efd4-b133-4e13-87f9-df572b002e08": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
     {
       "code": "image_frame_not_subset_of_text",
       "detail": "image conveys frame(s) not in the text: quality_of_life"
-    }
-  ],
-  "36ba8176-109b-4b8a-9005-8848c7a353a3": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "f0e59b73-461a-44d6-b8c1-e54cbc8ef9c1": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "d3834f04-25b2-43a9-b549-13e6c732a07c": [
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
-    }
-  ],
-  "ae261318-de0f-4b73-9ec0-f80fce32d475": [],
-  "417e12dd-d79a-48e9-a073-bc819b1d6614": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.17"
-    }
-  ],
-  "11cd2998-ed81-45ce-92ee-5686dff86ded": [],
-  "43d87747-459e-44be-a019-86f2ab7287d0": [],
-  "9b4ba346-bff3-4217-bbf8-22329719b138": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: political"
     },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
-  "0516800c-7f44-4df2-a427-6aea34a43b5b": [],
-  "e7a71ded-cedf-4480-80a6-6991e4614f12": [
+  "167b6dc7-e472-4564-9761-04ab94ef281f": [],
+  "17392dcb-0570-4728-b8cf-635c6caf5345": [
     {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.22"
-    },
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: political"
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
     }
   ],
-  "eeaf6a2f-c608-40df-a120-d9193d808685": [
+  "182e50c3-8a27-47fa-b2c4-7c65e73a825c": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
     {
       "code": "low_ensemble_agreement_text",
-      "detail": "avg pairwise jaccard=0.11"
+      "detail": "avg pairwise jaccard=0.14"
     },
     {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.00"
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "18c19e01-7aef-42ef-b2ad-30b4a634a0a6": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "19f55748-715b-4422-8d1b-de6c94747acd": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "1a1a5fb8-a108-4e43-8f7f-481e366a2490": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "safety and health"
     },
     {
       "code": "text_frame_diverges_from_original",
       "detail": "jaccard=0.00"
+    }
+  ],
+  "1a780e46-ff21-40e5-83e3-6c9216898e78": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "entertainment"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    }
+  ],
+  "1b3040c1-8cfb-4668-afd4-fc4a116611f4": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: policy_prescription_and_evaluation"
+    }
+  ],
+  "1bec9272-acdf-403a-b45b-ff32839a1641": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "sustainability"
     },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
-  "30cfef7a-58be-4bda-890d-6af7e324d9bb": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "f7d6701e-1f1a-4597-9d13-565c7a02f8b5": [],
-  "b89902ac-d302-41e1-8139-1c0b8d3dbe58": [
+  "1cc0e435-54d7-443e-8bd4-f6b7840f03f7": [
     {
       "code": "low_ensemble_agreement_text",
       "detail": "avg pairwise jaccard=0.22"
     },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "aee3cae3-f085-4bdf-8d7d-73e87fd2b093": [],
-  "c8c7da83-1e39-4984-828a-e1152b6f6d57": [],
-  "dec935bc-6639-42f2-8268-3d176064e27b": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: political"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "275c42f0-9796-41ad-9da4-5f1f4c93417d": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.00"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "b13ccdbe-3883-4a34-96a6-64a17e24365a": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "560ec6c5-711a-4897-849d-4c27d39ecaae": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "f1ea4708-47a4-4dd4-87a0-c5d2577ec16c": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: security_and_defense"
-    }
-  ],
-  "5b5f1f4b-bf55-4722-aaa5-623d45b231e3": [],
-  "02e6aca0-1c61-4d7a-bd63-eda08ea43a3a": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.17"
-    },
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
-    }
-  ],
-  "1d081290-b8db-4c49-bf31-ab4481cf0fb6": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "eba7dd45-fb09-45b5-8f7f-5bfd8990000f": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.17"
-    },
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: political"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "ed5ead9e-2f87-4472-9a6d-0011d54dd8a7": [
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "6b2c56b8-78a5-4523-8638-144db2a76bc8": [],
-  "79e7f20d-e228-40a8-93bb-0cddbcfbc8be": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.17"
-    }
-  ],
-  "58798a31-30d0-415d-95f6-c2a648ce6240": [],
-  "dec0ca8a-9527-42a8-aad8-da11d515cf58": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.11"
-    },
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: security_and_defense"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "1fbb9dcd-e4bd-4f90-bff7-4792c7561a29": [
     {
       "code": "text_frame_diverges_from_original",
       "detail": "jaccard=0.17"
     }
   ],
-  "b56cd99c-e35a-4151-81b1-b6f7891db91e": [
+  "1e34c07c-0625-43b2-9616-7cb935829cca": [
     {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.17"
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
     },
     {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "69c873c7-9368-4a1c-8d36-a490a342c0cc": [],
-  "003d833c-c886-4bc6-bc81-d61e31dcca4c": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.00"
+      "code": "original_img_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
     },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "07a38abd-729f-4825-8390-088aaf921bc9": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: security_and_defense"
-    }
-  ],
-  "d2948c02-6d70-420a-9745-57af3514a6bb": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "40fac6a9-cc51-438a-b34f-40d2e6af1e36": [
     {
       "code": "image_frame_not_subset_of_text",
       "detail": "image conveys frame(s) not in the text: political"
-    }
-  ],
-  "528dbb29-38f7-4206-a64b-83dcda8324ae": [],
-  "2039f78a-a0b9-4610-884b-f260d0078c7f": [
+    },
     {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
     }
   ],
-  "101f3e50-4615-49d3-9545-94c265487b57": [
+  "1e6e93cf-cd6c-40b3-9d59-de466fb4033f": [
     {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.17"
-    }
-  ],
-  "788173da-bb42-4f4a-b356-5e62b9fba18c": [
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
     {
       "code": "image_frame_not_subset_of_text",
       "detail": "image conveys frame(s) not in the text: quality_of_life"
-    }
-  ],
-  "a0896430-d525-45c5-9efe-34f62404eba5": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.17"
-    },
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
     },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
-  "5dfdd0af-e86f-4a67-a9b7-833f8a7f1b64": [
+  "1ec54065-eb7d-45d9-b9ec-2abc4134df5b": [
     {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.17"
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
     },
     {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.17"
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
     }
   ],
-  "6ead63c4-a1d5-48bb-94e0-3793a6139540": [
+  "1fa71cc5-8e50-400a-8a73-e4e3f11d194b": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "technology and innovation"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "211fcb2b-dc83-45c1-8bcd-e9e34ea8ec46": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "mental health"
+    }
+  ],
+  "2259de42-57b8-4ef8-a5a1-a9f5422aa789": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    }
+  ],
+  "226e7962-3165-4a30-b2d8-f264f1bf1ff6": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "22d09d53-859d-4139-8b77-4643790aa851": [],
+  "234ff4ab-0f3a-4d80-a75a-12a86f8a23c0": [
+    {
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.17"
+    },
     {
       "code": "image_frame_not_subset_of_text",
       "detail": "image conveys frame(s) not in the text: public_opinion"
@@ -314,29 +668,261 @@
       "detail": "jaccard=0.00"
     }
   ],
-  "416d83db-b373-462a-8784-82dcfc3f3403": [],
-  "f361fef5-0401-44f3-8e92-fb99297757b0": [],
-  "869307cc-569c-4db5-b1f3-5f320f2042f7": [],
-  "b90110dd-27ec-48c3-ab32-6c61f3fd126e": [
+  "2438b4fe-f045-4bd9-8483-946325033548": [
     {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: fairness_and_equality"
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    }
+  ],
+  "247b2870-a773-4a7d-bf42-7c824580a5aa": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
     },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
-  "3ada1ba4-105f-4031-b163-a1f77ff49889": [],
-  "7b3a5281-099f-41bf-b0e0-36097a2a67e3": [],
-  "f81104b8-7d1a-40bd-8c95-367c56ca2acd": [
+  "247e332d-2aaf-4a48-9e57-8482a9874f9a": [
     {
-      "code": "low_ensemble_agreement_text",
-      "detail": "avg pairwise jaccard=0.19"
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
     },
     {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.22"
+      "code": "original_img_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: health_and_safety"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "24c24d85-afa6-4776-a16a-ef5f11beabf1": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "255541da-8117-49f3-9b26-033c21e37abb": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: economic"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.17"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "256331b6-a8eb-4f82-be18-2c68e2655f10": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    }
+  ],
+  "273c6780-9acf-4ee3-a31e-e286d941994b": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity, quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "280c3abb-bfd8-4090-9777-4b330351ccb6": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    }
+  ],
+  "28e45f2b-7bf9-4441-a3a1-aaed7c6151ff": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    }
+  ],
+  "29f11445-8424-4afb-a331-0814275b5a87": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.14"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "2a8e7780-39d0-4f4b-9eca-7a8a0be703ea": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: public_opinion"
+    }
+  ],
+  "2afdcc0c-a0ab-4942-a6f0-252b18790c99": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "2b6c0ba0-9883-4bae-a700-5d2a201e5de9": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "2b8a5458-a0cf-4b5c-bb18-4035760dfd82": [],
+  "2be5b479-7954-4727-bc75-65ae787800fe": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "2c53e957-02de-4ef3-bf10-ae4768b77009": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "original_img_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: public_opinion"
+    }
+  ],
+  "2c68dda3-ab53-469a-bcd4-21f032127301": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    }
+  ],
+  "2c79ab0c-3445-4be5-bce4-945ff1e47da2": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: political"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "2d1c4aab-0a4d-4bad-b00f-1dcbb88d1e35": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "weather"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources, economic, quality_of_life, security_and_defense"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "2dbb392f-fce4-489b-aa95-c9b00030b7d8": [
+    {
+      "code": "text_entity_sentiment_unrecognized_value",
+      "detail": "['Neutral']"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: health_and_safety"
+    }
+  ],
+  "2dbfbf66-3d77-4999-b7ef-5a1d40aa04e1": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence, privacy"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: political"
+    }
+  ],
+  "2dbfef46-9007-4f91-81b8-e2f424a5d129": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity, public_opinion"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "2dc3ce67-3549-41f5-a4d1-6fc67baa8f68": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "2e54fabe-5901-4294-a3d4-8c1b462cfa36": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: policy_prescription_and_evaluation"
+    }
+  ],
+  "2e768c98-b3b2-44f2-ba4b-841ab96832ef": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "science and technology"
+    },
+    {
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.15"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.14"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "2f86d516-e78e-49fa-89e4-fc1bdf7076b2": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    }
+  ],
+  "2fffc246-866d-4dc4-affc-2b77d0aa6942": [
+    {
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.20"
     },
     {
       "code": "image_frame_not_subset_of_text",
@@ -347,171 +933,124 @@
       "detail": "jaccard=0.00"
     }
   ],
-  "6ced93e9-c871-49e4-b1dc-8c1e1e54f424": [
+  "30b34e40-e295-4f41-8dfa-9db98d94112b": [
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
-  "b10f6ef6-1203-42cd-82fb-f6701405b5ec": [],
-  "cc81569a-9644-4d7e-b588-61c242e62eb7": [
+  "30d97d69-661c-4cb4-947f-fe27a173fe4a": [
+    {
+      "code": "text_entity_sentiment_unrecognized_value",
+      "detail": "Mixed"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "314ffff6-f245-4348-abaa-06bfea90efee": [
     {
       "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: political"
+      "detail": "image conveys frame(s) not in the text: health_and_safety"
     },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "9292ca58-8bb5-464d-a9cb-3c4f00243ea0": [],
-  "3e8d2a5c-e1fe-4591-af55-ff82be2e9dbe": [],
-  "5f68123d-61be-4cdf-ba0a-f2845807dece": [
     {
       "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
+      "detail": "jaccard=0.22"
+    }
+  ],
+  "3167b153-9baa-4b55-8e0d-16f5c1e00cac": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity, quality_of_life"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.22"
     },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
-  "68ac4a00-85c3-49e6-a6ce-f5550c456818": [],
-  "98a893fc-3779-423f-912f-772c7149fd00": [],
-  "58c63b4a-49ca-4063-90ee-bd3b235d3be6": [
+  "3172e72c-04ff-47b1-9666-e0fa84b8d8b6": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "32c25976-6c8f-401a-960e-3fab97df6ee6": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "technology and innovation"
+    },
     {
       "code": "low_ensemble_agreement_text",
-      "detail": "avg pairwise jaccard=0.24"
+      "detail": "avg pairwise jaccard=0.06"
     },
     {
       "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: health_and_safety, security_and_defense"
-    }
-  ],
-  "213562f2-bbe4-4cd6-9211-ccb027e434c2": [],
-  "9449d41e-92e6-42b7-ad69-c9c71b7f7208": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "6d16960e-9583-4a8c-a6bf-25e264e6f3c3": [],
-  "50c8a9b5-dacb-4543-8864-bef5d1e3227f": [],
-  "69e3eabd-27e8-4838-ab52-a7fea1ad41ed": [],
-  "ee880ac5-7536-408c-91ce-283461896dc9": [
+      "detail": "image conveys frame(s) not in the text: economic"
+    },
     {
       "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.14"
-    }
-  ],
-  "0fca5cd6-6e12-4437-9bf9-6234df5bc41b": [],
-  "d3c92f2f-2405-4d64-8cc9-f7c67c5a3c7c": [],
-  "3ca87376-2310-49cd-9324-5f309a0cfa34": [],
-  "67208fb2-6023-42df-9468-a8ade4d5fdac": [
-    {
-      "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
-    }
-  ],
-  "93383a62-765f-429d-a440-0029209ba9f6": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "167c7508-e082-4b92-a5cb-7fd7e91732a9": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "22f688fc-21cc-4408-8256-2eb39e68ed73": [],
-  "9102bca6-3021-4e5e-856b-e62da027fe99": [
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
-    }
-  ],
-  "64d53e22-c2e6-4ba5-84af-01de68a093ce": [],
-  "d206c171-494a-4b23-9b1e-52c3271647ce": [],
-  "c8e1c991-0b4e-46c7-94bb-9f191129e92c": [
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
-    }
-  ],
-  "1a117015-360c-4887-8f1c-4c1dcc3656b6": [
-    {
-      "code": "low_ensemble_agreement_text",
-      "detail": "avg pairwise jaccard=0.17"
     },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
-  "b26a2f85-c7fe-43cf-b0c2-63b9d9a9ee7b": [
+  "33f23736-1ca3-44c3-bf16-9002e61b668f": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "science and technology"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: economic"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
-  "8b51c77a-c8a4-4252-89db-6e8f455272a4": [
+  "35687026-6ace-40eb-ac7c-a4a4c93e4833": [
     {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: public_opinion"
-    }
-  ],
-  "4b6df803-7568-4480-9608-b5974d65e36f": [
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.14"
-    }
-  ],
-  "48bf4882-8c99-412c-a1ee-db60aacc0041": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: security_and_defense"
-    }
-  ],
-  "60a2d48e-da77-4a2b-becf-247cfa3574e0": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: fairness_and_equality, legality_constitutionality_jurisprudence"
-    }
-  ],
-  "b76092c9-d611-4b56-a2da-85e899560923": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.22"
-    }
-  ],
-  "db64fbcb-8bfb-4850-a453-1c0dd1506b62": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: legality_constitutionality_jurisprudence"
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "technology and innovation"
     },
     {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
     }
   ],
-  "d98a5644-1dc9-417f-92e5-0bc1f58d9fc4": [
+  "374b0c40-6a93-4110-b6ec-729b5ff55c3b": [
     {
       "code": "image_frame_not_subset_of_text",
       "detail": "image conveys frame(s) not in the text: capacity_and_resources"
     }
   ],
-  "41df0bbf-27dc-453d-811b-a964c02d8030": [
+  "38439694-982b-4dfc-b861-692fce14c269": [
     {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "f8de8c84-8490-4076-80f1-552ae684dfe7": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.17"
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "technology and innovation"
     },
     {
       "code": "image_frame_not_subset_of_text",
@@ -522,184 +1061,149 @@
       "detail": "jaccard=0.00"
     }
   ],
-  "16c7ca85-659b-4f4c-b10e-1a5a6e62a5c6": [
+  "3929eead-b3aa-4ac5-8647-46d86240bf3a": [
     {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.11"
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
     },
     {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
     }
   ],
-  "8f9b4b88-2f18-41cb-a462-add271bf394b": [
+  "3ba12c49-56ac-4eed-bf9a-fbb3c471d8cd": [
     {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "24bdfeba-7883-4ae5-8424-5bf98d83cd0b": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.08"
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
     },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "caab6d01-9b03-44fe-a7db-0d6ae9bdc933": [],
-  "53cf844e-51d6-4117-94d3-f6edae5b25fb": [],
-  "e09707a0-3128-45bd-b521-b3c7ab9e22cf": [],
-  "54ad656f-d879-44d5-9152-e9b153b9dda8": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.17"
-    }
-  ],
-  "0dbd9e1a-4db7-496d-8b3f-d37aaac52321": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.11"
-    }
-  ],
-  "8367e90f-6b66-403b-9ef1-3a5747787b8c": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "f428df17-18c5-4695-92ef-e0fdb09f9cd4": [
     {
       "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: fairness_and_equality"
+      "detail": "image conveys frame(s) not in the text: cultural_identity, health_and_safety, quality_of_life"
+    }
+  ],
+  "3c0d0c20-fa8a-4555-bffb-86f6c6b47a61": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "3c260fa2-9bb4-4337-84db-07a497160a1f": [],
+  "3e544452-3468-4705-a6f3-74e5ffb87c90": [
+    {
+      "code": "missing_title",
+      "detail": ""
+    },
+    {
+      "code": "original_text_generic_frame_parse_error",
+      "detail": "missing"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources, crime_and_punishment, cultural_identity, external_regulation_and_reputation, health_and_safety, morality, public_opinion, quality_of_life, security_and_defense"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
     },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
-  "76d8d994-449c-4643-9ea2-923f513b8156": [
+  "3f425548-afb8-49f7-9c58-9b2542afb840": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "3fe4c516-85d1-4b66-9aff-79287ac5f058": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "41273d80-164d-47de-b627-324411262681": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: crime_and_punishment, cultural_identity, morality"
+    }
+  ],
+  "415103cb-c19f-4cee-a675-31d9a8d09806": [
     {
       "code": "text_frame_diverges_from_original",
       "detail": "jaccard=0.17"
-    }
-  ],
-  "9fe3ae0c-7196-4096-bb0e-a14060dafbb3": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.08"
     },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
-  "f6083f22-a167-4126-90a1-5f50782175ab": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.17"
-    }
-  ],
-  "62e155e4-a406-4791-8b74-a383d028062f": [
+  "417b5a6a-00d7-4aea-9b53-f40f61dba66d": [
     {
       "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: quality_of_life"
+      "detail": "image conveys frame(s) not in the text: morality"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
     }
   ],
-  "9055e88e-cb98-415f-b97d-70dee89da701": [
+  "43788daf-6f2e-4072-98db-eee7918dbff4": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: crime_and_punishment"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "447e9b7c-8972-4129-b3e7-7636e6dbdea6": [
     {
       "code": "low_ensemble_agreement_text",
-      "detail": "avg pairwise jaccard=0.11"
-    },
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.00"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "8e25c83e-1e44-4c89-af6d-1fde179826ef": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: cultural_identity"
-    }
-  ],
-  "b293d82f-8690-40e3-b5af-57dae54f62a2": [],
-  "32bebaac-7361-4c28-a25d-6c5295986cae": [],
-  "3006f7a4-7e2f-4dd6-9c93-dc30859f64b8": [],
-  "782a728d-81e8-4816-81fc-0a7ec4173d15": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: quality_of_life"
-    }
-  ],
-  "b60589ee-a678-459e-a811-712c61ce6eca": [],
-  "ccee235e-e0e5-4e4c-a6ed-12917bd63012": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.24"
+      "detail": "avg pairwise jaccard=0.14"
     },
     {
       "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: public_opinion"
-    }
-  ],
-  "1a5447ef-0614-4556-b534-f200a88264e9": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.00"
+      "detail": "image conveys frame(s) not in the text: crime_and_punishment, health_and_safety"
     },
     {
       "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.17"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
+      "detail": "jaccard=0.22"
     }
   ],
-  "270f444d-d5af-4886-bb40-22c1f7aea5d4": [],
-  "5bd1e2ac-3ce8-4647-be84-b027e988651c": [],
-  "7b4b32a6-67c5-4d35-bf57-b00769b5847b": [
+  "44aedfab-c8c2-48fa-a1eb-ecb79270ca5e": [],
+  "44db3fe6-50f6-42a0-a6e0-0bd83fc901d5": [
     {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.17"
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "weather"
     },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "031e40d7-21b4-48ff-8f54-d564771d54b1": [
     {
       "code": "image_frame_not_subset_of_text",
       "detail": "image conveys frame(s) not in the text: quality_of_life"
-    }
-  ],
-  "3cc650e0-b776-4e49-9fa6-540b297b3f2f": [
+    },
     {
       "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.17"
-    }
-  ],
-  "16de2459-ff02-4012-8ebd-2ffa437d269b": [
+      "detail": "jaccard=0.00"
+    },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
-  "4fe0f506-e50d-4a65-90a6-edf897c4c8b0": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "918d9561-8f39-4f56-83c6-a251f6c73d70": [],
-  "8e02ff70-7a16-4568-bbf3-5103edf082e2": [],
-  "965533c7-fcd7-4d5e-9a7b-a57ac4c28922": [
+  "454ad364-9fd6-4728-8404-e3bcbb8c2382": [
     {
       "code": "image_frame_not_subset_of_text",
       "detail": "image conveys frame(s) not in the text: political"
@@ -709,605 +1213,826 @@
       "detail": "jaccard=0.00"
     }
   ],
-  "2d65d08d-2128-44a1-8398-d6723d8ca144": [
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
-    }
-  ],
-  "f6b34443-1f68-4b38-97eb-7058bdaf76ea": [],
-  "95d7768c-a7f0-4e91-8a2e-20c38f9fa94c": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "9f4a2c4d-c2ac-4660-a674-3ef40ed42a35": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: external_regulation_and_reputation"
-    }
-  ],
-  "724c6700-f378-45e5-8d3b-66cbe00c459b": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: capacity_and_resources"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "259dfdfe-b060-481d-a9c1-9a85a6d13114": [],
-  "0f7957b7-6731-4406-b6d0-d51182839fea": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: quality_of_life"
-    }
-  ],
-  "82c5243b-5206-42f4-847b-9ed3a213f9d1": [],
-  "01525fd5-d595-4ac0-8d4f-7047334c106f": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "27364c37-bf97-4038-a98d-2719ba576c25": [],
-  "dadeccc0-2021-45c6-8d15-37f6c0979bf2": [
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.17"
-    }
-  ],
-  "179e854a-305d-4e46-8c10-4d703c9679c8": [],
-  "a1cea610-4945-402c-a565-dfaa9bdf2111": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: capacity_and_resources, health_and_safety"
-    }
-  ],
-  "edad8e09-2f2b-4f1d-bd76-cc66275c929f": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.22"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "a94e5533-0a5f-4475-82f1-834de20c0fb8": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "d4fbf74a-3f4e-45d2-8840-e7975c83fa8c": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.11"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "778a34d8-18cb-4022-8d0f-5b9b80ac16b3": [],
-  "b94b0805-cf9a-4f32-a051-e905877a499c": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "9d02e52f-a991-4700-8be0-5a7842f4afdf": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "c4ac9f79-a18a-4837-b47e-15ddea3ff2cc": [
-    {
-      "code": "relabel_text_call_failed",
-      "detail": "google_gemini-3_5-flash"
-    },
-    {
-      "code": "relabel_image_call_failed",
-      "detail": "google_gemini-3_5-flash"
-    },
+  "455b0d9d-f032-4280-9258-d5a1f2cfca2b": [
     {
       "code": "low_ensemble_agreement_text",
       "detail": "avg pairwise jaccard=0.17"
-    }
-  ],
-  "7713b8c3-59bd-4c60-8b11-dbc6e67d7715": [],
-  "3accdb48-4d5d-4d81-9495-1e48f75ca834": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.17"
     },
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
-    }
-  ],
-  "e1d00c9b-e1ef-4370-adca-368a087e2ace": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.22"
-    },
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: political"
-    },
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.14"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "9375c784-7f8d-45b0-9a0a-c3056a988086": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: quality_of_life"
-    },
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "6b78fb39-ec63-40e7-a1ac-cf66f15a0903": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: security_and_defense"
-    }
-  ],
-  "7ccb2043-fa44-48e4-893b-81a8469047e0": [],
-  "b0aae63a-3f2d-44e5-9895-2beb93997e57": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.11"
-    }
-  ],
-  "9be5253a-fae1-4dad-983a-f4599599a45e": [],
-  "c3229154-664c-44a2-ad32-70cd149e3eaa": [],
-  "a0d18e87-0baf-4c2b-9ea4-948a3cdf533d": [],
-  "fa60d32e-55d9-4b17-866f-1b3bda4c2f07": [],
-  "d1e4e936-2bfb-485b-89f5-58171ba22993": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "38b87c67-87cc-48b7-b0a5-96139284802f": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.17"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "fdc97523-1e75-4490-bfb5-0005901c8cf4": [],
-  "911da2f4-1976-4684-8787-0a5c24ed4c32": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: political"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "fda3ca18-da7e-40d5-a932-da81168de182": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.11"
-    }
-  ],
-  "71f7a297-3c4c-4654-9b89-3c397c2ca89d": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: security_and_defense"
-    }
-  ],
-  "807b6a62-950e-4d87-ac69-4ef65f6e5cf6": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: security_and_defense"
-    }
-  ],
-  "bb1f8d29-98a0-48e6-a0dc-19c3b3f1c7e4": [
-    {
-      "code": "low_ensemble_agreement_text",
-      "detail": "avg pairwise jaccard=0.22"
-    },
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.17"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "f3c6add1-5276-4b31-ae9d-21298a23b737": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.17"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "8192b67b-1046-47f2-9f87-c6345a433545": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "1993ba88-0eb5-4a4a-a55b-43071a10421b": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "41e838e1-4275-4d4d-b1fe-ee332d6ab507": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.11"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "c9a4529a-59d8-46ce-a425-a13ce3758c72": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "8b66a550-073e-4995-a204-4437d5d422b6": [],
-  "317b623c-7e74-45c1-b3c7-b9b7f2b4b9bf": [],
-  "f8041b68-56ad-4c12-98f5-66effcce6f0e": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: public_opinion"
-    },
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.14"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
-    }
-  ],
-  "5785f9a2-11c2-4c05-b0c0-c23f64246d4f": [],
-  "46162dd6-f13b-443e-9634-8fbc3c977ad1": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "5602ce28-4124-4705-a2f0-762169f204b4": [],
-  "17ea7687-a898-4936-83be-c99a1a4c1ddd": [],
-  "94dc891a-79ca-46c5-a291-ff84d7bfe683": [],
-  "8721a1a4-4372-4f91-b926-78ebfe8ec35a": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: public_opinion, security_and_defense"
-    }
-  ],
-  "a85c1dea-318e-4e6c-a86d-05900d2e9868": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.00"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "5b319aab-ea4f-4b0d-b881-46575a09eed9": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.11"
-    }
-  ],
-  "618456c0-cca9-45f9-a5cb-fa7cecaa360a": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.22"
-    }
-  ],
-  "91aa07e0-b572-4f88-bfd9-1bb865c11314": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "b2fb7e69-8d74-4a40-90f3-18d3b4febf2c": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.17"
-    },
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: public_opinion"
-    }
-  ],
-  "79518fa4-35c0-486e-b191-5de735cccbd9": [],
-  "1a4ef6c1-06e3-4917-b1b0-90ca700df5c3": [
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.17"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "672445ed-98ec-4932-9f99-65b465e7b270": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: political"
-    }
-  ],
-  "39073945-29b1-48b8-b5bf-31b17a8d168c": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "8e1e7aa6-edc4-4c23-be5e-762fe39d9da7": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.11"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "6ba55d27-0228-4d78-a90f-6bbb720b5422": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: quality_of_life"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "0eae33ff-eef5-4697-8c2a-9b90239e6825": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.11"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "415f6768-a2c2-4962-aeb2-17a17838d85d": [],
-  "4f0cb4f1-c0aa-435e-9c59-36dddf186c3d": [
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "f17324a7-315d-4ef3-81de-eaf0094ade70": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: security_and_defense"
-    }
-  ],
-  "0153d91b-4569-437c-a4e4-4e958836b383": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.22"
-    },
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: security_and_defense"
-    }
-  ],
-  "55cf20e8-ba04-4965-883d-521bb9cdd615": [],
-  "3d8dd65c-f96c-4962-b487-48e365169444": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "1ce3f381-941f-4011-8f36-bf389226936c": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.17"
-    }
-  ],
-  "9e25ee8e-ae5a-40fe-acbf-deeec1a3c602": [
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "3c3eed9b-e086-4941-8e6b-35c27297f3dc": [],
-  "11d1e37e-be20-4c91-bfdc-a47dbb2df7fc": [
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.20"
-    }
-  ],
-  "12758a0f-6346-4068-9adb-809ea76cb34d": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "3706958b-65ca-4b54-8a5e-54911dbfbcf9": [
-    {
-      "code": "low_ensemble_agreement_text",
-      "detail": "avg pairwise jaccard=0.17"
-    },
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "d5e84c82-bf40-4712-8bde-e48822a1489d": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: capacity_and_resources"
-    }
-  ],
-  "b91e45c6-7eb8-4632-b205-a467008deec5": [],
-  "0a3fc4a3-43a4-4ae1-8231-8ba671d64faa": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.17"
-    }
-  ],
-  "cd82c244-db18-4f01-91a0-16b5ade94748": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: public_opinion"
-    }
-  ],
-  "baf310e7-9f5a-45f9-aa67-d7e9779c7cd9": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "528a044b-10c1-47ff-ae87-c085677d6ed8": [],
-  "daefaa09-d337-42ab-8200-220bcc366fdc": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "2221055d-4208-4b58-af10-378d98e78a5e": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "e210fdd6-9a39-4260-b444-1b54afc12988": [],
-  "c657ab76-d165-4fc1-a284-8329454da5c0": [
-    {
-      "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: capacity_and_resources"
-    }
-  ],
-  "e2fa4a13-704b-4191-a4d1-fa3f6bb4581f": [],
-  "7f408246-7eb7-4679-9ea1-fbbff199333f": [
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "3793eb1d-a0b9-41e0-b847-5f60bd805c5c": [
-    {
-      "code": "low_ensemble_agreement_text",
-      "detail": "avg pairwise jaccard=0.17"
-    },
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.17"
-    }
-  ],
-  "e3115995-48bb-468a-8a3e-6cc8104332b6": [],
-  "649912ef-84dd-417c-a60f-e7b594c8bdc4": [
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.11"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "6153597d-f0bf-404c-9082-eca5b6604a40": [
-    {
-      "code": "low_ensemble_agreement_text",
-      "detail": "avg pairwise jaccard=0.00"
-    },
-    {
-      "code": "text_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    },
-    {
-      "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "957250cd-c2eb-468e-b7f4-aa5dfe3067db": [],
-  "38025480-abf1-4f71-b949-e7e09e0ccb4b": [
     {
       "code": "image_frame_not_subset_of_text",
       "detail": "image conveys frame(s) not in the text: health_and_safety"
     }
   ],
-  "0d8d3ae7-e086-4fdb-a0d9-6c10317746ca": [],
-  "28ba4e48-0d9f-483a-8a1a-4708584c6394": [
+  "46f5211b-a566-40b9-b069-a65dc0c00aec": [
     {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.17"
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity, public_opinion"
     },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
-  "95dbde86-de7f-4d15-830b-6cd3115e2057": [],
-  "1c47bdf1-647f-47e0-bc4b-03d4168ed95d": [
+  "46f8fdfb-ae90-4caf-a3d0-09db17900d30": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: public_opinion"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "485c63fb-df66-4de5-b6f8-6128407d17c7": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    }
+  ],
+  "4909c835-d1fb-45d2-8de6-6d7dd7a87ddf": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "495f71b3-ab3f-4276-a39d-11a28c3aa030": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "privacy and data protection, technology and innovation"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "49935d2d-87ba-425b-b12b-72c52bdffa8d": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "49f2aa62-a79e-4d89-99f0-2f05e6b23d25": [
+    {
+      "code": "missing_title",
+      "detail": ""
+    },
+    {
+      "code": "original_text_generic_frame_parse_error",
+      "detail": "missing"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "4a87b049-0127-46c4-bceb-15a1fd24cef7": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources, cultural_identity, economic, external_regulation_and_reputation, fairness_and_equality, health_and_safety, morality, policy_prescription_and_evaluation, quality_of_life, security_and_defense"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.15"
+    }
+  ],
+  "4a9fa461-3cd7-46bd-8c00-d943ea85b159": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: quality_of_life"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "4ad14c88-304a-4d67-b1c8-2033b20701c0": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "4b17430a-02cb-45ad-b710-b20ad17071e8": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "4b69c8f5-86b6-4a86-8443-ea7718e83626": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "4ba323b0-8a84-4027-a5a9-d48b8346e4ba": [],
+  "4bfeb0bb-aa75-4a7a-bcae-d1a4a4350c46": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "4c1ed2e6-cf5c-4bbd-a996-24e948d9b272": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "original_img_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: public_opinion"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "4c3a830a-eb76-43d6-a09e-75799e8e031d": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "4c7c759d-514d-483c-ba5f-3c004368bc0f": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "4c890f0d-6385-449e-a518-0b7bf03ff3f6": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: fairness_and_equality"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.12"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "4fc4f76e-e1c9-421c-9e70-21171ca24db8": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "original_img_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    }
+  ],
+  "4fc8975b-8119-4c50-b5b6-305767bdd85c": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: economic"
+    }
+  ],
+  "5061ebf7-cf82-43c9-a079-d34d94506e33": [],
+  "5079dd32-a048-48fb-a3aa-79012610c750": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "50d183f3-81ee-493c-8206-0ba8f46d047c": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "50edf513-e959-418f-b151-2997fb2f4f75": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "5100d817-1741-4451-8fcb-ea0fb71430b8": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "5147718c-60ee-4676-a09e-ad25b95bd344": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    }
+  ],
+  "51eed6aa-9446-41c3-9e21-30eaa2406b9b": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "52480f35-d4ea-4132-a4f6-787de16b0828": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "5256f8cb-6f42-4ffd-8f7b-745fcaefd75f": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "52e1be32-638e-4115-a78d-aff58e014a58": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "532c44f2-23eb-42bd-a68a-4edd18608e66": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    }
+  ],
+  "54d1164f-fdd0-4392-a84b-9bb70d4a68ca": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "54dfad0b-2bf1-42d3-b826-436753a70d5a": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "54f2d5cb-b1f7-4a28-a3c9-52b69a1686ef": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: fairness_and_equality"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.17"
+    }
+  ],
+  "5654a027-9be3-404b-88f6-cc80ff56bc6f": [
+    {
+      "code": "original_text_generic_frame_parse_error",
+      "detail": "missing"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "566f9fa1-f87e-4995-9b69-df2a489ac75b": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "5685640f-14fd-4834-af41-da3cfd5e7cb4": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: economic"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "58478711-415f-40f6-ab4c-d6af35cd9a36": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "586eeea5-43ff-4636-b669-a04ae7efa82c": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "58c2d191-bbfc-4b05-a54f-75ccc26c08a8": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "original_img_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: economic, public_opinion, security_and_defense"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "5a9dc626-223b-4169-8b46-9204f30ff5bd": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: crime_and_punishment, cultural_identity, public_opinion, quality_of_life, security_and_defense"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.14"
+    }
+  ],
+  "5af50732-522f-4e97-a339-b1a99ff54001": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "5b532428-3f77-42c2-a51d-584a220bc343": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "5bad7b8a-3acf-4b96-9e8f-323bd368c841": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "technology and innovation"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "5bd12fc2-3d40-4ecd-92c3-b079d3220cff": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence, religious or ethical implications"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: political"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "5be30564-4e33-4911-82c9-74774999a8cc": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "original_img_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    }
+  ],
+  "5c530841-d885-454b-a79a-85ca53e8fe55": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence, technology and innovation"
+    },
     {
       "code": "image_frame_not_subset_of_text",
       "detail": "image conveys frame(s) not in the text: quality_of_life"
     }
   ],
-  "f8b37c13-7334-4e6b-8c36-f421221ff257": [],
-  "8b6b1b59-f8b2-42ad-bb12-74dd02daca3b": [
+  "5c8b46e8-d684-431f-bdfb-64fde582c9f4": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: public_opinion"
+    }
+  ],
+  "5dde5ce6-8fff-422f-882f-29f618eecbe5": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: public_opinion"
+    },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
-  "8dcef615-053d-4bf7-97ca-db586824a952": [
+  "5e711a29-4f6e-458a-8287-3365f062e991": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "illegal immigration, legality, constitutionality and jurisprudence"
+    }
+  ],
+  "5edf36b3-9c39-4b0d-b655-4ca1c437716a": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "original_img_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
-  "c2dbbdcb-c1ed-499b-99a4-4efad1ea504b": [
+  "5f5651c9-0a46-4975-be3a-da9df356b90d": [
     {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.17"
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
     }
   ],
-  "07700a87-f071-4dc9-a1ff-b7b6b751ab18": [
+  "5f92ac54-2b80-4b84-9690-5347d15fd248": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "60d3d270-af8f-41b6-b6f0-3e4333e4b327": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence, safety and defense"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    }
+  ],
+  "61a73d5d-00a6-4797-a124-e4edf3232c11": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: quality_of_life"
+    }
+  ],
+  "626e381b-d00e-44a6-ae58-d03b63ec31cf": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    }
+  ],
+  "636ee5ce-b262-4424-8ec2-769eb084ef0a": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "original_img_generic_frame_parse_error",
+      "detail": "missing"
+    }
+  ],
+  "647971c1-e166-4b1f-98ad-36d73f1ade2d": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "64886017-b960-4be8-a926-a82060ffcd6b": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "safety and defense, traffic flow"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "6536778e-6197-43b3-840f-f05a2478c7e0": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: morality"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "6559b60b-19a3-415b-bf2f-c947cace9375": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "wildlife and environment"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: health_and_safety, public_opinion, quality_of_life"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "66359f5d-68fd-4a8d-ba40-c6dfc5eebd8f": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    }
+  ],
+  "66c13b5b-4979-4933-8fa9-d2690024d679": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "culture identity"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "67430155-2751-47e5-92af-4172bbee72ea": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity, quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "67a96524-803a-4590-84fd-2a33d1310b27": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources, cultural_identity, economic, external_regulation_and_reputation, fairness_and_equality, health_and_safety, morality, policy_prescription_and_evaluation, public_opinion, quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.08"
+    }
+  ],
+  "68883c25-ecb6-44f8-9c24-ced1684608d1": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "68f4669f-a450-4a48-a938-6722187ee7a5": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    }
+  ],
+  "69cc7b15-6271-439e-877f-c6983e3e11a9": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources, quality_of_life"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "6af157c3-23fc-4abd-8ba6-e8b1fc26b2b9": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "growth and expansion"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "6b55dcc3-e1dd-4322-96d1-42382d0a4fb1": [],
+  "6e3ccef6-9b08-4184-974e-18e30bfae52a": [],
+  "7092e760-add1-4bd3-a67b-7fc75dccc431": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: economic"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    }
+  ],
+  "71466c1a-cc64-430f-8035-a0e0bf1261e4": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "71692453-2745-4906-8a92-e2313b8596ec": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "73541cff-2b35-4c4b-9db5-7ebf208603a2": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: health_and_safety"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "751c11a1-4937-4082-8d67-2751e32e6009": [],
+  "755fe87c-b1cf-4452-a700-da38c3cf1932": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "75f23cae-469f-4ad5-b6bc-b86c41032bdf": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "7709b229-0c0f-407c-b6ef-a5efdb5cbca9": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "778fa9b2-7bcc-4d9e-b876-98a24e7e2970": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: quality_of_life"
+    }
+  ],
+  "77fe1601-92d7-4dc8-b5af-ddd221274efa": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: policy_prescription_and_evaluation, public_opinion"
+    }
+  ],
+  "7852ed2e-6da0-4fbd-b993-43abc782d4eb": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "original_img_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: policy_prescription_and_evaluation"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "7881822f-ea97-46f7-ad90-4c45fa9f1eda": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: fairness_and_equality"
+    }
+  ],
+  "78951db5-792e-4734-b4f6-8b9b8f33706b": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "78a27510-bd67-4944-b881-392e98d1c50c": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources"
+    }
+  ],
+  "7972ad67-78ea-40e4-9d5c-d9cffcdbf296": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "7a03f1f3-1516-4467-8030-ff8d8f3d0f79": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "7a9930a9-3685-4a6a-a4c3-cb438a577a47": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
     {
       "code": "text_frame_diverges_from_original",
       "detail": "jaccard=0.17"
@@ -1317,41 +2042,1080 @@
       "detail": "jaccard=0.00"
     }
   ],
-  "21375c81-747d-4679-b174-e0a6bf3ad382": [
+  "7ad6b1d2-fe20-40b8-83db-936c85b1410c": [
     {
-      "code": "low_ensemble_agreement_text",
-      "detail": "avg pairwise jaccard=0.17"
-    },
-    {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.17"
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "environmental"
     },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
-  "17f6a759-aacb-40db-a003-ad5f62291b2d": [
+  "7b87b308-073d-4b94-a43b-0cda7673c5aa": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: crime_and_punishment, cultural_identity"
+    },
     {
       "code": "img_frame_diverges_from_original",
-      "detail": "jaccard=0.00"
-    }
-  ],
-  "6cc46722-1145-4cdd-93a1-e91ed715b8fd": [
-    {
-      "code": "text_frame_diverges_from_original",
       "detail": "jaccard=0.20"
     }
   ],
-  "246cc1dc-5216-4f70-a6b6-217218ba80c7": [
+  "7d3f69c9-c394-49c3-844f-36c93221a1b8": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "7d557e18-5e28-41d7-b090-1039d13bf37c": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "cybersecurity concerns, legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "7da2f497-8838-402d-865d-ffd69cdac90f": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: crime_and_punishment, public_opinion, quality_of_life, security_and_defense"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    }
+  ],
+  "7db24bca-c144-4f9b-905f-170726e1b6fb": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    }
+  ],
+  "7e67bf96-336a-4dfd-8282-40ad3e65f394": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "original_img_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "7e843842-c734-467c-a6bb-89d784ce85ff": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources, security_and_defense"
+    }
+  ],
+  "7ef6cba0-54ae-43a2-bc99-a585d7d1150c": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "7f0e120d-9a41-4aed-91b3-4811860f295a": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: economic"
+    }
+  ],
+  "7f1923aa-f741-4937-96e7-b03cda3a3ec7": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "7f2c959d-fbeb-45e5-a0f7-3626b760694e": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "7fa397b8-2d76-48cc-b01d-5d49b3d6321a": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity, quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "7fefe077-6f25-4468-8628-a9935332d64f": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "804da966-3587-4c53-9525-9f739cbef8c1": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "8157df79-7491-49bd-b027-a548ac791cf8": [
+    {
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.08"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "81ad31ea-4560-4d6d-8046-6012a2e3f764": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.17"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "81f0427b-5216-4d72-84ce-5db86f02ae28": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: public_opinion"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "8230cc1e-62ee-4ccc-a765-067db4eb1888": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: external_regulation_and_reputation, policy_prescription_and_evaluation, quality_of_life"
+    }
+  ],
+  "82488002-d4fc-4500-9f95-a4915680138c": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    }
+  ],
+  "837b938c-efcf-4378-87a4-24c7773149a6": [
     {
       "code": "low_ensemble_agreement_text",
       "detail": "avg pairwise jaccard=0.11"
     },
     {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.17"
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: health_and_safety"
     },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "841b0f2b-eb75-41e4-a483-98340d27db13": [
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.08"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "859f118b-15be-4217-bab8-8c03a6da6c10": [
+    {
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.13"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources, health_and_safety"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "86427e7b-fef5-49a9-8ed5-7818341e2178": [
+    {
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.22"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "86ed2d0a-d48a-407b-b1f1-8c0a31d89c8d": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: public_opinion, quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "87d575f0-d6a2-4ec9-bb0d-acaeda8ea8b8": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: health_and_safety, public_opinion"
+    }
+  ],
+  "892a29d0-0f7b-47d1-acc7-00d1181e12e6": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "8a1bc3c6-f069-4dc9-9bb3-dba301c61bd6": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources, economic"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "8a5be95e-0f5f-482d-8311-5b2bb56ddbea": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    }
+  ],
+  "8aaf9309-b194-4e07-9a4b-be4516807674": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources"
+    }
+  ],
+  "8aec485c-7387-4e83-88dc-efb5fb856298": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "original_img_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "8b6ef429-e84d-4bd0-8cc3-ca3fc5f91032": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity, fairness_and_equality, policy_prescription_and_evaluation"
+    }
+  ],
+  "8b71a01b-6c5a-4a0c-a369-8c6aa33eeeca": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "8c2e0038-0dc5-440a-af63-7c9fc7d66c73": [
+    {
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.22"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "8c551a14-30b3-40cf-a4f9-f5262280779a": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "8c59f3c5-7f2b-467a-8a2e-c61c31908a29": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "8c6c04b0-f1f3-464d-951c-cb5bf666ad73": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence, safety and health"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: political, quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "8cb69274-0dcc-4c28-95a0-60bee1ccdeff": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "8ce7b10a-2386-4d29-a840-023eecf836e3": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    }
+  ],
+  "8d805300-3e96-4b2a-91a6-a84a1647abca": [
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.11"
+    }
+  ],
+  "8de2836b-4eb4-4789-b613-a8c552b33f05": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence, safety and health"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: crime_and_punishment"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "8dffb7b2-93c6-471e-bed1-a6e2901f7e1d": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "8e623964-3195-42b9-9c53-90d5c4175463": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: crime_and_punishment, health_and_safety"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    }
+  ],
+  "8ee40841-546e-40f6-bc0e-13fa746971c7": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "8f073447-4efc-4e2c-a055-c7b887e2375c": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "8f49241e-a197-4465-bc17-d0e6583a09c8": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "8f5192f7-d6c9-47f5-b53e-031013e60dc9": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources"
+    }
+  ],
+  "8fd8f124-ecb4-47e5-8b58-47a3ced3a2f3": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "8ff32ecd-71dd-404b-87cc-2905748864c5": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    }
+  ],
+  "9070ec19-1580-4ff9-85b8-446243e1e22b": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "human rights, legality, constitutionality and jurisprudence"
+    }
+  ],
+  "90e684df-9a83-41a2-b5cd-4c0ffe58f903": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "912e5294-644a-4716-8392-d116f2a53f4f": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.22"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: political"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "916b633a-05cc-4501-a049-f2213db250f1": [],
+  "9233818f-0e05-40bd-b56b-da7cce60fb35": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: public_opinion"
+    }
+  ],
+  "931fe0c6-2b05-47e4-a65f-f89f2fc3e673": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "safety and defense"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.14"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "9325dd45-6c5d-4118-9b30-45e346870095": [],
+  "93e08769-4a20-427b-acb1-4cc0de12eadf": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: crime_and_punishment, quality_of_life"
+    }
+  ],
+  "9520f820-f18e-43d6-81bf-0184554aacab": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: economic"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "9569cfea-28e3-48d5-91ea-10aa1d15aaf7": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources, health_and_safety"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "9666d7b0-409e-4dc6-a73f-80aed9080a34": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: fairness_and_equality"
+    }
+  ],
+  "967a5781-6485-4130-9842-6c7cd30b713a": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: quality_of_life, security_and_defense"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    }
+  ],
+  "970dc240-4efc-49f0-8532-70bf71e9f90e": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "technology"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "9762c4ee-8ba6-4d2a-985e-199b8856567f": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: public_opinion, quality_of_life"
+    }
+  ],
+  "97d89769-1677-49e7-9ff9-a55d9b1b1afb": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    }
+  ],
+  "98bda026-30e4-4dee-b1e6-8a8686cbb664": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "99059232-da52-4ccc-a76f-f7572a57e01d": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "99a16255-a74e-4195-9713-5000366a3b8e": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources, quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "9a735c8d-283e-4346-8bb0-f5f474a47d50": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "9a8cf2d8-2fbc-4c34-ace3-70cf864667f6": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: crime_and_punishment"
+    }
+  ],
+  "9a8e39fe-a62b-4c62-b3fc-2c57a3a18b58": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: economic"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "9a9d6679-4dfc-4c48-b437-603f3631c202": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "original_img_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "9b3287e6-caf4-450a-acba-2699bbf1f59f": [
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "9b966da2-8779-4bbb-8687-b10f8df6110b": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: crime_and_punishment"
+    }
+  ],
+  "9b9f0339-5824-47b9-9ad7-bc46dcd1f273": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity, public_opinion"
+    }
+  ],
+  "9c5fe5d5-f7a1-47c9-8baf-a46167d5a6b7": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "religion"
+    }
+  ],
+  "9de8c80f-f891-4f98-a2a8-e6e93ab92d7a": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "9e1bf72c-cafa-4a6c-aeb4-61ad06d16f8e": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "family and personal life"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "9e3fdc2b-abf0-4268-bd8d-f0e4945a5640": [],
+  "9ebcfe80-a40c-44b2-9e4f-726b37f24e5d": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence, safety and defense"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources, economic, political, quality_of_life, security_and_defense"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.10"
+    }
+  ],
+  "9fff29f3-6637-4cad-a3c2-f24d57d8a88b": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "a00c103b-d8d9-4167-8244-8e73695b3dff": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: quality_of_life"
+    }
+  ],
+  "a083d8d8-9e66-4ce2-897a-ad76d8351c30": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: health_and_safety"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "a08e255c-69b7-406f-a4dc-1f936c2d7ee7": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: political"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "a0e4cb97-f4ac-4601-9261-97cf2209ed4b": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "a0f22bde-fd7e-4aa4-9246-faf5ff42164e": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.12"
+    }
+  ],
+  "a164d09b-55a3-42d4-89ee-a3087fcb0c40": [
+    {
+      "code": "original_img_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: health_and_safety"
+    }
+  ],
+  "a21588f9-279c-4f9c-ae39-f832198a5990": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: crime_and_punishment, security_and_defense"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "a3156950-2290-4d5f-bf75-ddaa14ce578c": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "original_img_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    }
+  ],
+  "a32e9854-4710-483f-8dfb-e0077567e08a": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "a3838535-c3ba-4350-b8d6-26fa0f5ff4d5": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: external_regulation_and_reputation"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.10"
+    }
+  ],
+  "a3df7f93-24c8-4f53-a443-07c02a51bb6f": [],
+  "a57ec15f-b030-47e0-943e-267310724960": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    }
+  ],
+  "a71df71d-947c-43d8-b283-be74c0d6ac83": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: security_and_defense"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "a80f89bd-d6f5-45d7-8d1c-c332d1298b6f": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: morality"
+    }
+  ],
+  "a81eceab-8844-4aa8-9158-1ae514cbb371": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources, quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "a944bc7b-d576-4916-af09-282f9d992bd9": [
+    {
+      "code": "missing_title",
+      "detail": ""
+    },
+    {
+      "code": "original_text_generic_frame_parse_error",
+      "detail": "missing"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "aa7c9d3b-9662-4203-bfec-fd5599df2f45": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "ab36e8c8-6312-4bfc-a197-ebf263762132": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "sustainability"
+    }
+  ],
+  "ab77419f-4ba2-487f-adf1-259b9a2e6956": [],
+  "abe8f88d-a282-4f5e-aaa8-4d46f49a02e9": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: fairness_and_equality, policy_prescription_and_evaluation"
+    }
+  ],
+  "ace252fa-ffd8-47ed-9ad5-c9c12b7534fc": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "ad33cff0-950e-4680-a28d-41ff8419157d": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence, safety and defense"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: political"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "ad4bf9b8-41a9-4f4c-b55e-621069050579": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity, economic"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "ad8125cb-d3c9-4eef-aebe-09c04fc130c3": [
+    {
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.22"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "ae3e4dad-f812-4b7b-8dca-3f8691dc890f": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "community identity, technology and innovation"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "af6ab369-a1a2-4463-bcf7-21449b64c9ef": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: political"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "affdd391-961d-45ab-846a-221ab7419daf": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: economic"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "b0414abb-9df4-4f04-93b9-0880efda7e24": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "b05d63c4-792a-47dd-9021-2f2914586a4c": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity, quality_of_life"
+    }
+  ],
+  "b09775b4-2c21-47c9-80d5-aec68fa16eaa": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "b1122f6e-f238-4758-8754-254ea0a40d5c": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "community"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: health_and_safety"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "b2014ba8-4e06-40d5-b66e-8fb84f025a05": [
     {
       "code": "image_frame_not_subset_of_text",
       "detail": "image conveys frame(s) not in the text: political"
@@ -1365,21 +3129,796 @@
       "detail": "jaccard=0.00"
     }
   ],
-  "9788c727-0bc4-49c0-ae98-2415242ba17a": [
+  "b2159871-7bc6-47a0-994c-086b9eaaaab9": [
     {
-      "code": "low_ensemble_agreement_img",
-      "detail": "avg pairwise jaccard=0.00"
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: public_opinion"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
     },
     {
       "code": "img_frame_diverges_from_original",
       "detail": "jaccard=0.00"
     }
   ],
-  "7a3fb1be-b565-44f4-a3a2-edc85f9a3a2e": [
+  "b3e24c7e-2d65-48d8-9ef7-10bc61b64053": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legacy and reputation"
+    },
     {
       "code": "image_frame_not_subset_of_text",
-      "detail": "image conveys frame(s) not in the text: capacity_and_resources"
+      "detail": "image conveys frame(s) not in the text: public_opinion"
     }
   ],
-  "ceadd23a-0368-465d-b894-f7f8212fb290": []
+  "b400b2ec-3350-4615-a370-b2f10c60163a": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    }
+  ],
+  "b48cb611-1642-4482-860c-df96c702539d": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: economic, quality_of_life"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.17"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "b50cad2e-559c-4485-85fa-af931ca08ebb": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: economic"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "b52f3a5e-32c0-4c9d-b874-e5a19c81dad5": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence, science and technology"
+    },
+    {
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.08"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources, cultural_identity, external_regulation_and_reputation, public_opinion, quality_of_life"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "b531f23c-975d-4606-98ee-bd23ef77e532": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "safety and health"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: security_and_defense"
+    }
+  ],
+  "b5925d46-aa1d-4f2f-8003-eb96320d641b": [],
+  "b62dbcf9-e789-42ec-b2c6-8e39ce1cc011": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "environmental"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "b63ec89f-3b2b-477b-ae6c-beaff1f22e0f": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "climate and environment"
+    }
+  ],
+  "b6701c40-6a13-4e47-a277-b2b4c28cb02b": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: crime_and_punishment"
+    }
+  ],
+  "b68eb6b3-2283-4517-9ed5-f7cd2eb92d80": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity, economic, external_regulation_and_reputation, fairness_and_equality, public_opinion, quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "b71818c3-1820-4342-9e16-a21184266c8f": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity, economic, quality_of_life"
+    }
+  ],
+  "b729d19b-ac87-4538-b81a-fed03e286c8a": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.15"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "b768ff84-0b23-46b0-b21d-a772461c29e1": [],
+  "b86a043e-55ac-4ed6-a32b-43de728e7bf1": [
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "b8ed547b-755a-43d8-99eb-318a784dc36b": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "b9832014-3688-491b-ac36-3707b076f4a9": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    }
+  ],
+  "ba32d62d-acbc-49d2-8293-6565f307ede8": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    }
+  ],
+  "bac2362d-74be-476b-b3b9-d30ff660304d": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "environmental"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "bafa0a89-51c9-4f3e-83f7-16746610491a": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources, crime_and_punishment, health_and_safety, policy_prescription_and_evaluation, quality_of_life"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.17"
+    }
+  ],
+  "bb25cc63-1eb1-49ed-8c9f-08d489befd3c": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "bb2c0e55-ef5b-48cd-ad4c-6208b7f7b687": [
+    {
+      "code": "original_img_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "text_entity_sentiment_unrecognized_value",
+      "detail": "mixed"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: policy_prescription_and_evaluation, public_opinion"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "bb5d7c5d-e837-42bf-8dc6-4dac1071315f": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources, crime_and_punishment, cultural_identity, fairness_and_equality, health_and_safety, morality, security_and_defense"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.08"
+    }
+  ],
+  "bb63f0d0-4a7d-48bb-923c-e2cb40b73947": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "bbeb7a5c-e085-4a95-8016-cec8791c6281": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "bc9d7f45-70b3-4a25-90bc-85b7c24fd014": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: economic"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "bd7d4137-9ba1-444d-a6e1-cbf4853cd5d1": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: security_and_defense"
+    }
+  ],
+  "bd8d8787-ebfb-42a5-8da4-5595744076d3": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "financial performance"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: health_and_safety, quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "bfdababd-5e05-4426-9604-4a9abe0b707f": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "data and information"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "c0ba7141-6d5e-4f6a-8572-0f87a512b03e": [
+    {
+      "code": "original_img_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "c0c07295-e43f-4480-8645-9812d4428a15": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: public_opinion"
+    }
+  ],
+  "c0c92fd4-f54c-4c3c-b764-dcb380fc4712": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "reputation and brand"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity, economic, security_and_defense"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "c1a42d3c-b75d-44a0-9fd0-7c8ec3b9824a": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "c35e6fb7-3988-4308-802d-7d669036e6e7": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "c36e59e4-7638-4208-a6b3-9b107323cac4": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: quality_of_life"
+    }
+  ],
+  "c378f599-9e25-443c-8c92-7d1bd4234d15": [
+    {
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.15"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity"
+    }
+  ],
+  "c3a7cd2e-6bed-4fc4-8adf-0a1d36874931": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "c4064fa1-9ef5-4af0-88ec-929ee6e96005": [],
+  "c4446c05-23f9-4262-8f7a-2fe960d36de1": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "c542c133-e3a1-456a-b2bf-1a437880000a": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "original_img_generic_frame_parse_error",
+      "detail": "missing"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: health_and_safety, quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "c5c4031f-3ec3-47a8-9965-0719a4ebe220": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "c80eeed4-e9e6-45e1-9770-8807420d1bbe": [],
+  "c866aedf-73c7-463a-9eb7-2b79237eacbf": [
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.17"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "c8a07b3c-af29-4c46-ba85-c84b2159d8db": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "c8b4ce46-a62c-4518-bb5f-f1f198c4554e": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "c8c269f4-8c19-4e25-9ca1-917a0201ac7a": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: cultural_identity, policy_prescription_and_evaluation, public_opinion"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    }
+  ],
+  "c91146ea-350f-4d5a-9044-6728e5ad4c4f": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence, safety and health"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: economic, quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "c9d7bb44-02bd-4723-9789-e9bb501e633b": [],
+  "ca2e6983-cc55-45ea-b737-1468e76a930f": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "cb302861-6cbc-4396-822e-9baee3c35ee6": [],
+  "cc46ac44-d8c4-40f4-9839-e6a163fa86fc": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence, privacy"
+    },
+    {
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.17"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: political, public_opinion, security_and_defense"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "cd3346b7-c97f-4eb4-9a76-5d1032d90369": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "cd6e12ac-aba8-407f-a93e-9e1d747401fd": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "cdd1cd4f-eefa-4ca5-9a6b-1c369a4c1828": [
+    {
+      "code": "low_ensemble_agreement_text",
+      "detail": "avg pairwise jaccard=0.11"
+    }
+  ],
+  "cea6d7db-c08d-4bf6-b7ef-9519991758c0": [],
+  "ced16478-e9b7-49fc-b652-780a1909265b": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: economic"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "d01415d1-a0f4-4506-9b0e-261f99032f49": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: fairness_and_equality, public_opinion"
+    }
+  ],
+  "d03a8e3e-98ea-4d8f-95e8-8136abb9c27a": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "original_img_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: morality, security_and_defense"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "d0c2db81-09b5-4666-9882-795de50955a0": [],
+  "d0c42aa6-4545-4692-870d-21fe9e80d08a": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: political"
+    },
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "d10fb3d9-7ae6-45d3-8699-0aa5f4bb89fa": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "d180e64f-200f-40b3-8413-83b5414a1ecd": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    }
+  ],
+  "d2fbef46-25bf-4ddb-9c17-b98965a7b86f": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "d40947bf-7398-4603-9306-5feffc4c8f6d": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: political"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "d4397819-2867-4616-b842-9c7dba3c8697": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    }
+  ],
+  "d4b200b8-8bc8-4f4a-b453-43cf7eb0232d": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources, quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "d4e99b6c-a8ac-496e-8869-8f80f9c66b7f": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: quality_of_life"
+    }
+  ],
+  "d51f5f14-174a-4718-8a73-f62281ede53c": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    }
+  ],
+  "d55827ff-beef-478f-ac69-a930b59ee62c": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: capacity_and_resources, economic"
+    }
+  ],
+  "d561196e-ef92-4405-99a2-42ec67d0ad1f": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "d571291f-7e8a-414c-8a2d-e296e2020ab8": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    }
+  ],
+  "d5848570-f470-4593-9300-3e52c08765e7": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "original_img_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurisprudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "d68214ca-e8ec-46c8-b8d7-1300f49a2ddf": [
+    {
+      "code": "text_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "d71100c8-85dd-45e4-ae3d-128c1e8ef31e": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: crime_and_punishment, health_and_safety, morality, quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.20"
+    }
+  ],
+  "d7ffe226-e9c0-4881-a6a1-ad4b38e04089": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "d83c52a3-a37c-40f2-b6ae-185a1c0d75da": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "d86542bf-3d3a-4998-a41a-14508a931337": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: economic, quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "d86fdb74-d824-426d-a87c-061ee58f5c54": [
+    {
+      "code": "original_text_generic_frame_unknown_tag",
+      "detail": "legality, constitutionality and jurispudence"
+    },
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "d8876aa8-2abe-4aad-9db4-cc92bf9d2f31": [
+    {
+      "code": "image_frame_not_subset_of_text",
+      "detail": "image conveys frame(s) not in the text: crime_and_punishment, quality_of_life"
+    },
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "d8ab1b87-6f8d-4508-a557-e3741e0c2b47": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ],
+  "d8e03f91-4584-49cb-83c6-44eaeee5608f": [
+    {
+      "code": "img_frame_diverges_from_original",
+      "detail": "jaccard=0.00"
+    }
+  ]
 }

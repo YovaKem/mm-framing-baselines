@@ -5,8 +5,8 @@ same task the 3-model API ensemble did, for comparison against the
 consolidated ground truth (scripts/report_baselines.py).
 
 Reuses the exact same taxonomy/prompt (TEXT_SYSTEM_PROMPT) as
-scripts/relabel_frames.py for a fair comparison: strong/moderate-only frames,
-with per-frame strength and an explanation.
+scripts/relabel_frames.py for a fair comparison — the paper's own
+text-framing prompt, no strength grading, just frame presence + a reason.
 
 Usage:
     python scripts/baseline_qwen_text.py
@@ -27,6 +27,7 @@ from common import (  # noqa: E402
     extract_json_object,
     read_jsonl,
     relabel_model_path,
+    strip_none_key,
     write_jsonl,
 )
 from relabel_frames import MAX_ARTICLE_CHARS, TEXT_SYSTEM_PROMPT  # noqa: E402
@@ -37,26 +38,22 @@ MODEL_ID = "Qwen/Qwen3-4B-Instruct-2507"
 def parse_response(text):
     try:
         parsed = extract_json_object(text)
-        frames_raw = parsed.get("frames", [])
-        keys, strengths, unrecognized = [], {}, []
-        for f in frames_raw:
-            name = str(f.get("frame", "")).strip()
-            key = CANONICAL_LABEL_TO_KEY.get(name)
+        names = parsed.get("frames-list", [])
+        keys, unrecognized = [], []
+        for name in names:
+            key = CANONICAL_LABEL_TO_KEY.get(str(name).strip().lower())
             if key is None:
                 unrecognized.append(name)
             else:
                 keys.append(key)
-                strengths[key] = f.get("strength", "")
         return {
-            "new_text_generic_frame": keys,
-            "new_text_generic_frame_strengths": strengths,
-            "new_text_generic_frame_exp": parsed.get("explanation", ""),
+            "new_text_generic_frame": strip_none_key(keys),
+            "new_text_generic_frame_exp": parsed.get("reason", ""),
             "new_text_generic_frame_error": None,
         }
     except Exception as e:  # noqa: BLE001
         return {
             "new_text_generic_frame": [],
-            "new_text_generic_frame_strengths": {},
             "new_text_generic_frame_exp": None,
             "new_text_generic_frame_error": f"parse_failed: {e} | raw={text[:200]!r}",
         }
@@ -69,8 +66,8 @@ def main():
     args = parser.parse_args()
 
     if not NEWS_SAMPLE_PATH.exists():
-        raise SystemExit(f"{NEWS_SAMPLE_PATH} not found — run scripts/filter_news.py first")
-    rows = read_jsonl(NEWS_SAMPLE_PATH)
+        raise SystemExit(f"{NEWS_SAMPLE_PATH} not found — run scripts/build_human_sample.py first")
+    rows = [r for r in read_jsonl(NEWS_SAMPLE_PATH) if r.get("split") == "test"]
     if args.limit:
         rows = rows[: args.limit]
 

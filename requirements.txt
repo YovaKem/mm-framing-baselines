@@ -8,3 +8,5 @@ beautifulsoup4>=4.12
 lxml>=5.0
 trafilatura>=1.8
 tqdm>=4.66
+python-dotenv>=1.0
+openai>=1.30

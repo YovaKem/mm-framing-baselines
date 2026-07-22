@@ -1,27 +1,34 @@
 """
-Compare the local small-model baselines against the consolidated (2-of-3
-ensemble majority vote) ground truth:
+Compare six baselines against ground truth, all on the same split=test rows
+(scripts/build_human_sample.py's fixed split — no baseline or finetune ever
+trains or is scored on split=train_lora rows):
 
   - Qwen3-4B-Instruct zero-shot text framing vs. consolidated_text_generic_frame
-  - Qwen3-VL-4B-Instruct zero-shot image framing (no-oracle: image + title
-    only) vs. consolidated_img_generic_frame
-  - Qwen3-VL-4B-Instruct zero-shot image framing (with-oracle: image + title +
-    the ground-truth text frame) vs. consolidated_img_generic_frame, and
-    against the no-oracle run, to see whether telling the model the correct
-    text framing changes/improves its image predictions or just gets copied.
+  - Qwen3-4B-Instruct + LoRA (finetuned on split=train_lora) text framing,
+    same comparison
+  - Qwen3-VL-4B-Instruct zero-shot image framing (no-oracle: image + article
+    text only) vs. consolidated_img_generic_frame
+  - Qwen3-VL-4B-Instruct zero-shot image framing (with-oracle: image + article
+    text + the ground-truth text frame) vs. consolidated_img_generic_frame
+  - Qwen3-VL-4B-Instruct + LoRA image framing, no-oracle and with-oracle,
+    same two comparisons
 
-Metrics follow the original paper's own methodology (arXiv:2503.20960):
-micro-averaged precision/recall/F1 (computed across all row x frame pairs,
-matching their reported "micro averaged F1 score of 0.5" for text), plus a
-non-zero-intersection rate (their "95.7%"/"84.2%" figures). Unlike the paper,
-our image labels allow an explicit "None" (empty set) — the non-zero-
-intersection rate is computed only over rows with a non-empty gold label
-(matching the paper's original definition, since their data had no empty
-labels), with a separate "None-agreement rate" reported for rows where the
-gold label genuinely is empty.
+Ground truth: TEXT frames are the 3-model ensemble's 2-of-3 consensus (no
+human text-frame annotation exists); IMAGE frames are the paper's own human
+double-annotation pass (arXiv:2503.20960) — real ground truth, not a vote.
 
-Run after baseline_qwen_text.py, and baseline_qwen_vlm.py --no-oracle /
---oracle.
+Metrics follow the original paper's own methodology: micro-averaged
+precision/recall/F1 (computed across all row x frame pairs, matching their
+reported "micro averaged F1 score of 0.5" for text), plus a non-zero-
+intersection rate (their "95.7%"/"84.2%" figures). Unlike the paper, our
+image labels allow an explicit "None" (empty set) — the non-zero-intersection
+rate is computed only over rows with a non-empty gold label (matching the
+paper's original definition, since their data had no empty labels), with a
+separate "None-agreement rate" reported for rows where the gold label
+genuinely is empty.
+
+Run after baseline_qwen_text.py, baseline_qwen_vlm.py --no-oracle/--oracle,
+finetune_qwen_text.py, and finetune_qwen_vlm.py --no-oracle/--oracle.
 
 Usage:
     python scripts/report_baselines.py
@@ -37,6 +44,8 @@ from common import (
 )
 from baseline_qwen_vlm import MODEL_ID as VLM_MODEL_ID, baseline_vlm_path
 from baseline_qwen_text import MODEL_ID as TEXT_MODEL_ID
+from finetune_qwen_text import OUT_PATH as TEXT_LORA_PATH
+from finetune_qwen_vlm import out_path as vlm_lora_path
 
 REPORT_PATH = DATA_DIR / "baselines_report.md"
 
@@ -64,28 +73,6 @@ def compare(rows, gold_field, pred_by_uuid, pred_field):
         for row in rows
     ]
     return compare_pairs(pairs)
-
-
-def strong_gold_frames(row, modality):
-    """Frames the CONSOLIDATED target holds at "strong" strength: kept only if
-    >=2 of the 3 ensemble models rated that specific frame "strong" (not just
-    "moderate") for this row, per modality ("text" or "img")."""
-    by_model = row.get("by_model") or {}
-    frame_field = f"{modality}_frames"
-    strength_field = f"{modality}_frame_strengths"
-    counts = Counter()
-    for m in by_model.values():
-        for f in m.get(frame_field, []):
-            if m.get(strength_field, {}).get(f) == "strong":
-                counts[f] += 1
-    return {f for f, c in counts.items() if c >= 2}
-
-
-def strong_pred_frames(pred_row, frame_field, strength_field):
-    """The baseline's own frames it rated "strong" (drops its "moderate" ones)."""
-    frames = pred_row.get(frame_field) or []
-    strengths = pred_row.get(strength_field) or {}
-    return {f for f in frames if strengths.get(f) == "strong"}
 
 
 def compare_pairs(pairs):
@@ -155,36 +142,86 @@ def summary_table(settings, n):
     return "\n".join(lines)
 
 
+def oracle_vs_no_oracle_section(title, no_oracle_stats, oracle_stats, oracle_by_uuid, rows, pred_field):
+    n = len(rows)
+    no_oracle_f1s = no_oracle_stats["per_row_f1"]
+    oracle_f1s = oracle_stats["per_row_f1"]
+    improved = sum(1 for a, b in zip(no_oracle_f1s, oracle_f1s) if b > a)
+    worsened = sum(1 for a, b in zip(no_oracle_f1s, oracle_f1s) if b < a)
+    unchanged = n - improved - worsened
+
+    copy_count, oracle_nonempty = 0, 0
+    for row in rows:
+        oracle_text = set(row.get("consolidated_text_generic_frame") or [])
+        oracle_img_pred = set((oracle_by_uuid.get(row["uuid"], {}) or {}).get(pred_field) or [])
+        if oracle_text:
+            oracle_nonempty += 1
+            if oracle_img_pred == oracle_text:
+                copy_count += 1
+
+    lines = [f"\n## {title}\n", "| | No oracle | With oracle |", "|---|---:|---:|"]
+    lines.append(f"| Precision | {no_oracle_stats['precision']:.2f} | {oracle_stats['precision']:.2f} |")
+    lines.append(f"| Recall | {no_oracle_stats['recall']:.2f} | {oracle_stats['recall']:.2f} |")
+    lines.append(f"| F1 | {no_oracle_stats['f1']:.2f} | {oracle_stats['f1']:.2f} |")
+    lines.append("")
+    lines.append("| Outcome of adding the oracle (per-row F1 change) | Rows |")
+    lines.append("|---|---:|")
+    lines.append(f"| Improved agreement | {improved}/{n} ({improved/n:.0%}) |")
+    lines.append(f"| Worsened agreement | {worsened}/{n} ({worsened/n:.0%}) |")
+    lines.append(f"| Unchanged | {unchanged}/{n} ({unchanged/n:.0%}) |")
+    lines.append("")
+    if oracle_nonempty:
+        lines.append(
+            f"Of {oracle_nonempty} rows with a non-empty oracle text frame, the oracle-setting image prediction "
+            f"was an **exact copy** of the text frame in **{copy_count} ({copy_count/oracle_nonempty:.0%})** — "
+            f"a high rate here suggests the model leans on the given text label rather than looking at the image."
+        )
+    return lines
+
+
 def main():
     if not CONSOLIDATED_PATH.exists():
         raise SystemExit(f"{CONSOLIDATED_PATH} not found — run scripts/consolidate_annotations.py first")
-    rows = read_jsonl(CONSOLIDATED_PATH)
+    # Every baseline (zero-shot or LoRA-finetuned) is scored only on split=test — the
+    # shared eval set no finetune ever trains on. Without this filter, split=train_lora
+    # rows (present in CONSOLIDATED_PATH but absent from every baseline's own output
+    # file) would silently score as empty predictions in every comparison below.
+    rows = [r for r in read_jsonl(CONSOLIDATED_PATH) if r.get("split") == "test"]
     n = len(rows)
 
-    text_path = relabel_model_path(TEXT_MODEL_ID)
-    no_oracle_path = baseline_vlm_path(False)
-    oracle_path = baseline_vlm_path(True)
-    for p in (text_path, no_oracle_path, oracle_path):
+    paths = {
+        "text": relabel_model_path(TEXT_MODEL_ID),
+        "text_lora": TEXT_LORA_PATH,
+        "no_oracle": baseline_vlm_path(False),
+        "oracle": baseline_vlm_path(True),
+        "no_oracle_lora": vlm_lora_path(False),
+        "oracle_lora": vlm_lora_path(True),
+    }
+    for name, p in paths.items():
         if not p.exists():
-            raise SystemExit(f"{p} not found — run the corresponding baseline script first")
+            raise SystemExit(f"{p} not found — run the corresponding baseline/finetune script first")
 
-    text_by_uuid = {r["uuid"]: r for r in read_jsonl(text_path)}
-    no_oracle_by_uuid = {r["uuid"]: r for r in read_jsonl(no_oracle_path)}
-    oracle_by_uuid = {r["uuid"]: r for r in read_jsonl(oracle_path)}
+    by_uuid = {name: {r["uuid"]: r for r in read_jsonl(p)} for name, p in paths.items()}
 
-    text_stats = compare(rows, "consolidated_text_generic_frame", text_by_uuid, "new_text_generic_frame")
-    no_oracle_stats = compare(rows, "consolidated_img_generic_frame", no_oracle_by_uuid, "new_img_generic_frame")
-    oracle_stats = compare(rows, "consolidated_img_generic_frame", oracle_by_uuid, "new_img_generic_frame")
+    text_stats = compare(rows, "consolidated_text_generic_frame", by_uuid["text"], "new_text_generic_frame")
+    text_lora_stats = compare(rows, "consolidated_text_generic_frame", by_uuid["text_lora"], "new_text_generic_frame")
+    no_oracle_stats = compare(rows, "consolidated_img_generic_frame", by_uuid["no_oracle"], "new_img_generic_frame")
+    oracle_stats = compare(rows, "consolidated_img_generic_frame", by_uuid["oracle"], "new_img_generic_frame")
+    no_oracle_lora_stats = compare(rows, "consolidated_img_generic_frame", by_uuid["no_oracle_lora"], "new_img_generic_frame")
+    oracle_lora_stats = compare(rows, "consolidated_img_generic_frame", by_uuid["oracle_lora"], "new_img_generic_frame")
 
     settings = [
-        (f"Text — {TEXT_MODEL_ID}", text_stats),
-        (f"Image, no oracle — {VLM_MODEL_ID}", no_oracle_stats),
-        (f"Image, with oracle — {VLM_MODEL_ID}", oracle_stats),
+        (f"Text, zero-shot — {TEXT_MODEL_ID}", text_stats),
+        (f"Text, LoRA-finetuned — {TEXT_MODEL_ID}", text_lora_stats),
+        (f"Image, zero-shot, no oracle — {VLM_MODEL_ID}", no_oracle_stats),
+        (f"Image, zero-shot, with oracle — {VLM_MODEL_ID}", oracle_stats),
+        (f"Image, LoRA-finetuned, no oracle — {VLM_MODEL_ID}", no_oracle_lora_stats),
+        (f"Image, LoRA-finetuned, with oracle — {VLM_MODEL_ID}", oracle_lora_stats),
     ]
 
     lines = [
         "# Baseline report\n",
-        f"Rows: {n}\n",
+        f"Rows: {n} (split=test)\n",
         "Metrics follow the original paper's methodology: micro-averaged precision/recall/F1 "
         "(computed across all row x frame pairs) and a non-zero-intersection rate. The paper's data "
         "never had an empty (\"None\") gold label, so non-zero-intersection is computed only over "
@@ -206,43 +243,6 @@ def main():
                 f"{s['none_gold_correct']}/{s['none_gold_total']} ({s['none_gold_correct']/s['none_gold_total']:.0%}) |"
             )
 
-    # Strong-only: keep a gold frame only if >=2 of 3 ensemble models rated it "strong"
-    # (not just "moderate"), and a baseline's own prediction only where IT rated a frame
-    # "strong". Same three settings, filtered down to each side's high-confidence frames.
-    text_strong_pairs = [
-        (
-            strong_gold_frames(row, "text"),
-            strong_pred_frames(text_by_uuid.get(row["uuid"], {}), "new_text_generic_frame", "new_text_generic_frame_strengths"),
-        )
-        for row in rows
-    ]
-    no_oracle_strong_pairs = [
-        (
-            strong_gold_frames(row, "img"),
-            strong_pred_frames(no_oracle_by_uuid.get(row["uuid"], {}), "new_img_generic_frame", "new_img_generic_frame_strengths"),
-        )
-        for row in rows
-    ]
-    oracle_strong_pairs = [
-        (
-            strong_gold_frames(row, "img"),
-            strong_pred_frames(oracle_by_uuid.get(row["uuid"], {}), "new_img_generic_frame", "new_img_generic_frame_strengths"),
-        )
-        for row in rows
-    ]
-    strong_settings = [
-        (f"Text — {TEXT_MODEL_ID}", compare_pairs(text_strong_pairs)),
-        (f"Image, no oracle — {VLM_MODEL_ID}", compare_pairs(no_oracle_strong_pairs)),
-        (f"Image, with oracle — {VLM_MODEL_ID}", compare_pairs(oracle_strong_pairs)),
-    ]
-    lines.append("\n## Summary — strong framings only\n")
-    lines.append(
-        "Same comparison, restricted to high-confidence frames on both sides: a gold frame counts "
-        "only if >=2 of the 3 ensemble models rated it \"strong\" (not \"moderate\"), and a baseline "
-        "prediction counts only where the baseline itself rated that frame \"strong\".\n"
-    )
-    lines.append(summary_table(strong_settings, n))
-
     for name, s in settings:
         lines.append(f"\n## {name}\n")
         lines.append("**Most-missed** (in ground truth, baseline didn't predict — false negatives) vs. "
@@ -258,39 +258,13 @@ def main():
             e_name = label_name(e[0]) if e[0] else ""
             lines.append(f"| {m_name} | {m[1]} | | {e_name} | {e[1]} |")
 
-    # Does oracle help, or just get copied?
-    no_oracle_f1s = no_oracle_stats["per_row_f1"]
-    oracle_f1s = oracle_stats["per_row_f1"]
-    improved = sum(1 for a, b in zip(no_oracle_f1s, oracle_f1s) if b > a)
-    worsened = sum(1 for a, b in zip(no_oracle_f1s, oracle_f1s) if b < a)
-    unchanged = n - improved - worsened
-
-    copy_count, oracle_nonempty = 0, 0
-    for row in rows:
-        oracle_text = set(row.get("consolidated_text_generic_frame") or [])
-        oracle_img_pred = set((oracle_by_uuid.get(row["uuid"], {}) or {}).get("new_img_generic_frame") or [])
-        if oracle_text:
-            oracle_nonempty += 1
-            if oracle_img_pred == oracle_text:
-                copy_count += 1
-
-    lines.append("\n## Does the oracle text frame help image prediction, or just get copied?\n")
-    lines.append("| | No oracle | With oracle |")
-    lines.append("|---|---:|---:|")
-    lines.append(f"| Precision | {no_oracle_stats['precision']:.2f} | {oracle_stats['precision']:.2f} |")
-    lines.append(f"| Recall | {no_oracle_stats['recall']:.2f} | {oracle_stats['recall']:.2f} |")
-    lines.append(f"| F1 | {no_oracle_stats['f1']:.2f} | {oracle_stats['f1']:.2f} |")
-    lines.append("")
-    lines.append("| Outcome of adding the oracle (per-row F1 change) | Rows |")
-    lines.append("|---|---:|")
-    lines.append(f"| Improved agreement | {improved}/{n} ({improved/n:.0%}) |")
-    lines.append(f"| Worsened agreement | {worsened}/{n} ({worsened/n:.0%}) |")
-    lines.append(f"| Unchanged | {unchanged}/{n} ({unchanged/n:.0%}) |")
-    lines.append("")
-    lines.append(
-        f"Of {oracle_nonempty} rows with a non-empty oracle text frame, the oracle-setting image prediction "
-        f"was an **exact copy** of the text frame in **{copy_count} ({copy_count/oracle_nonempty:.0%})** — "
-        f"a high rate here suggests the model leans on the given text label rather than looking at the image."
+    lines += oracle_vs_no_oracle_section(
+        "Does the oracle text frame help zero-shot image prediction, or just get copied?",
+        no_oracle_stats, oracle_stats, by_uuid["oracle"], rows, "new_img_generic_frame",
+    )
+    lines += oracle_vs_no_oracle_section(
+        "Does the oracle text frame help LoRA-finetuned image prediction, or just get copied?",
+        no_oracle_lora_stats, oracle_lora_stats, by_uuid["oracle_lora"], rows, "new_img_generic_frame",
     )
 
     report = "\n".join(lines)

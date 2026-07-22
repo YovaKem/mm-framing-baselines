@@ -16,7 +16,8 @@ IMAGE_SYSTEM_PROMPT). Controlled by --oracle:
     improves its image framing, versus just seeing the image + article text.
 
 Reuses IMAGE_SYSTEM_PROMPT from scripts/relabel_frames.py for a fair
-comparison: strong/moderate-only frames, per-frame strength, explanation.
+comparison — the paper's own image-framing prompt, no strength grading, just
+frame presence + a reason.
 
 Usage:
     python scripts/baseline_qwen_vlm.py --oracle
@@ -39,6 +40,7 @@ from common import (  # noqa: E402
     DATA_DIR,
     extract_json_object,
     read_jsonl,
+    strip_none_key,
     write_jsonl,
 )
 from relabel_frames import IMAGE_SYSTEM_PROMPT, MAX_ARTICLE_CHARS  # noqa: E402
@@ -55,26 +57,22 @@ def baseline_vlm_path(oracle):
 def parse_response(text):
     try:
         parsed = extract_json_object(text)
-        frames_raw = parsed.get("frames", [])
-        keys, strengths, unrecognized = [], {}, []
-        for f in frames_raw:
-            name = str(f.get("frame", "")).strip()
-            key = CANONICAL_LABEL_TO_KEY.get(name)
+        names = parsed.get("frames-list", [])
+        keys, unrecognized = [], []
+        for name in names:
+            key = CANONICAL_LABEL_TO_KEY.get(str(name).strip().lower())
             if key is None:
                 unrecognized.append(name)
             else:
                 keys.append(key)
-                strengths[key] = f.get("strength", "")
         return {
-            "new_img_generic_frame": keys,
-            "new_img_generic_frame_strengths": strengths,
-            "new_img_generic_frame_exp": parsed.get("explanation", ""),
+            "new_img_generic_frame": strip_none_key(keys),
+            "new_img_generic_frame_exp": parsed.get("reason", ""),
             "new_img_generic_frame_error": None,
         }
     except Exception as e:  # noqa: BLE001
         return {
             "new_img_generic_frame": [],
-            "new_img_generic_frame_strengths": {},
             "new_img_generic_frame_exp": None,
             "new_img_generic_frame_error": f"parse_failed: {e} | raw={text[:200]!r}",
         }
@@ -95,7 +93,7 @@ def main():
 
     if not CONSOLIDATED_PATH.exists():
         raise SystemExit(f"{CONSOLIDATED_PATH} not found — run scripts/consolidate_annotations.py first")
-    rows = read_jsonl(CONSOLIDATED_PATH)
+    rows = [r for r in read_jsonl(CONSOLIDATED_PATH) if r.get("split") == "test"]
     if args.limit:
         rows = rows[: args.limit]
 

@@ -1,6 +1,6 @@
 # Baseline report
 
-Rows: 238
+Rows: 300 (split=test)
 
 Metrics follow the original paper's methodology: micro-averaged precision/recall/F1 (computed across all row x frame pairs) and a non-zero-intersection rate. The paper's data never had an empty ("None") gold label, so non-zero-intersection is computed only over rows with a non-empty gold label here too; rows where gold genuinely is empty get their own "None-agreement" stat instead.
 
@@ -8,85 +8,142 @@ Metrics follow the original paper's methodology: micro-averaged precision/recall
 
 | Baseline | Precision | Recall | F1 | Non-zero intersection | Identical | Avg labels (gold) | Avg labels (pred) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| Text — Qwen/Qwen3-4B-Instruct-2507 | 0.58 | 0.60 | 0.59 | 221/237 (93%) | 27/238 (11%) | 2.44 | 2.53 |
-| Image, no oracle — Qwen/Qwen3-VL-4B-Instruct | 0.50 | 0.58 | 0.53 | 143/208 (69%) | 66/238 (28%) | 1.40 | 1.63 |
-| Image, with oracle — Qwen/Qwen3-VL-4B-Instruct | 0.54 | 0.73 | 0.62 | 171/208 (82%) | 62/238 (26%) | 1.40 | 1.89 |
+| Text, zero-shot — Qwen/Qwen3-4B-Instruct-2507 | 0.53 | 0.61 | 0.57 | 270/292 (92%) | 25/300 (8%) | 2.96 | 3.41 |
+| Text, LoRA-finetuned — Qwen/Qwen3-4B-Instruct-2507 | 0.75 | 0.75 | 0.75 | 290/292 (99%) | 68/300 (23%) | 2.96 | 2.96 |
+| Image, zero-shot, no oracle — Qwen/Qwen3-VL-4B-Instruct | 0.40 | 0.36 | 0.38 | 142/241 (59%) | 55/300 (18%) | 1.66 | 1.50 |
+| Image, zero-shot, with oracle — Qwen/Qwen3-VL-4B-Instruct | 0.30 | 0.42 | 0.35 | 156/241 (65%) | 24/300 (8%) | 1.66 | 2.33 |
+| Image, LoRA-finetuned, no oracle — Qwen/Qwen3-VL-4B-Instruct | 0.48 | 0.43 | 0.45 | 183/241 (76%) | 70/300 (23%) | 1.66 | 1.47 |
+| Image, LoRA-finetuned, with oracle — Qwen/Qwen3-VL-4B-Instruct | 0.43 | 0.41 | 0.42 | 161/241 (67%) | 63/300 (21%) | 1.66 | 1.57 |
 
 ### "None" (empty gold label) agreement
 
 | Baseline | Rows where gold is None | Baseline also predicted None |
 |---|---:|---:|
-| Text — Qwen/Qwen3-4B-Instruct-2507 | 1/238 | 0/1 (0%) |
-| Image, no oracle — Qwen/Qwen3-VL-4B-Instruct | 30/238 | 18/30 (60%) |
-| Image, with oracle — Qwen/Qwen3-VL-4B-Instruct | 30/238 | 23/30 (77%) |
+| Text, zero-shot — Qwen/Qwen3-4B-Instruct-2507 | 8/300 | 5/8 (62%) |
+| Text, LoRA-finetuned — Qwen/Qwen3-4B-Instruct-2507 | 8/300 | 1/8 (12%) |
+| Image, zero-shot, no oracle — Qwen/Qwen3-VL-4B-Instruct | 59/300 | 17/59 (29%) |
+| Image, zero-shot, with oracle — Qwen/Qwen3-VL-4B-Instruct | 59/300 | 10/59 (17%) |
+| Image, LoRA-finetuned, no oracle — Qwen/Qwen3-VL-4B-Instruct | 59/300 | 14/59 (24%) |
+| Image, LoRA-finetuned, with oracle — Qwen/Qwen3-VL-4B-Instruct | 59/300 | 19/59 (32%) |
 
-## Summary — strong framings only
-
-Same comparison, restricted to high-confidence frames on both sides: a gold frame counts only if >=2 of the 3 ensemble models rated it "strong" (not "moderate"), and a baseline prediction counts only where the baseline itself rated that frame "strong".
-
-| Baseline | Precision | Recall | F1 | Non-zero intersection | Identical | Avg labels (gold) | Avg labels (pred) |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| Text — Qwen/Qwen3-4B-Instruct-2507 | 0.63 | 0.50 | 0.56 | 145/221 (66%) | 98/238 (41%) | 1.23 | 0.97 |
-| Image, no oracle — Qwen/Qwen3-VL-4B-Instruct | 0.48 | 0.66 | 0.55 | 101/147 (69%) | 112/238 (47%) | 0.67 | 0.92 |
-| Image, with oracle — Qwen/Qwen3-VL-4B-Instruct | 0.33 | 0.89 | 0.48 | 131/147 (89%) | 58/238 (24%) | 0.67 | 1.82 |
-
-## Text — Qwen/Qwen3-4B-Instruct-2507
+## Text, zero-shot — Qwen/Qwen3-4B-Instruct-2507
 
 **Most-missed** (in ground truth, baseline didn't predict — false negatives) vs. **most over-predicted** (baseline predicted, not in ground truth — false positives):
 
 | Missed | Rows | | Over-predicted | Rows |
 |---|---:|---|---|---:|
-| Political | 58 | | Fairness & Equality | 72 |
-| Crime & Punishment | 35 | | Quality of Life | 51 |
-| Capacity & Resources | 20 | | Public Opinion | 25 |
-| Legality, Constitutionality & Jurisprudence | 19 | | Morality | 23 |
-| Policy Prescription & Evaluation | 16 | | Policy Prescription & Evaluation | 20 |
-| Health & Safety | 15 | | Legality, Constitutionality & Jurisprudence | 17 |
-| External Regulation & Reputation | 14 | | Health & Safety | 13 |
-| Economic | 14 | | Crime & Punishment | 10 |
+| Capacity & Resources | 64 | | Fairness & Equality | 100 |
+| Political | 55 | | Public Opinion | 98 |
+| Legality, Constitutionality & Jurisprudence | 43 | | Morality | 70 |
+| Health & Safety | 34 | | Quality of Life | 57 |
+| Crime & Punishment | 33 | | Policy Prescription & Evaluation | 48 |
+| Economic | 32 | | Cultural Identity | 30 |
+| Security & Defense | 20 | | Health & Safety | 29 |
+| Quality of Life | 17 | | Security & Defense | 16 |
 
-## Image, no oracle — Qwen/Qwen3-VL-4B-Instruct
-
-**Most-missed** (in ground truth, baseline didn't predict — false negatives) vs. **most over-predicted** (baseline predicted, not in ground truth — false positives):
-
-| Missed | Rows | | Over-predicted | Rows |
-|---|---:|---|---|---:|
-| Political | 33 | | Policy Prescription & Evaluation | 34 |
-| Security & Defense | 19 | | Legality, Constitutionality & Jurisprudence | 27 |
-| Capacity & Resources | 14 | | Crime & Punishment | 24 |
-| Quality of Life | 11 | | Public Opinion | 18 |
-| Crime & Punishment | 10 | | Health & Safety | 16 |
-| Health & Safety | 10 | | Quality of Life | 13 |
-| Economic | 9 | | Security & Defense | 12 |
-| Cultural Identity | 8 | | Fairness & Equality | 12 |
-
-## Image, with oracle — Qwen/Qwen3-VL-4B-Instruct
+## Text, LoRA-finetuned — Qwen/Qwen3-4B-Instruct-2507
 
 **Most-missed** (in ground truth, baseline didn't predict — false negatives) vs. **most over-predicted** (baseline predicted, not in ground truth — false positives):
 
 | Missed | Rows | | Over-predicted | Rows |
 |---|---:|---|---|---:|
-| Political | 16 | | Legality, Constitutionality & Jurisprudence | 32 |
-| Security & Defense | 14 | | Policy Prescription & Evaluation | 29 |
-| Quality of Life | 11 | | Crime & Punishment | 26 |
-| Health & Safety | 11 | | Political | 21 |
-| Cultural Identity | 7 | | Health & Safety | 21 |
-| Public Opinion | 7 | | Economic | 16 |
-| Economic | 6 | | Capacity & Resources | 15 |
-| Capacity & Resources | 6 | | Quality of Life | 12 |
+| Economic | 33 | | Public Opinion | 40 |
+| Capacity & Resources | 28 | | Quality of Life | 39 |
+| Legality, Constitutionality & Jurisprudence | 27 | | Capacity & Resources | 27 |
+| Fairness & Equality | 24 | | Policy Prescription & Evaluation | 26 |
+| Political | 18 | | Health & Safety | 23 |
+| Policy Prescription & Evaluation | 17 | | Cultural Identity | 22 |
+| Quality of Life | 15 | | Crime & Punishment | 18 |
+| Health & Safety | 13 | | Political | 11 |
 
-## Does the oracle text frame help image prediction, or just get copied?
+## Image, zero-shot, no oracle — Qwen/Qwen3-VL-4B-Instruct
+
+**Most-missed** (in ground truth, baseline didn't predict — false negatives) vs. **most over-predicted** (baseline predicted, not in ground truth — false positives):
+
+| Missed | Rows | | Over-predicted | Rows |
+|---|---:|---|---|---:|
+| Cultural Identity | 48 | | Quality of Life | 58 |
+| Quality of Life | 47 | | Capacity & Resources | 32 |
+| Economic | 41 | | Public Opinion | 32 |
+| Political | 33 | | Policy Prescription & Evaluation | 32 |
+| Capacity & Resources | 28 | | Crime & Punishment | 25 |
+| Health & Safety | 28 | | Legality, Constitutionality & Jurisprudence | 20 |
+| Security & Defense | 22 | | Health & Safety | 13 |
+| Public Opinion | 17 | | Political | 13 |
+
+## Image, zero-shot, with oracle — Qwen/Qwen3-VL-4B-Instruct
+
+**Most-missed** (in ground truth, baseline didn't predict — false negatives) vs. **most over-predicted** (baseline predicted, not in ground truth — false positives):
+
+| Missed | Rows | | Over-predicted | Rows |
+|---|---:|---|---|---:|
+| Quality of Life | 46 | | Capacity & Resources | 61 |
+| Cultural Identity | 46 | | Quality of Life | 61 |
+| Economic | 30 | | Legality, Constitutionality & Jurisprudence | 60 |
+| Capacity & Resources | 26 | | Health & Safety | 53 |
+| Public Opinion | 26 | | Policy Prescription & Evaluation | 42 |
+| Political | 21 | | Crime & Punishment | 37 |
+| Health & Safety | 19 | | Economic | 36 |
+| Security & Defense | 19 | | Political | 35 |
+
+## Image, LoRA-finetuned, no oracle — Qwen/Qwen3-VL-4B-Instruct
+
+**Most-missed** (in ground truth, baseline didn't predict — false negatives) vs. **most over-predicted** (baseline predicted, not in ground truth — false positives):
+
+| Missed | Rows | | Over-predicted | Rows |
+|---|---:|---|---|---:|
+| Quality of Life | 40 | | Health & Safety | 57 |
+| Economic | 31 | | Quality of Life | 42 |
+| Capacity & Resources | 31 | | Cultural Identity | 29 |
+| Cultural Identity | 31 | | Public Opinion | 19 |
+| Political | 25 | | Political | 16 |
+| Crime & Punishment | 23 | | Security & Defense | 16 |
+| Public Opinion | 20 | | Crime & Punishment | 13 |
+| Security & Defense | 20 | | Fairness & Equality | 11 |
+
+## Image, LoRA-finetuned, with oracle — Qwen/Qwen3-VL-4B-Instruct
+
+**Most-missed** (in ground truth, baseline didn't predict — false negatives) vs. **most over-predicted** (baseline predicted, not in ground truth — false positives):
+
+| Missed | Rows | | Over-predicted | Rows |
+|---|---:|---|---|---:|
+| Quality of Life | 51 | | Quality of Life | 63 |
+| Cultural Identity | 39 | | Health & Safety | 40 |
+| Capacity & Resources | 33 | | Political | 29 |
+| Economic | 31 | | Security & Defense | 25 |
+| Public Opinion | 23 | | Crime & Punishment | 23 |
+| Political | 20 | | Cultural Identity | 21 |
+| Security & Defense | 18 | | Public Opinion | 17 |
+| Crime & Punishment | 17 | | Economic | 13 |
+
+## Does the oracle text frame help zero-shot image prediction, or just get copied?
 
 | | No oracle | With oracle |
 |---|---:|---:|
-| Precision | 0.50 | 0.54 |
-| Recall | 0.58 | 0.73 |
-| F1 | 0.53 | 0.62 |
+| Precision | 0.40 | 0.30 |
+| Recall | 0.36 | 0.42 |
+| F1 | 0.38 | 0.35 |
 
 | Outcome of adding the oracle (per-row F1 change) | Rows |
 |---|---:|
-| Improved agreement | 88/238 (37%) |
-| Worsened agreement | 70/238 (29%) |
-| Unchanged | 80/238 (34%) |
+| Improved agreement | 56/300 (19%) |
+| Worsened agreement | 84/300 (28%) |
+| Unchanged | 160/300 (53%) |
 
-Of 237 rows with a non-empty oracle text frame, the oracle-setting image prediction was an **exact copy** of the text frame in **169 (71%)** — a high rate here suggests the model leans on the given text label rather than looking at the image.
+Of 292 rows with a non-empty oracle text frame, the oracle-setting image prediction was an **exact copy** of the text frame in **173 (59%)** — a high rate here suggests the model leans on the given text label rather than looking at the image.
+
+## Does the oracle text frame help LoRA-finetuned image prediction, or just get copied?
+
+| | No oracle | With oracle |
+|---|---:|---:|
+| Precision | 0.48 | 0.43 |
+| Recall | 0.43 | 0.41 |
+| F1 | 0.45 | 0.42 |
+
+| Outcome of adding the oracle (per-row F1 change) | Rows |
+|---|---:|
+| Improved agreement | 50/300 (17%) |
+| Worsened agreement | 75/300 (25%) |
+| Unchanged | 175/300 (58%) |
+
+Of 292 rows with a non-empty oracle text frame, the oracle-setting image prediction was an **exact copy** of the text frame in **25 (9%)** — a high rate here suggests the model leans on the given text label rather than looking at the image.

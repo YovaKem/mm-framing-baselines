@@ -1,17 +1,18 @@
 """
 Sweep over the consolidated rows (scripts/consolidate_annotations.py output) to
 flag rows worth a closer manual look, so the human validator isn't reviewing
-all 238 uniformly. Layers:
+every row uniformly. Layers:
 
 1. Structural/statistical checks on the original dataset columns (malformed
    list literals, out-of-taxonomy tags, suspiciously thin LLM explanations,
    out-of-range dates) — cheap, deterministic.
-2. A per-model relabel call that errored.
-3. Low agreement among the 3 ensemble models (worth a look regardless of what
-   the majority vote landed on), a consolidated image frame set that isn't a
-   subset of the consolidated text frame set (useful signal, not necessarily
-   wrong), and a large disagreement between the consolidated result and the
-   dataset's original label.
+2. A per-model text-relabel call that errored (text is still ensemble-derived;
+   image is the paper's own human double-annotation, not a per-model call).
+3. Low agreement among the 3 ensemble models on TEXT frames (worth a look
+   regardless of what the majority vote landed on), a consolidated image
+   frame set that isn't a subset of the consolidated text frame set (useful
+   signal, not necessarily wrong), and a large disagreement between the
+   consolidated result and the dataset's original label.
 
 Run after consolidate_annotations.py.
 
@@ -121,25 +122,20 @@ def check_row(row, seen_uuids, seen_titles):
         if val and len(val) < SHORT_EXP_THRESHOLD:
             flag("suspiciously_short_explanation", f"{field}={val!r}")
 
-    # --- per-model relabel call outcomes ---
+    # --- per-model relabel call outcomes (text only — image is human ground truth,
+    # not ensemble-relabeled, so there's no per-model image call to have failed) ---
     by_model = row.get("by_model") or {}
     for model in ENSEMBLE_MODELS:
         slug = model_slug(model)
         info = by_model.get(slug, {})
         if info.get("text_exp") is None:
             flag("relabel_text_call_failed", slug)
-        if info.get("img_exp") is None:
-            flag("relabel_image_call_failed", slug)
 
-    # --- ensemble agreement ---
+    # --- ensemble agreement (text only) ---
     text_sets = [set(m["text_frames"]) for m in by_model.values()]
-    img_sets = [set(m["img_frames"]) for m in by_model.values()]
     text_pairwise = [jaccard(text_sets[i], text_sets[j]) for i in range(len(text_sets)) for j in range(i + 1, len(text_sets))]
-    img_pairwise = [jaccard(img_sets[i], img_sets[j]) for i in range(len(img_sets)) for j in range(i + 1, len(img_sets))]
     if text_pairwise and sum(text_pairwise) / len(text_pairwise) < LOW_OVERLAP_JACCARD:
         flag("low_ensemble_agreement_text", f"avg pairwise jaccard={sum(text_pairwise) / len(text_pairwise):.2f}")
-    if img_pairwise and sum(img_pairwise) / len(img_pairwise) < LOW_OVERLAP_JACCARD:
-        flag("low_ensemble_agreement_img", f"avg pairwise jaccard={sum(img_pairwise) / len(img_pairwise):.2f}")
 
     consolidated_text = set(row.get("consolidated_text_generic_frame") or [])
     consolidated_img = set(row.get("consolidated_img_generic_frame") or [])
@@ -147,6 +143,10 @@ def check_row(row, seen_uuids, seen_titles):
         extra = ", ".join(sorted(consolidated_img - consolidated_text))
         flag("image_frame_not_subset_of_text", f"image conveys frame(s) not in the text: {extra}")
 
+    # Compares against the dataset's OWN original label (Pixtral/Mistral zero-shot,
+    # per docs/DATASET.md) — a QA signal, not a correctness check: for the image side
+    # this is now real human ground truth vs. the paper's own auto-label, which is a
+    # more interesting divergence than it used to be.
     old_text_keys, _ = normalize_frame_tags(parse_list_field(row.get("text-generic-frame"))[0])
     old_img_keys, _ = normalize_frame_tags(parse_list_field(row.get("img-generic-frame"))[0])
     text_jaccard = jaccard(old_text_keys, consolidated_text)
