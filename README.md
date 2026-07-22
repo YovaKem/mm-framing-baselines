@@ -56,14 +56,26 @@ image prompt is image-only.
 
 ## Results
 
+Subtask 1
+
 | Baseline | Precision | Recall | F1 |
 |---|---:|---:|---:|
 | Text, zero-shot | 0.53 | 0.61 | 0.57 |
 | Text, LoRA-finetuned | 0.75 | 0.75 | **0.75** |
-| Image, zero-shot, no oracle | 0.40 | 0.36 | 0.38 |
-| Image, zero-shot, with oracle | 0.30 | 0.42 | 0.35 |
-| Image, LoRA-finetuned, no oracle | 0.48 | 0.43 | **0.45** |
-| Image, LoRA-finetuned, with oracle | 0.43 | 0.41 | 0.42 |
+
+Subtask 2a (no oracle text frames)
+
+| Baseline | Precision | Recall | F1 |
+|---|---:|---:|---:|
+| Image, zero-shot | 0.40 | 0.36 | 0.38 |
+| Image, LoRA-finetuned | 0.48 | 0.43 | **0.45** |
+
+Subtask 2b (with oracle text frames)
+
+| Baseline | Precision | Recall | F1 |
+|---|---:|---:|---:|
+| Image, zero-shot | 0.30 | 0.42 | 0.35 |
+| Image, LoRA-finetuned | 0.43 | 0.41 | 0.42 |
 
 (Metrics follow the original paper's own evaluation methodology — micro-averaged
 precision/recall/F1 — for direct comparability.)
@@ -73,11 +85,10 @@ Three things stand out:
 1. **LoRA finetuning helps across the board** — even with only 100 training
    examples, both text (+0.18 F1) and image (+0.07 F1 in both oracle settings)
    improve over their zero-shot counterparts.
-2. **The oracle hint hurts image F1, in both zero-shot and finetuned settings**
-   — the opposite of what the earlier LLM-consensus-only version of this
-   project found. Against real human ground truth, telling the model the
-   text frame is *not* a reliable proxy for what the image itself conveys.
-3. **Finetuning makes the model far less reliant on that hint.** Of rows with
+2. **The oracle text frames hurt image F1, in both zero-shot and finetuned settings**
+   — we cannot be sure if this is a real finding or a consequence of the silver-standard
+   text framing labels.
+4. **Finetuning makes the model far less reliant on the oracle text frames.** Of rows with
    a non-empty oracle text frame, the zero-shot oracle setting's image
    prediction is an *exact copy* of the given text frame **59%** of the time —
    after LoRA finetuning, that drops to **9%**. The finetuned model forms much
