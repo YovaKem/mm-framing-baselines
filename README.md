@@ -58,27 +58,37 @@ image prompt is image-only.
 
 Subtask 1
 
-| Baseline | Precision | Recall | F1 |
-|---|---:|---:|---:|
-| Text, zero-shot | 0.53 | 0.61 | 0.57 |
-| Text, LoRA-finetuned | 0.75 | 0.75 | **0.75** |
+| Baseline | Precision | Recall | F1 | Non-zero intersection |
+|---|---:|---:|---:|---:|
+| Text, zero-shot | 0.53 | 0.61 | 0.57 | 92% |
+| Text, LoRA-finetuned | 0.75 | 0.75 | **0.75** | 99% |
 
 Subtask 2a (no oracle text frames)
 
-| Baseline | Precision | Recall | F1 |
-|---|---:|---:|---:|
-| Image, zero-shot | 0.40 | 0.36 | 0.38 |
-| Image, LoRA-finetuned | 0.48 | 0.43 | **0.45** |
+| Baseline | Precision | Recall | F1 | Non-zero intersection |
+|---|---:|---:|---:|---:|
+| Image, zero-shot | 0.40 | 0.36 | 0.38 | 59% |
+| Image, LoRA-finetuned | 0.48 | 0.43 | **0.45** | 76% |
 
 Subtask 2b (with oracle text frames)
 
-| Baseline | Precision | Recall | F1 |
-|---|---:|---:|---:|
-| Image, zero-shot | 0.30 | 0.42 | 0.35 |
-| Image, LoRA-finetuned | 0.43 | 0.41 | 0.42 |
+| Baseline | Precision | Recall | F1 | Non-zero intersection |
+|---|---:|---:|---:|---:|
+| Image, zero-shot | 0.30 | 0.42 | 0.35 | 65% |
+| Image, LoRA-finetuned | 0.43 | 0.41 | 0.42 | 67% |
 
 (Metrics follow the original paper's own evaluation methodology — micro-averaged
-precision/recall/F1 — for direct comparability.)
+precision/recall/F1, plus the paper's own headline **non-zero-intersection rate**
+(they reported 95.7% for text, 84.2% for image): the share of rows where the
+predicted and gold frame sets share at least one label. "None" is a real,
+selectable label in this taxonomy (annotators and models can both assign it),
+but the paper's own NZI figure for text was benchmarked against the Media
+Frames Corpus (Card et al. 2015) — a separate, pre-existing dataset whose own
+annotation task has no "None" option, so that particular gold set is never
+empty. We compute NZI the same way here — only over rows with a non-empty
+gold label — for direct comparability; rows where gold genuinely is empty get
+their own separate "None-agreement" stat instead. Full per-baseline
+breakdown is in [`data/baselines_report.md`](data/baselines_report.md).)
 
 Three things stand out:
 

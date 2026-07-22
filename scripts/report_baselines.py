@@ -223,10 +223,13 @@ def main():
         "# Baseline report\n",
         f"Rows: {n} (split=test)\n",
         "Metrics follow the original paper's methodology: micro-averaged precision/recall/F1 "
-        "(computed across all row x frame pairs) and a non-zero-intersection rate. The paper's data "
-        "never had an empty (\"None\") gold label, so non-zero-intersection is computed only over "
-        "rows with a non-empty gold label here too; rows where gold genuinely is empty get their own "
-        "\"None-agreement\" stat instead.\n",
+        "(computed across all row x frame pairs) and a non-zero-intersection rate. The paper's own "
+        "headline NZI figure for text was benchmarked against the Media Frames Corpus (Card et al. "
+        "2015) — a separate, pre-existing human-annotated dataset whose own annotation task has no "
+        "\"None\" option, so that particular gold set is never empty (this project's own taxonomy "
+        "does include \"None\" as a real, selectable label). Non-zero-intersection is computed only "
+        "over rows with a non-empty gold label here too, for comparability; rows where gold "
+        "genuinely is empty get their own \"None-agreement\" stat instead.\n",
     ]
 
     lines.append("## Summary\n")
