@@ -40,13 +40,14 @@ Across all 400 articles, **18% of images carry no frame at all**
 ("None") vs. 11/400 for text.
 
 **Baselines.** Six baselines, all scored on the same 300 test rows:
+
 - **Text** — `Qwen3-4B-Instruct` predicts the text frame from the article
   alone, zero-shot and LoRA-finetuned (trained on the 100 train_lora rows,
   target = the ensemble consensus above).
 - **Image** — `Qwen3-VL-4B-Instruct` predicts the image frame, zero-shot and
   LoRA-finetuned, each in two settings: *with oracle* (also given the
   consensus text frame as context) and *without* (image + article only).
-  Target = the human annotations. 
+  Target = the human annotations.
 
 All prompts (text and image) follow the paper's own text- and
 image-framing prompts verbatim, with two deliberate deviations: the
