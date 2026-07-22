@@ -17,8 +17,7 @@ dataset (22 have no match anywhere and are dropped). Of those 578, only
 **~400 are actually scrapeable** — CBS News alone accounts for 264/578 (46%) of
 this sample, and CBS's WAF blocks both live scraping and, largely, the Wayback
 Machine's own crawler too (see the sampling caveat in
-[`docs/PIPELINE.md`](docs/PIPELINE.md)). No genuine-news filtering is applied
-this time (unlike the project's earlier 238-article pass). The resulting
+[`docs/PIPELINE.md`](docs/PIPELINE.md)). The
 **400 articles** are split into **300 test** (the only rows any baseline is
 ever scored against) and **100 train_lora** (training data for the two LoRA
 finetunes below, never touched by evaluation).
