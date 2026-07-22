@@ -24,20 +24,19 @@ finetunes below, never touched by evaluation).
 
 **Taxonomy.** 14 generic frames + an explicit **"None"** option, matching the
 paper's own text- and image-framing prompts exactly (arXiv:2503.20960, PDF
-pp. 18–19) — not the "Other" 15th category this project used before that
-cross-check.
+pp. 18–19).
 
-**Target labels.** **Image frames** are the human double-annotation itself
-(`data/human_image_frame_labels.csv`), used as-is — no ensemble, no vote,
-real ground truth. **Text frames** still have no human source, so they stay a
-**silver standard**: three LLMs (`anthropic/claude-haiku-4.5`,
+**Target labels.** **Image frames** are the human double-annotation labels
+(`data/human_image_frame_labels.csv`). **Text frames** are
+**silver standard** (the paper does not provide human labels for these articles:
+three LLMs (`anthropic/claude-haiku-4.5`,
 `openai/gpt-5.4-mini`, `google/gemini-3.5-flash`) each independently label
 every article's text frame(s) zero-shot, from the same taxonomy, and a frame
 becomes the target if at least 2 of the 3 independently assign it. The three
 labeling LLMs agree with each other at a moderate level — avg. pairwise
 overlap 0.57 (see [`data/consolidation_report.md`](data/consolidation_report.md))
-— a genuinely hard, high-disagreement labeling task even among frontier
-models. Across all 400 articles, **18% of images carry no frame at all**
+— similar to the human agreement reported in the paper.
+Across all 400 articles, **18% of images carry no frame at all**
 ("None") vs. 11/400 for text.
 
 **Baselines.** Six baselines, all scored on the same 300 test rows:
@@ -47,6 +46,7 @@ models. Across all 400 articles, **18% of images carry no frame at all**
 - **Image** — `Qwen3-VL-4B-Instruct` predicts the image frame, zero-shot and
   LoRA-finetuned, each in two settings: *with oracle* (also given the
   consensus text frame as context) and *without* (image + article only).
+  Target = the human annotations. 
 
 All prompts (text and image) follow the paper's own text- and
 image-framing prompts verbatim, with two deliberate deviations: the
