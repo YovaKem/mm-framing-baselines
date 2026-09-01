@@ -8,9 +8,16 @@ Reuses the exact same taxonomy/prompt (TEXT_SYSTEM_PROMPT) as
 scripts/relabel_frames.py for a fair comparison — the paper's own
 text-framing prompt, no strength grading, just frame presence + a reason.
 
+Reads directly from the participant-facing package built by
+scripts/package_subtask1.py (data/subtask1_<split>/), NOT from
+sample_news.jsonl/sample_consolidated.jsonl — i.e. exactly the article `.txt`
+files a real participant would receive, rather than this project's own
+internal data file (same rationale as baseline_qwen_vlm.py's Subtask 2 read).
+
 Usage:
     python scripts/baseline_qwen_text.py
     python scripts/baseline_qwen_text.py --max-new-tokens 400
+    python scripts/baseline_qwen_text.py --split train_lora
 """
 import argparse
 import os
@@ -23,13 +30,13 @@ from transformers import AutoModelForCausalLM, AutoTokenizer  # noqa: E402
 
 from common import (  # noqa: E402
     CANONICAL_LABEL_TO_KEY,
-    NEWS_SAMPLE_PATH,
     extract_json_object,
-    read_jsonl,
     relabel_model_path,
     strip_none_key,
     write_jsonl,
 )
+from package_subtask1 import package_dir  # noqa: E402
+from package_subtask2 import SPLITS, doc_id_to_uuid, parse_article_txt  # noqa: E402
 from relabel_frames import MAX_ARTICLE_CHARS, TEXT_SYSTEM_PROMPT  # noqa: E402
 
 MODEL_ID = "Qwen/Qwen3-4B-Instruct-2507"
@@ -61,15 +68,17 @@ def parse_response(text):
 
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument("--split", choices=SPLITS, default="test")
     parser.add_argument("--max-new-tokens", type=int, default=350)
     parser.add_argument("--limit", type=int, default=None, help="only process the first N rows (for smoke testing)")
     args = parser.parse_args()
 
-    if not NEWS_SAMPLE_PATH.exists():
-        raise SystemExit(f"{NEWS_SAMPLE_PATH} not found — run scripts/build_human_sample.py first")
-    rows = [r for r in read_jsonl(NEWS_SAMPLE_PATH) if r.get("split") == "test"]
+    data_dir = package_dir(args.split)
+    if not data_dir.exists():
+        raise SystemExit(f"{data_dir} not found — run scripts/package_subtask1.py --split {args.split} first")
+    doc_ids = sorted(p.stem for p in data_dir.glob("*.txt"))
     if args.limit:
-        rows = rows[: args.limit]
+        doc_ids = doc_ids[: args.limit]
 
     print(f"Loading {MODEL_ID} ...")
     tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
@@ -77,9 +86,9 @@ def main():
     model.eval()
 
     results = []
-    for row in tqdm(rows, desc=f"Qwen3-4B-Instruct text baseline"):
-        article_text = (row.get("article_text") or "")[:MAX_ARTICLE_CHARS]
-        user_content = f"TITLE: {row.get('title', '')}\n\nTEXT:\n{article_text}"
+    for doc_id in tqdm(doc_ids, desc=f"Qwen3-4B-Instruct text baseline"):
+        title, article_text = parse_article_txt(data_dir / f"{doc_id}.txt")
+        user_content = f"TITLE: {title}\n\nTEXT:\n{article_text[:MAX_ARTICLE_CHARS]}"
         messages = [
             {"role": "system", "content": TEXT_SYSTEM_PROMPT},
             {"role": "user", "content": user_content},
@@ -97,7 +106,7 @@ def main():
             )
         response_text = tokenizer.decode(output_ids[0][inputs["input_ids"].shape[1]:], skip_special_tokens=True)
 
-        result = {"uuid": row["uuid"]}
+        result = {"uuid": doc_id_to_uuid(doc_id)}
         result.update(parse_response(response_text))
         results.append(result)
 
